@@ -76,15 +76,7 @@ export default function InteractiveGlyph({
               stroke="#2E2910"
               strokeWidth="2"
             />
-            {/* Energy pulse */}
-            {isHovered && (
-              <circle
-                cx="32" cy="44" r="10"
-                stroke="#EB7D00"
-                strokeWidth="1"
-                className="animate-ping opacity-60"
-              />
-            )}
+            {/* Synapse nodes */}
           </g>
         )}
 

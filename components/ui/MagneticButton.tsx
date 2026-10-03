@@ -49,7 +49,7 @@ export default function MagneticButton({
 
   const variants = {
     primary:
-      'bg-[#EB7D00] text-[#2E2910] hover:bg-[#EBE3A7] px-7 py-3.5 shadow-sm hover:shadow-md hover:shadow-[#EB7D00]/20',
+      'bg-[#EB7D00] text-[#2E2910] hover:bg-[#EBE3A7] px-7 py-3.5',
     secondary:
       'bg-[#2C5745] text-[#F8F5E8] hover:bg-[#346651] border border-[#4A4322] px-6 py-3.5',
     outline:

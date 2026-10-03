@@ -244,35 +244,12 @@ export default function HeroShader() {
   }, []);
 
   return (
-    <div
-      className="relative w-full h-full min-h-[360px] md:min-h-[520px] rounded-2xl overflow-hidden border border-[#4A4322]/80 bg-[#2E2910]"
-      style={{
-        background: 'radial-gradient(ellipse at 60% 40%, rgba(44, 87, 69, 0.7) 0%, rgba(46, 41, 16, 1) 75%)',
-      }}
-    >
+    <div className="relative w-full h-full min-h-[360px] md:min-h-[520px] rounded-2xl overflow-hidden border border-[#4A4322] bg-[#2E2910]">
       <canvas
         ref={canvasRef}
-        className="w-full h-full block object-cover filter contrast-110"
+        className="w-full h-full block object-cover"
         aria-hidden="true"
       />
-      
-      {/* Editorial framing badges */}
-      <div className="absolute top-4 left-4 z-10 flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#2E2910]/70 backdrop-blur-md border border-[#4A4322] text-[11px] font-mono-tag text-[#EBE3A7]">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#EB7D00] animate-pulse" />
-        <span>WEBGL FLUID SHADER // 60FPS</span>
-      </div>
-
-      <div className="absolute bottom-4 right-4 z-10 hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#2E2910]/70 backdrop-blur-md border border-[#4A4322] text-[11px] font-mono-tag text-[#BDB99F]">
-        <span>PALETTE: #2E2910 • #2C5745 • #EB7D00 • #EBE3A7</span>
-      </div>
-
-      {/* Decorative reticle / technical grid markers */}
-      <div className="absolute top-4 right-4 text-[#EBE3A7]/40 font-mono text-[10px] select-none pointer-events-none">
-        [+] 28.6139° N, 77.2090° E
-      </div>
-      <div className="absolute bottom-4 left-4 text-[#BDB99F]/40 font-mono text-[10px] select-none pointer-events-none">
-        SYS.AURA.V2
-      </div>
     </div>
   );
 }

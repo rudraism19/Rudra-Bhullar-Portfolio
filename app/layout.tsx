@@ -75,9 +75,6 @@ export default function RootLayout({
       className={`dark ${syne.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable}`}
     >
       <body className="bg-[#2E2910] text-[#F8F5E8] font-sans antialiased min-h-screen relative selection:bg-[#EB7D00] selection:text-[#2E2910]">
-        {/* Subtle noise grain for tactile editorial finish */}
-        <div className="editorial-grain" aria-hidden="true" />
-
         {/* Global smooth scrolling */}
         <SmoothScroll>
           <ScrollProgress />

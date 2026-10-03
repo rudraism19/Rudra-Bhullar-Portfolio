@@ -59,10 +59,10 @@ export default function About() {
                 key={step.role}
                 onMouseEnter={() => setActiveStep(idx)}
                 onClick={() => setActiveStep(idx)}
-                className={`group cursor-pointer transition-all duration-300 p-5 md:p-6 border rounded-xl select-none ${
+                className={`group cursor-pointer transition-all duration-200 p-5 md:p-6 border rounded-xl select-none ${
                   isActive
-                    ? 'bg-[#2C5745]/60 border-[#EB7D00] shadow-lg shadow-black/30 translate-x-2'
-                    : 'bg-[#2E2910] border-[#4A4322]/80 hover:border-[#EBE3A7]/50 hover:bg-[#2C5745]/20'
+                    ? 'bg-[#2C5745]/60 border-[#EB7D00] translate-x-2'
+                    : 'bg-[#2E2910] border-[#4A4322] hover:border-[#EBE3A7]/50 hover:bg-[#2C5745]/20'
                 }`}
                 data-cursor="pointer"
               >

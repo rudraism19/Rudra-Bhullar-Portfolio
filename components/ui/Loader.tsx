@@ -50,7 +50,7 @@ export default function Loader({ onComplete }: LoaderProps) {
       {/* Top identifier */}
       <div className="flex items-center justify-between text-xs tracking-widest text-[#BDB99F] font-mono-tag">
         <span className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#EB7D00] animate-ping" />
+          <span className="w-2 h-2 rounded-full bg-[#EB7D00]" />
           INITIALIZING WORKSPACE
         </span>
         <span>2026 // INDIA</span>

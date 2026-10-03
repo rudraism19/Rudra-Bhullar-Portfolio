@@ -114,7 +114,7 @@ export default function CustomCursor() {
         ref={ringRef}
         className={`fixed top-0 left-0 flex items-center justify-center -ml-5 -mt-5 transition-all duration-200 ease-out ${
           cursorState === 'view'
-            ? 'w-24 h-10 -ml-12 -mt-5 bg-[#EB7D00] text-[#2E2910] font-mono-tag text-xs font-bold tracking-wider rounded-full shadow-lg shadow-[#EB7D00]/20'
+            ? 'w-24 h-10 -ml-12 -mt-5 bg-[#EB7D00] text-[#2E2910] font-mono-tag text-xs font-bold tracking-wider rounded-full'
             : isHovered
             ? 'w-12 h-12 -ml-6 -mt-6 rounded-full border border-[#EB7D00] bg-[#EB7D00]/10 scale-100'
             : 'w-8 h-8 -ml-4 -mt-4 rounded-full border border-[#EBE3A7]/40 scale-75'

@@ -132,20 +132,15 @@ export default function Experiments() {
 
         {/* Right: Live Interactive Sandbox Terminal (7 cols) */}
         <div className="lg:col-span-7">
-          <div className="rounded-2xl border border-[#4A4322] bg-[#2E2910] overflow-hidden shadow-2xl">
+          <div className="rounded-2xl border border-[#4A4322] bg-[#2E2910] overflow-hidden">
             {/* Terminal Window Header */}
-            <div className="p-4 bg-[#2C5745]/40 border-b border-[#4A4322] flex items-center justify-between font-mono-tag text-xs">
-              <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full bg-[#EB7D00]" />
-                <span className="w-3 h-3 rounded-full bg-[#EBE3A7]" />
-                <span className="w-3 h-3 rounded-full bg-[#4A4322]" />
-                <span className="ml-2 text-[#EBE3A7] font-semibold">
-                  LAB_ENVIRONMENT.TS // {activeExp.toUpperCase()}
-                </span>
-              </div>
+            <div className="p-4 bg-[#2C5745]/30 border-b border-[#4A4322] flex items-center justify-between font-mono-tag text-xs">
+              <span className="text-[#EBE3A7] font-semibold">
+                LAB SPEC // {activeExp.toUpperCase()}
+              </span>
 
-              <span className="text-[#BDB99F] text-[11px] hidden sm:inline">
-                SANDBOX: ACTIVE
+              <span className="text-[#EB7D00] text-[11px] font-bold">
+                ACTIVE EXPERIMENT
               </span>
             </div>
 

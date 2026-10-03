@@ -61,10 +61,7 @@ export default function Hero() {
           <h1 className="font-display text-5xl sm:text-7xl lg:text-[5.5rem] font-extrabold uppercase tracking-tight leading-[0.92] text-[#F8F5E8] mb-6">
             I BUILD <br />
             <span className="text-[#EBE3A7]">DIGITAL</span> <br />
-            <span className="inline-block relative">
-              EXPERIENCES.
-              <span className="absolute -bottom-2 left-0 right-0 h-1 bg-[#EB7D00]/70 rounded-full" />
-            </span>
+            EXPERIENCES.
           </h1>
 
           {/* Supporting Text */}
@@ -106,10 +103,7 @@ export default function Hero() {
 
         {/* Right Column: WebGL Interactive Shader Visual (5 cols) */}
         <div className="lg:col-span-5 relative flex items-center justify-center">
-          <div className="w-full relative group">
-            {/* Ambient decorative glow */}
-            <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-[#2C5745] via-[#EB7D00]/20 to-[#EBE3A7]/10 opacity-30 blur-xl group-hover:opacity-50 transition-opacity duration-700 pointer-events-none" />
-            
+          <div className="w-full relative">
             <HeroShader />
           </div>
         </div>

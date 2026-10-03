@@ -110,7 +110,7 @@ export default function Skills() {
               onClick={() => setActiveCategory(cat.id)}
               className={`flex items-center gap-2.5 px-5 py-3 rounded-xl font-mono-tag text-xs tracking-wider transition-all duration-200 select-none ${
                 isActive
-                  ? 'bg-[#2C5745] text-[#EBE3A7] border border-[#EB7D00] shadow-md shadow-black/20'
+                  ? 'bg-[#2C5745] text-[#EBE3A7] border border-[#EB7D00]'
                   : 'bg-[#2E2910] text-[#BDB99F] border border-[#4A4322] hover:text-[#F8F5E8] hover:border-[#EBE3A7]/40'
               }`}
               data-cursor="pointer"
