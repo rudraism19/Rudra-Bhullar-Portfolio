@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Project } from '@/lib/projects';
-import { X, ExternalLink, Github, CheckCircle2, ArrowRight } from 'lucide-react';
+import { X, Github, CheckCircle2 } from 'lucide-react';
 import MagneticButton from '@/components/ui/MagneticButton';
 
 interface ProjectModalProps {
@@ -11,43 +11,81 @@ interface ProjectModalProps {
 }
 
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
+  const modalRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const previousActiveElementRef = useRef<HTMLElement | null>(null);
+
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
-
     if (project) {
+      previousActiveElementRef.current = document.activeElement as HTMLElement | null;
       document.body.style.overflow = 'hidden';
-      window.addEventListener('keydown', handleKeyDown);
-    } else {
-      document.body.style.overflow = '';
-    }
 
-    return () => {
-      document.body.style.overflow = '';
-      window.removeEventListener('keydown', handleKeyDown);
-    };
+      // Focus close button on mount
+      setTimeout(() => {
+        closeButtonRef.current?.focus();
+      }, 50);
+
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+          onClose();
+          return;
+        }
+
+        // Trap focus inside modal
+        if (e.key === 'Tab' && modalRef.current) {
+          const focusableElements = modalRef.current.querySelectorAll<HTMLElement>(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+          );
+          if (focusableElements.length === 0) return;
+
+          const firstElement = focusableElements[0];
+          const lastElement = focusableElements[focusableElements.length - 1];
+
+          if (e.shiftKey) {
+            if (document.activeElement === firstElement) {
+              e.preventDefault();
+              lastElement.focus();
+            }
+          } else {
+            if (document.activeElement === lastElement) {
+              e.preventDefault();
+              firstElement.focus();
+            }
+          }
+        }
+      };
+
+      window.addEventListener('keydown', handleKeyDown);
+
+      return () => {
+        document.body.style.overflow = '';
+        window.removeEventListener('keydown', handleKeyDown);
+        previousActiveElementRef.current?.focus();
+      };
+    }
   }, [project, onClose]);
 
   if (!project) return null;
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-black/80 backdrop-blur-md transition-opacity duration-300 select-text"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-[#2E2910]/90 backdrop-blur-md transition-opacity duration-300 select-text"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-project-title"
     >
       <div
-        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[#2E2910] border border-[#4A4322] rounded-2xl p-6 sm:p-10 text-[#F8F5E8] shadow-2xl shadow-black/80"
+        ref={modalRef}
+        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[#2E2910] border border-[#4A4322] rounded-2xl p-6 sm:p-10 text-[#F8F5E8] shadow-2xl shadow-[#2E2910]/95"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
+          ref={closeButtonRef}
           onClick={onClose}
           aria-label="Close modal"
-          className="absolute top-6 right-6 p-2 rounded-full border border-[#4A4322] bg-[#2E2910] text-[#BDB99F] hover:text-[#EB7D00] hover:border-[#EB7D00] transition-colors focus:outline-none"
+          className="absolute top-6 right-6 p-2 rounded-full border border-[#4A4322] bg-[#2E2910] text-[#BDB99F] hover:text-[#EB7D00] hover:border-[#EB7D00] transition-colors focus:outline-none focus:ring-2 focus:ring-[#EB7D00]"
           data-cursor="pointer"
         >
           <X className="w-5 h-5" />
@@ -91,7 +129,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         <div className="flex flex-col gap-6 text-sm sm:text-base leading-relaxed mb-8">
           <div>
             <h3 className="font-mono-tag text-xs uppercase tracking-widest text-[#EB7D00] mb-2">
-              THE PROBLEM & VISION
+              THE PROBLEM &amp; VISION
             </h3>
             <p className="text-[#BDB99F]">{project.fullDesc}</p>
           </div>

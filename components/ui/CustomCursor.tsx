@@ -6,6 +6,7 @@ export default function CustomCursor() {
   const [enabled, setEnabled] = useState(false);
   const [cursorState, setCursorState] = useState<'default' | 'pointer' | 'view'>('default');
   const [isHovered, setIsHovered] = useState(false);
+  const [isInsideWindow, setIsInsideWindow] = useState(true);
 
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
@@ -21,6 +22,7 @@ export default function CustomCursor() {
     }
 
     setEnabled(true);
+    document.body.classList.add('custom-cursor-active');
 
     let mouseX = -100;
     let mouseY = -100;
@@ -29,6 +31,7 @@ export default function CustomCursor() {
     let rafId: number;
 
     const onMouseMove = (e: MouseEvent) => {
+      setIsInsideWindow(true);
       mouseX = e.clientX;
       mouseY = e.clientY;
 
@@ -55,6 +58,14 @@ export default function CustomCursor() {
       }
     };
 
+    const onMouseLeave = () => {
+      setIsInsideWindow(false);
+    };
+
+    const onMouseEnter = () => {
+      setIsInsideWindow(true);
+    };
+
     const render = () => {
       // Smooth lerp for ring
       ringX += (mouseX - ringX) * 0.18;
@@ -68,10 +79,15 @@ export default function CustomCursor() {
     };
 
     window.addEventListener('mousemove', onMouseMove);
+    document.documentElement.addEventListener('mouseleave', onMouseLeave);
+    document.documentElement.addEventListener('mouseenter', onMouseEnter);
     rafId = requestAnimationFrame(render);
 
     return () => {
+      document.body.classList.remove('custom-cursor-active');
       window.removeEventListener('mousemove', onMouseMove);
+      document.documentElement.removeEventListener('mouseleave', onMouseLeave);
+      document.documentElement.removeEventListener('mouseenter', onMouseEnter);
       cancelAnimationFrame(rafId);
     };
   }, []);
@@ -79,7 +95,12 @@ export default function CustomCursor() {
   if (!enabled) return null;
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-[99999] overflow-hidden select-none">
+    <div
+      className={`pointer-events-none fixed inset-0 z-[99999] overflow-hidden select-none transition-opacity duration-200 ${
+        isInsideWindow ? 'opacity-100' : 'opacity-0'
+      }`}
+      aria-hidden="true"
+    >
       {/* Central precision dot */}
       <div
         ref={dotRef}

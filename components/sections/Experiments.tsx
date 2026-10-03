@@ -168,7 +168,7 @@ export default function Experiments() {
                     </button>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-black/40 border border-[#4A4322] text-[11px] space-y-2 text-[#BDB99F]">
+                  <div className="p-4 rounded-xl bg-[#2E2910] border border-[#4A4322] text-[11px] space-y-2 text-[#BDB99F]">
                     {mcpLogStep >= 1 && (
                       <div className="text-[#EBE3A7]">
                         <span className="text-[#EB7D00] font-bold">[STEP 1 - AGENT CALL]:</span>
@@ -236,7 +236,7 @@ export default function Experiments() {
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-black/40 border border-[#4A4322] text-[#BDB99F]">
+                  <div className="p-4 rounded-xl bg-[#2E2910] border border-[#4A4322] text-[#BDB99F]">
                     <p className="text-[#EBE3A7] font-semibold mb-1">Observation on Self-Correction:</p>
                     <p className="text-[11px] leading-relaxed">
                       By feeding compiler AST diagnostics directly back into few-shot repair prompts, error convergence rates jumped from 41% to 89% on complex algorithmic problems.
@@ -255,7 +255,7 @@ export default function Experiments() {
                     <span className="text-[#EBE3A7]">DOMAIN WARPING</span>
                   </div>
 
-                  <pre className="p-4 rounded-xl bg-black/40 border border-[#4A4322] text-[10px] text-[#EBE3A7] overflow-x-auto leading-relaxed">
+                  <pre className="p-4 rounded-xl bg-[#2E2910] border border-[#4A4322] text-[10px] text-[#EBE3A7] overflow-x-auto leading-relaxed">
 {`// Layered simplex noise domain warping in GLSL
 vec2 q = vec2(snoise(st + vec2(t * 0.4, t * 0.2)));
 vec2 r = vec2(snoise(st + 1.2 * q + vec2(1.7, 9.2)));

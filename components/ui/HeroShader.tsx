@@ -220,8 +220,22 @@ export default function HeroShader() {
 
     render();
 
+    const handleContextLost = (e: Event) => {
+      e.preventDefault();
+      cancelAnimationFrame(animationFrameId);
+    };
+
+    const handleContextRestored = () => {
+      render();
+    };
+
+    canvas.addEventListener('webglcontextlost', handleContextLost, false);
+    canvas.addEventListener('webglcontextrestored', handleContextRestored, false);
+
     return () => {
       cancelAnimationFrame(animationFrameId);
+      canvas.removeEventListener('webglcontextlost', handleContextLost);
+      canvas.removeEventListener('webglcontextrestored', handleContextRestored);
       window.removeEventListener('resize', resize);
       window.removeEventListener('mousemove', handleMouseMove);
       observer.disconnect();
@@ -230,7 +244,12 @@ export default function HeroShader() {
   }, []);
 
   return (
-    <div className="relative w-full h-full min-h-[360px] md:min-h-[520px] rounded-2xl overflow-hidden border border-[#4A4322]/80 bg-[#2E2910]">
+    <div
+      className="relative w-full h-full min-h-[360px] md:min-h-[520px] rounded-2xl overflow-hidden border border-[#4A4322]/80 bg-[#2E2910]"
+      style={{
+        background: 'radial-gradient(ellipse at 60% 40%, rgba(44, 87, 69, 0.7) 0%, rgba(46, 41, 16, 1) 75%)',
+      }}
+    >
       <canvas
         ref={canvasRef}
         className="w-full h-full block object-cover filter contrast-110"
