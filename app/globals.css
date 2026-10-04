@@ -1,15 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --bg: #2E2910;
-  --green: #2C5745;
+  --bg: #14120E;
+  --green: #1D241F;
   --orange: #EB7D00;
-  --vanilla: #EBE3A7;
-  --text: #F8F5E8;
-  --muted: #BDB99F;
-  --border: #4A4322;
+  --vanilla: #F3EBD8;
+  --text: #FAF8F2;
+  --muted: #A39E91;
+  --border: #2C2720;
 }
 
 * {
@@ -25,7 +27,7 @@ html {
 body {
   background-color: var(--bg);
   color: var(--text);
-  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   overflow-x: hidden;
   position: relative;
   -webkit-font-smoothing: antialiased;
@@ -56,15 +58,14 @@ body {
   background: var(--orange);
 }
 
-
 /* Typography utilities */
 .font-display {
-  font-family: var(--font-syne), sans-serif;
+  font-family: 'Syne', Georgia, serif;
   letter-spacing: -0.03em;
 }
 
 .font-mono-tag {
-  font-family: var(--font-mono), monospace;
+  font-family: 'JetBrains Mono', monospace;
   letter-spacing: 0.05em;
 }
 

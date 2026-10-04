@@ -69,7 +69,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-[#2E2910]/95 transition-opacity duration-200 select-text"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-[#14120E]/95 transition-opacity duration-200 select-text"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
@@ -77,7 +77,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     >
       <div
         ref={modalRef}
-        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[#2E2910] border border-[#4A4322] rounded-2xl p-6 sm:p-10 text-[#F8F5E8]"
+        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[#14120E] border border-[#2C2720] rounded-2xl p-6 sm:p-10 text-[#FAF8F2]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
@@ -85,14 +85,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           ref={closeButtonRef}
           onClick={onClose}
           aria-label="Close modal"
-          className="absolute top-6 right-6 p-2 rounded-full border border-[#4A4322] bg-[#2E2910] text-[#BDB99F] hover:text-[#EB7D00] hover:border-[#EB7D00] transition-colors focus:outline-none focus:ring-2 focus:ring-[#EB7D00]"
+          className="absolute top-6 right-6 p-2 rounded-full border border-[#2C2720] bg-[#14120E] text-[#A39E91] hover:text-[#EB7D00] hover:border-[#EB7D00] transition-colors focus:outline-none focus:ring-2 focus:ring-[#EB7D00]"
           data-cursor="pointer"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Header */}
-        <div className="border-b border-[#4A4322] pb-6 mb-8">
+        <div className="border-b border-[#2C2720] pb-6 mb-8">
           <div className="flex items-center gap-3 font-mono-tag text-xs text-[#EB7D00] mb-2 uppercase tracking-widest">
             <span>PROJECT {project.number}</span>
             <span>//</span>
@@ -101,12 +101,12 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
           <h2
             id="modal-project-title"
-            className="font-display text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-[#F8F5E8]"
+            className="font-display text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-[#FAF8F2]"
           >
             {project.name}
           </h2>
 
-          <p className="text-[#BDB99F] text-base sm:text-lg mt-3 font-normal leading-relaxed">
+          <p className="text-[#A39E91] text-base sm:text-lg mt-3 font-normal leading-relaxed">
             {project.shortDesc}
           </p>
         </div>
@@ -114,11 +114,11 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         {/* Metrics Grid */}
         <div className="grid grid-cols-3 gap-4 mb-8">
           {project.metrics.map((m) => (
-            <div key={m.label} className="p-4 rounded-xl border border-[#4A4322] bg-[#2C5745]/30">
-              <span className="block font-display text-2xl sm:text-3xl font-bold text-[#EBE3A7]">
+            <div key={m.label} className="p-4 rounded-xl border border-[#2C2720] bg-[#1D241F]/30">
+              <span className="block font-display text-2xl sm:text-3xl font-bold text-[#F3EBD8]">
                 {m.value}
               </span>
-              <span className="font-mono-tag text-xs text-[#BDB99F] mt-1 block">
+              <span className="font-mono-tag text-xs text-[#A39E91] mt-1 block">
                 {m.label}
               </span>
             </div>
@@ -131,14 +131,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             <h3 className="font-mono-tag text-xs uppercase tracking-widest text-[#EB7D00] mb-2">
               THE PROBLEM &amp; VISION
             </h3>
-            <p className="text-[#BDB99F]">{project.fullDesc}</p>
+            <p className="text-[#A39E91]">{project.fullDesc}</p>
           </div>
 
-          <div className="p-5 rounded-xl border border-[#4A4322] bg-[#2E2910]">
-            <h3 className="font-mono-tag text-xs uppercase tracking-widest text-[#EBE3A7] mb-2">
+          <div className="p-5 rounded-xl border border-[#2C2720] bg-[#14120E]">
+            <h3 className="font-mono-tag text-xs uppercase tracking-widest text-[#F3EBD8] mb-2">
               SYSTEM ARCHITECTURE
             </h3>
-            <p className="font-mono-tag text-xs text-[#F8F5E8] leading-relaxed">
+            <p className="font-mono-tag text-xs text-[#FAF8F2] leading-relaxed">
               {project.architecture}
             </p>
           </div>
@@ -149,7 +149,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             </h3>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {project.features.map((feat, i) => (
-                <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#BDB99F]">
+                <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#A39E91]">
                   <CheckCircle2 className="w-4 h-4 text-[#EB7D00] shrink-0 mt-0.5" />
                   <span>{feat}</span>
                 </li>
@@ -159,15 +159,15 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
 
         {/* Tech Stack Pills */}
-        <div className="border-t border-[#4A4322] pt-6 mb-8">
-          <p className="font-mono-tag text-xs uppercase tracking-widest text-[#BDB99F] mb-3">
+        <div className="border-t border-[#2C2720] pt-6 mb-8">
+          <p className="font-mono-tag text-xs uppercase tracking-widest text-[#A39E91] mb-3">
             DEPLOYED TECHNOLOGIES
           </p>
           <div className="flex flex-wrap gap-2">
             {project.technologies.map((t) => (
               <span
                 key={t}
-                className="px-3 py-1 rounded-full border border-[#4A4322] bg-[#2C5745]/40 text-[#EBE3A7] font-mono-tag text-xs"
+                className="px-3 py-1 rounded-full border border-[#2C2720] bg-[#1D241F]/40 text-[#F3EBD8] font-mono-tag text-xs"
               >
                 {t}
               </span>
@@ -176,8 +176,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
 
         {/* Footer CTAs */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-[#4A4322]">
-          <span className="font-mono-tag text-xs text-[#BDB99F]">
+        <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-[#2C2720]">
+          <span className="font-mono-tag text-xs text-[#A39E91]">
             ENGINEERED BY RUDRA BHULLAR
           </span>
 

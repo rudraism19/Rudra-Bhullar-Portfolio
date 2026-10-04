@@ -26,7 +26,7 @@ export default function HeroShader() {
     `;
 
     // Fragment shader with organic 3D Simplex-style flow in exact editorial colors
-    // #2E2910 (Dark Brown/Olive), #2C5745 (Deep Forest Green), #EB7D00 (Tangerine), #EBE3A7 (Vanilla)
+    // #14120E (Dark Brown/Olive), #1D241F (Deep Forest Green), #EB7D00 (Tangerine), #F3EBD8 (Vanilla)
     const fsSource = `
       precision highp float;
       varying vec2 vUv;
@@ -34,11 +34,11 @@ export default function HeroShader() {
       uniform vec2 uResolution;
       uniform vec2 uMouse;
 
-      // Color Palette constants
-      const vec3 cBg      = vec3(0.180, 0.161, 0.063); // #2E2910
-      const vec3 cGreen   = vec3(0.173, 0.341, 0.271); // #2C5745
+      // Color Palette constants - Option 1: Espresso Noir & Signal Tangerine
+      const vec3 cBg      = vec3(0.078, 0.071, 0.055); // #14120E
+      const vec3 cGreen   = vec3(0.114, 0.141, 0.122); // #1D241F
       const vec3 cOrange  = vec3(0.922, 0.490, 0.000); // #EB7D00
-      const vec3 cVanilla = vec3(0.922, 0.890, 0.655); // #EBE3A7
+      const vec3 cVanilla = vec3(0.953, 0.922, 0.847); // #F3EBD8
 
       // Pseudo noise generator
       vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
@@ -244,7 +244,7 @@ export default function HeroShader() {
   }, []);
 
   return (
-    <div className="relative w-full h-full min-h-[360px] md:min-h-[520px] rounded-2xl overflow-hidden border border-[#4A4322] bg-[#2E2910]">
+    <div className="relative w-full h-full min-h-[360px] md:min-h-[520px] rounded-2xl overflow-hidden border border-[#2C2720] bg-[#14120E]">
       <canvas
         ref={canvasRef}
         className="w-full h-full block object-cover"

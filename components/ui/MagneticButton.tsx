@@ -45,17 +45,17 @@ export default function MagneticButton({
   };
 
   const baseStyles =
-    'relative inline-flex items-center justify-center font-mono-tag text-xs md:text-sm font-semibold tracking-wider transition-all duration-300 ease-out select-none active:scale-95 group focus:outline-none focus:ring-2 focus:ring-[#EB7D00] focus:ring-offset-2 focus:ring-offset-[#2E2910]';
+    'relative inline-flex items-center justify-center font-mono-tag text-xs md:text-sm font-semibold tracking-wider transition-all duration-300 ease-out select-none active:scale-95 group focus:outline-none focus:ring-2 focus:ring-[#EB7D00] focus:ring-offset-2 focus:ring-offset-[#14120E]';
 
   const variants = {
     primary:
-      'bg-[#EB7D00] text-[#2E2910] hover:bg-[#EBE3A7] px-7 py-3.5',
+      'bg-[#EB7D00] text-[#14120E] hover:bg-[#F3EBD8] px-7 py-3.5',
     secondary:
-      'bg-[#2C5745] text-[#F8F5E8] hover:bg-[#346651] border border-[#4A4322] px-6 py-3.5',
+      'bg-[#1D241F] text-[#FAF8F2] hover:bg-[#346651] border border-[#2C2720] px-6 py-3.5',
     outline:
-      'bg-transparent text-[#EBE3A7] hover:text-[#EB7D00] border border-[#4A4322] hover:border-[#EB7D00] px-6 py-3.5',
+      'bg-transparent text-[#F3EBD8] hover:text-[#EB7D00] border border-[#2C2720] hover:border-[#EB7D00] px-6 py-3.5',
     ghost:
-      'bg-transparent text-[#BDB99F] hover:text-[#EB7D00] px-4 py-2 hover:bg-[#4A4322]/20',
+      'bg-transparent text-[#A39E91] hover:text-[#EB7D00] px-4 py-2 hover:bg-[#2C2720]/20',
   };
 
   const transformStyle = {

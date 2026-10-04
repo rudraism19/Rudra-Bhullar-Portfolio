@@ -70,7 +70,7 @@ export const PROJECTS: Project[] = [
       { label: 'Audit Time Saved', value: '78%' },
     ],
     githubUrl: 'https://github.com/rudraism19/bis-sahayak',
-    accentColor: '#2C5745',
+    accentColor: '#1D241F',
     diagramType: 'standards',
   },
   {
@@ -98,7 +98,7 @@ export const PROJECTS: Project[] = [
       { label: 'Placement Lift', value: '+34%' },
     ],
     githubUrl: 'https://github.com/rudraism19/digital-twin-verse',
-    accentColor: '#EBE3A7',
+    accentColor: '#F3EBD8',
     diagramType: 'twin',
   },
   {
@@ -154,7 +154,7 @@ export const PROJECTS: Project[] = [
       { label: 'Sync Latency', value: '<80ms' },
     ],
     githubUrl: 'https://github.com/rudraism19/mediqueue',
-    accentColor: '#2C5745',
+    accentColor: '#1D241F',
     diagramType: 'queue',
   },
 ];

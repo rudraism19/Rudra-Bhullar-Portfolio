@@ -9,19 +9,19 @@ const config: Config = {
     extend: {
       colors: {
         portfolio: {
-          bg: '#2E2910',
-          green: '#2C5745',
+          bg: '#14120E',
+          green: '#1D241F',
           orange: '#EB7D00',
-          vanilla: '#EBE3A7',
-          text: '#F8F5E8',
-          muted: '#BDB99F',
-          border: '#4A4322',
+          vanilla: '#F3EBD8',
+          text: '#FAF8F2',
+          muted: '#A39E91',
+          border: '#2C2720',
         },
       },
       fontFamily: {
-        editorial: ['var(--font-syne)', '"Playfair Display"', 'Georgia', 'serif'],
-        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
-        mono: ['var(--font-mono)', 'monospace'],
+        editorial: ['"Syne"', 'Georgia', 'serif'],
+        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
       },
       animation: {
         'pulse-subtle': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',

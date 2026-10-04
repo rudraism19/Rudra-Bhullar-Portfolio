@@ -32,16 +32,16 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#4A4322]/80"
+      className="relative py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#2C2720]/80"
     >
       {/* Section Tag */}
-      <div className="flex items-center justify-between pb-8 mb-12 border-b border-[#4A4322]/60 font-mono-tag text-xs text-[#BDB99F]">
+      <div className="flex items-center justify-between pb-8 mb-12 border-b border-[#2C2720]/60 font-mono-tag text-xs text-[#A39E91]">
         <div className="flex items-center gap-2">
           <span className="text-[#EB7D00] font-bold">06 / INQUIRY & DISCOURSE</span>
-          <span className="text-[#4A4322]">—</span>
+          <span className="text-[#2C2720]">—</span>
           <span>GET IN TOUCH</span>
         </div>
-        <div className="text-[#EBE3A7]">
+        <div className="text-[#F3EBD8]">
           [ OPEN TO NEW OPPORTUNITIES ]
         </div>
       </div>
@@ -50,25 +50,25 @@ export default function Contact() {
         {/* Left Column: Massive Editorial Statement (7 cols) */}
         <div className="lg:col-span-7 flex flex-col justify-between">
           <div>
-            <h2 className="font-display text-5xl sm:text-7xl lg:text-[5.5rem] font-extrabold uppercase tracking-tight leading-[0.92] text-[#F8F5E8] mb-8">
+            <h2 className="font-display text-5xl sm:text-7xl lg:text-[5.5rem] font-extrabold uppercase tracking-tight leading-[0.92] text-[#FAF8F2] mb-8">
               LET&apos;S BUILD <br />
-              <span className="text-[#EBE3A7]">SOMETHING</span> <br />
+              <span className="text-[#F3EBD8]">SOMETHING</span> <br />
               <span className="text-[#EB7D00]">INTERESTING.</span>
             </h2>
 
-            <p className="text-base sm:text-lg text-[#BDB99F] max-w-xl leading-relaxed mb-8">
+            <p className="text-base sm:text-lg text-[#A39E91] max-w-xl leading-relaxed mb-8">
               Whether you are looking to collaborate on high-impact AI products, build cutting-edge web platforms, explore hackathon ventures, or discuss computer science architecture—my inbox is always open.
             </p>
 
             {/* Quick Email Box */}
-            <div className="inline-flex items-center gap-3 p-3 rounded-xl bg-[#2C5745]/30 border border-[#4A4322] mb-10 max-w-full">
+            <div className="inline-flex items-center gap-3 p-3 rounded-xl bg-[#1D241F]/30 border border-[#2C2720] mb-10 max-w-full">
               <Mail className="w-5 h-5 text-[#EB7D00] shrink-0" />
-              <span className="font-mono-tag text-xs sm:text-sm text-[#F8F5E8] truncate">
+              <span className="font-mono-tag text-xs sm:text-sm text-[#FAF8F2] truncate">
                 {emailAddress}
               </span>
               <button
                 onClick={copyEmail}
-                className="px-3 py-1.5 rounded-lg bg-[#2E2910] hover:bg-[#2C5745] text-[#EBE3A7] border border-[#4A4322] text-xs font-mono-tag flex items-center gap-1.5 transition-colors shrink-0"
+                className="px-3 py-1.5 rounded-lg bg-[#14120E] hover:bg-[#1D241F] text-[#F3EBD8] border border-[#2C2720] text-xs font-mono-tag flex items-center gap-1.5 transition-colors shrink-0"
                 data-cursor="pointer"
               >
                 {copied ? (
@@ -88,7 +88,7 @@ export default function Contact() {
 
           {/* Social Links Row */}
           <div>
-            <p className="font-mono-tag text-xs text-[#BDB99F] uppercase tracking-widest mb-4">
+            <p className="font-mono-tag text-xs text-[#A39E91] uppercase tracking-widest mb-4">
               NETWORK DIRECTORY
             </p>
 
@@ -97,7 +97,7 @@ export default function Contact() {
                 href="https://github.com/rudraism19"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#4A4322] bg-[#2E2910] text-[#EBE3A7] hover:border-[#EB7D00] hover:text-[#EB7D00] transition-colors font-mono-tag text-xs"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#2C2720] bg-[#14120E] text-[#F3EBD8] hover:border-[#EB7D00] hover:text-[#EB7D00] transition-colors font-mono-tag text-xs"
                 data-cursor="pointer"
               >
                 <Github className="w-4 h-4" />
@@ -109,7 +109,7 @@ export default function Contact() {
                 href="https://linkedin.com/in/rudra-bhullar"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#4A4322] bg-[#2E2910] text-[#EBE3A7] hover:border-[#EB7D00] hover:text-[#EB7D00] transition-colors font-mono-tag text-xs"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#2C2720] bg-[#14120E] text-[#F3EBD8] hover:border-[#EB7D00] hover:text-[#EB7D00] transition-colors font-mono-tag text-xs"
                 data-cursor="pointer"
               >
                 <Linkedin className="w-4 h-4" />
@@ -121,7 +121,7 @@ export default function Contact() {
                 href="https://instagram.com/rudraism19"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#4A4322] bg-[#2E2910] text-[#EBE3A7] hover:border-[#EB7D00] hover:text-[#EB7D00] transition-colors font-mono-tag text-xs"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#2C2720] bg-[#14120E] text-[#F3EBD8] hover:border-[#EB7D00] hover:text-[#EB7D00] transition-colors font-mono-tag text-xs"
                 data-cursor="pointer"
               >
                 <Instagram className="w-4 h-4" />
@@ -131,7 +131,7 @@ export default function Contact() {
 
               <a
                 href={`mailto:${emailAddress}`}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#4A4322] bg-[#2E2910] text-[#EB7D00] hover:border-[#EB7D00] hover:bg-[#EB7D00]/10 transition-colors font-mono-tag text-xs font-semibold"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#2C2720] bg-[#14120E] text-[#EB7D00] hover:border-[#EB7D00] hover:bg-[#EB7D00]/10 transition-colors font-mono-tag text-xs font-semibold"
                 data-cursor="pointer"
               >
                 <Mail className="w-4 h-4" />
@@ -146,15 +146,15 @@ export default function Contact() {
         <div className="lg:col-span-5">
           <form
             onSubmit={handleSubmit}
-            className="p-8 rounded-2xl bg-[#2C5745]/20 border border-[#4A4322] flex flex-col gap-5"
+            className="p-8 rounded-2xl bg-[#1D241F]/20 border border-[#2C2720] flex flex-col gap-5"
           >
-            <div className="border-b border-[#4A4322]/80 pb-4 mb-2 flex items-center justify-between font-mono-tag text-xs">
+            <div className="border-b border-[#2C2720]/80 pb-4 mb-2 flex items-center justify-between font-mono-tag text-xs">
               <span className="text-[#EB7D00] font-bold">TRANSMIT DISPATCH</span>
-              <span className="text-[#BDB99F]">DIRECT INBOX</span>
+              <span className="text-[#A39E91]">DIRECT INBOX</span>
             </div>
 
             <div className="flex flex-col gap-1.5">
-              <label htmlFor="name" className="font-mono-tag text-xs text-[#EBE3A7]">
+              <label htmlFor="name" className="font-mono-tag text-xs text-[#F3EBD8]">
                 YOUR NAME / ORGANIZATION
               </label>
               <input
@@ -164,12 +164,12 @@ export default function Contact() {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder="Ada Lovelace"
-                className="w-full px-4 py-3 rounded-xl bg-[#2E2910] border border-[#4A4322] text-[#F8F5E8] placeholder-[#BDB99F]/40 focus:border-[#EB7D00] focus:outline-none font-mono-tag text-xs transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-[#14120E] border border-[#2C2720] text-[#FAF8F2] placeholder-[#A39E91]/40 focus:border-[#EB7D00] focus:outline-none font-mono-tag text-xs transition-colors"
               />
             </div>
 
             <div className="flex flex-col gap-1.5">
-              <label htmlFor="email" className="font-mono-tag text-xs text-[#EBE3A7]">
+              <label htmlFor="email" className="font-mono-tag text-xs text-[#F3EBD8]">
                 YOUR EMAIL ADDRESS
               </label>
               <input
@@ -179,12 +179,12 @@ export default function Contact() {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 placeholder="ada@domain.com"
-                className="w-full px-4 py-3 rounded-xl bg-[#2E2910] border border-[#4A4322] text-[#F8F5E8] placeholder-[#BDB99F]/40 focus:border-[#EB7D00] focus:outline-none font-mono-tag text-xs transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-[#14120E] border border-[#2C2720] text-[#FAF8F2] placeholder-[#A39E91]/40 focus:border-[#EB7D00] focus:outline-none font-mono-tag text-xs transition-colors"
               />
             </div>
 
             <div className="flex flex-col gap-1.5">
-              <label htmlFor="message" className="font-mono-tag text-xs text-[#EBE3A7]">
+              <label htmlFor="message" className="font-mono-tag text-xs text-[#F3EBD8]">
                 PROJECT CONTEXT / INQUIRY
               </label>
               <textarea
@@ -194,7 +194,7 @@ export default function Contact() {
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 placeholder="Tell me about what you are engineering or exploring..."
-                className="w-full px-4 py-3 rounded-xl bg-[#2E2910] border border-[#4A4322] text-[#F8F5E8] placeholder-[#BDB99F]/40 focus:border-[#EB7D00] focus:outline-none font-mono-tag text-xs transition-colors resize-none"
+                className="w-full px-4 py-3 rounded-xl bg-[#14120E] border border-[#2C2720] text-[#FAF8F2] placeholder-[#A39E91]/40 focus:border-[#EB7D00] focus:outline-none font-mono-tag text-xs transition-colors resize-none"
               />
             </div>
 
@@ -204,7 +204,7 @@ export default function Contact() {
               className="w-full mt-2"
             >
               <span>GET IN TOUCH →</span>
-              <Send className="w-4 h-4 text-[#2E2910]" />
+              <Send className="w-4 h-4 text-[#14120E]" />
             </MagneticButton>
 
             {formSent && (

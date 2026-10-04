@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Loader from '@/components/ui/Loader';
 import Navbar from '@/components/sections/Navbar';
 import Hero from '@/components/sections/Hero';
+import MetricTicker from '@/components/sections/MetricTicker';
 import About from '@/components/sections/About';
 import ProjectShowcase from '@/components/sections/ProjectShowcase';
 import Skills from '@/components/sections/Skills';
@@ -25,6 +26,7 @@ export default function Home() {
         <Navbar />
         <main id="main-content">
           <Hero />
+          <MetricTicker />
           <ProjectShowcase />
           <About />
           <Skills />

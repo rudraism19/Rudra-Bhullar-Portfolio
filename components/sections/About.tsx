@@ -18,26 +18,26 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#4A4322]/80"
+      className="relative py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#2C2720]/80"
     >
       {/* Section Marker */}
-      <div className="flex items-center justify-between pb-8 mb-12 border-b border-[#4A4322]/60 font-mono-tag text-xs text-[#BDB99F]">
+      <div className="flex items-center justify-between pb-8 mb-12 border-b border-[#2C2720]/60 font-mono-tag text-xs text-[#A39E91]">
         <div className="flex items-center gap-2">
           <span className="text-[#EB7D00] font-bold">02 / ABOUT</span>
-          <span className="text-[#4A4322]">—</span>
+          <span className="text-[#2C2720]">—</span>
           <span>EDITORIAL PROFILE & EVOLUTION</span>
         </div>
-        <div className="hidden sm:flex items-center gap-2 text-[#EBE3A7]">
+        <div className="hidden sm:flex items-center gap-2 text-[#F3EBD8]">
           <span>[ IDENTITY SPECTRUM ]</span>
         </div>
       </div>
 
       {/* Main Headline */}
       <div className="mb-16">
-        <h2 className="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold uppercase tracking-tight text-[#F8F5E8]">
+        <h2 className="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold uppercase tracking-tight text-[#FAF8F2]">
           I&apos;M <span className="text-[#EB7D00]">RUDRA.</span>
         </h2>
-        <p className="font-mono-tag text-xs sm:text-sm text-[#BDB99F] mt-2 tracking-widest uppercase">
+        <p className="font-mono-tag text-xs sm:text-sm text-[#A39E91] mt-2 tracking-widest uppercase">
           ENGINEERING AT THE INTERSECTION OF RIGOR & CREATIVITY
         </p>
       </div>
@@ -46,7 +46,7 @@ export default function About() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         {/* Left: Interactive Scroll Identity Cascade (7 cols) */}
         <div className="lg:col-span-7 flex flex-col gap-3">
-          <p className="font-mono-tag text-xs text-[#EBE3A7] tracking-wider mb-2">
+          <p className="font-mono-tag text-xs text-[#F3EBD8] tracking-wider mb-2">
             HOVER OR SELECT A PHASE TO INSPECT:
           </p>
 
@@ -61,8 +61,8 @@ export default function About() {
                 onClick={() => setActiveStep(idx)}
                 className={`group cursor-pointer transition-all duration-200 p-5 md:p-6 border rounded-xl select-none ${
                   isActive
-                    ? 'bg-[#2C5745]/60 border-[#EB7D00] translate-x-2'
-                    : 'bg-[#2E2910] border-[#4A4322] hover:border-[#EBE3A7]/50 hover:bg-[#2C5745]/20'
+                    ? 'bg-[#1D241F]/60 border-[#EB7D00] translate-x-2'
+                    : 'bg-[#14120E] border-[#2C2720] hover:border-[#F3EBD8]/50 hover:bg-[#1D241F]/20'
                 }`}
                 data-cursor="pointer"
               >
@@ -73,7 +73,7 @@ export default function About() {
                     </span>
                     <h3
                       className={`font-display text-xl sm:text-3xl font-bold tracking-tight uppercase transition-colors duration-200 ${
-                        isActive ? 'text-[#F8F5E8]' : 'text-[#BDB99F] group-hover:text-[#EBE3A7]'
+                        isActive ? 'text-[#FAF8F2]' : 'text-[#A39E91] group-hover:text-[#F3EBD8]'
                       }`}
                     >
                       {step.role}
@@ -83,13 +83,13 @@ export default function About() {
                   <div className="flex items-center gap-2">
                     <Icon
                       className={`w-5 h-5 transition-colors duration-200 ${
-                        isActive ? 'text-[#EB7D00]' : 'text-[#4A4322] group-hover:text-[#BDB99F]'
+                        isActive ? 'text-[#EB7D00]' : 'text-[#2C2720] group-hover:text-[#A39E91]'
                       }`}
                     />
                     {idx < IDENTITY_STEPS.length - 1 && (
                       <ArrowDown
                         className={`w-4 h-4 ml-1 transition-opacity duration-200 ${
-                          isActive ? 'text-[#EBE3A7] opacity-100' : 'text-[#4A4322] opacity-40'
+                          isActive ? 'text-[#F3EBD8] opacity-100' : 'text-[#2C2720] opacity-40'
                         }`}
                       />
                     )}
@@ -98,10 +98,10 @@ export default function About() {
 
                 <div
                   className={`overflow-hidden transition-all duration-300 ${
-                    isActive ? 'max-h-24 opacity-100 mt-3 pt-3 border-t border-[#4A4322]/80' : 'max-h-0 opacity-0'
+                    isActive ? 'max-h-24 opacity-100 mt-3 pt-3 border-t border-[#2C2720]/80' : 'max-h-0 opacity-0'
                   }`}
                 >
-                  <p className="text-sm text-[#EBE3A7] font-normal leading-relaxed">
+                  <p className="text-sm text-[#F3EBD8] font-normal leading-relaxed">
                     {step.desc}
                   </p>
                 </div>
@@ -112,7 +112,7 @@ export default function About() {
 
         {/* Right: Editorial Manifesto & Foundations (5 cols) */}
         <div className="lg:col-span-5 flex flex-col gap-8">
-          <div className="p-8 rounded-2xl bg-[#2C5745]/30 border border-[#4A4322] relative overflow-hidden">
+          <div className="p-8 rounded-2xl bg-[#1D241F]/30 border border-[#2C2720] relative overflow-hidden">
             <div className="absolute top-4 right-4">
               <InteractiveGlyph type="neural" size={54} />
             </div>
@@ -121,53 +121,53 @@ export default function About() {
               PROFESSIONAL SYNOPSIS
             </p>
 
-            <h4 className="font-display text-xl sm:text-2xl font-bold text-[#F8F5E8] mb-4 leading-snug">
+            <h4 className="font-display text-xl sm:text-2xl font-bold text-[#FAF8F2] mb-4 leading-snug">
               Bridging mathematical precision with human-centric technology.
             </h4>
 
-            <p className="text-sm sm:text-base text-[#BDB99F] leading-relaxed mb-4">
+            <p className="text-sm sm:text-base text-[#A39E91] leading-relaxed mb-4">
               As a Computer Science Engineering student based in India, I don&apos;t just build interfaces—I architect robust backend foundations, optimize complex data structures, and harness modern Large Language Models to solve meaningful problems.
             </p>
 
-            <p className="text-sm sm:text-base text-[#BDB99F] leading-relaxed">
+            <p className="text-sm sm:text-base text-[#A39E91] leading-relaxed">
               My engineering approach prioritizes speed, modularity, and intentional design over bloated frameworks. From civic platforms like JanSetu AI to voice-driven RAG pipelines, every system is crafted to deliver palpable utility with editorial restraint.
             </p>
           </div>
 
           {/* Quick Metrics / Distinct Capabilities */}
           <div className="grid grid-cols-2 gap-4 font-mono-tag">
-            <div className="p-5 border border-[#4A4322] bg-[#2E2910] rounded-xl hover:border-[#EB7D00]/50 transition-colors">
+            <div className="p-5 border border-[#2C2720] bg-[#14120E] rounded-xl hover:border-[#EB7D00]/50 transition-colors">
               <span className="block text-2xl sm:text-3xl font-display font-extrabold text-[#EB7D00]">
                 CORE DSA
               </span>
-              <span className="text-xs text-[#BDB99F] mt-1 block">
+              <span className="text-xs text-[#A39E91] mt-1 block">
                 Java & Problem Solving Rigor
               </span>
             </div>
 
-            <div className="p-5 border border-[#4A4322] bg-[#2E2910] rounded-xl hover:border-[#EB7D00]/50 transition-colors">
-              <span className="block text-2xl sm:text-3xl font-display font-extrabold text-[#EBE3A7]">
+            <div className="p-5 border border-[#2C2720] bg-[#14120E] rounded-xl hover:border-[#EB7D00]/50 transition-colors">
+              <span className="block text-2xl sm:text-3xl font-display font-extrabold text-[#F3EBD8]">
                 FULL-STACK
               </span>
-              <span className="text-xs text-[#BDB99F] mt-1 block">
+              <span className="text-xs text-[#A39E91] mt-1 block">
                 Next.js, Node, Supabase
               </span>
             </div>
 
-            <div className="p-5 border border-[#4A4322] bg-[#2E2910] rounded-xl hover:border-[#EB7D00]/50 transition-colors">
-              <span className="block text-2xl sm:text-3xl font-display font-extrabold text-[#EBE3A7]">
+            <div className="p-5 border border-[#2C2720] bg-[#14120E] rounded-xl hover:border-[#EB7D00]/50 transition-colors">
+              <span className="block text-2xl sm:text-3xl font-display font-extrabold text-[#F3EBD8]">
                 AI AGENTS
               </span>
-              <span className="text-xs text-[#BDB99F] mt-1 block">
+              <span className="text-xs text-[#A39E91] mt-1 block">
                 RAG, Gemini, MCP Tools
               </span>
             </div>
 
-            <div className="p-5 border border-[#4A4322] bg-[#2E2910] rounded-xl hover:border-[#EB7D00]/50 transition-colors">
+            <div className="p-5 border border-[#2C2720] bg-[#14120E] rounded-xl hover:border-[#EB7D00]/50 transition-colors">
               <span className="block text-2xl sm:text-3xl font-display font-extrabold text-[#EB7D00]">
                 HACKATHONS
               </span>
-              <span className="text-xs text-[#BDB99F] mt-1 block">
+              <span className="text-xs text-[#A39E91] mt-1 block">
                 High Velocity Prototyping
               </span>
             </div>

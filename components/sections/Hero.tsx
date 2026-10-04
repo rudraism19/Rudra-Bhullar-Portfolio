@@ -26,15 +26,15 @@ export default function Hero() {
       className="relative min-h-[95vh] flex flex-col justify-between pt-28 md:pt-36 pb-16 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden"
     >
       {/* Top Editorial Metadata Banner */}
-      <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[#4A4322]/80 font-mono-tag text-xs text-[#BDB99F]">
+      <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[#2C2720]/80 font-mono-tag text-xs text-[#A39E91]">
         <div className="flex items-center gap-3">
           <span className="w-2 h-2 rounded-full bg-[#EB7D00] inline-block animate-pulse" />
-          <span className="text-[#EBE3A7] tracking-wider font-semibold">PORTFOLIO EDITION // 2026</span>
-          <span className="hidden sm:inline text-[#4A4322]">|</span>
+          <span className="text-[#F3EBD8] tracking-wider font-semibold">PORTFOLIO EDITION // 2026</span>
+          <span className="hidden sm:inline text-[#2C2720]">|</span>
           <span className="hidden sm:inline">BASED IN INDIA</span>
         </div>
 
-        <div className="flex items-center gap-4 text-[11px] tracking-widest text-[#BDB99F]">
+        <div className="flex items-center gap-4 text-[11px] tracking-widest text-[#A39E91]">
           <span className="flex items-center gap-1.5">
             <Cpu className="w-3.5 h-3.5 text-[#EB7D00]" />
             SYSTEM ARCHITECTURE & INTELLIGENCE
@@ -51,21 +51,21 @@ export default function Hero() {
             <span className="font-mono-tag text-xs tracking-widest uppercase text-[#EB7D00] font-bold">
               RUDRA BHULLAR
             </span>
-            <span className="text-[#4A4322] font-mono-tag">/</span>
-            <span className="font-mono-tag text-xs tracking-widest text-[#BDB99F]">
+            <span className="text-[#2C2720] font-mono-tag">/</span>
+            <span className="font-mono-tag text-xs tracking-widest text-[#A39E91]">
               CREATIVE TECHNOLOGIST × AI ENGINEER
             </span>
           </div>
 
           {/* Large Bold Display Typography */}
-          <h1 className="font-display text-5xl sm:text-7xl lg:text-[5.5rem] font-extrabold uppercase tracking-tight leading-[0.92] text-[#F8F5E8] mb-6">
+          <h1 className="font-display text-5xl sm:text-7xl lg:text-[5.5rem] font-extrabold uppercase tracking-tight leading-[0.92] text-[#FAF8F2] mb-6">
             I BUILD <br />
-            <span className="text-[#EBE3A7]">DIGITAL</span> <br />
+            <span className="text-[#F3EBD8]">DIGITAL</span> <br />
             EXPERIENCES.
           </h1>
 
           {/* Supporting Text */}
-          <p className="text-base sm:text-lg md:text-xl text-[#BDB99F] font-normal max-w-xl leading-relaxed mb-8">
+          <p className="text-base sm:text-lg md:text-xl text-[#A39E91] font-normal max-w-xl leading-relaxed mb-8">
             Computer Science Engineering student building AI-powered products,
             high-performance web systems, and experimental technology that bridges algorithms with human intent.
           </p>
@@ -75,7 +75,7 @@ export default function Hero() {
             {TAGS.map((tag) => (
               <span
                 key={tag}
-                className="px-3.5 py-1.5 rounded-full border border-[#4A4322] bg-[#2C5745]/30 text-[#EBE3A7] text-xs font-mono-tag tracking-wider hover:border-[#EB7D00] hover:text-[#EB7D00] transition-colors"
+                className="px-3.5 py-1.5 rounded-full border border-[#2C2720] bg-[#1D241F]/30 text-[#F3EBD8] text-xs font-mono-tag tracking-wider hover:border-[#EB7D00] hover:text-[#EB7D00] transition-colors"
               >
                 #{tag}
               </span>
@@ -89,7 +89,7 @@ export default function Hero() {
               onClick={() => scrollTo('work')}
             >
               <span>VIEW MY WORK</span>
-              <ArrowDownRight className="w-4 h-4 text-[#2E2910]" />
+              <ArrowDownRight className="w-4 h-4 text-[#14120E]" />
             </MagneticButton>
 
             <MagneticButton
@@ -110,7 +110,7 @@ export default function Hero() {
       </div>
 
       {/* Hero Footer Strip / Editorial Details */}
-      <div className="pt-6 border-t border-[#4A4322]/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono-tag text-xs text-[#BDB99F]">
+      <div className="pt-6 border-t border-[#2C2720]/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono-tag text-xs text-[#A39E91]">
         <div className="flex items-center gap-2">
           <Terminal className="w-3.5 h-3.5 text-[#EB7D00]" />
           <span>CORE FOCUS: SCALABLE ARCHITECTURES × GENERATIVE AI × GRAPHIC DISCIPLINE</span>
@@ -118,7 +118,7 @@ export default function Hero() {
 
         <button
           onClick={() => scrollTo('about')}
-          className="flex items-center gap-2 text-[#EBE3A7] hover:text-[#EB7D00] transition-colors group"
+          className="flex items-center gap-2 text-[#F3EBD8] hover:text-[#EB7D00] transition-colors group"
         >
           <span>EXPLORE PROFILE</span>
           <span className="text-[#EB7D00] group-hover:translate-y-0.5 transition-transform">↓</span>
