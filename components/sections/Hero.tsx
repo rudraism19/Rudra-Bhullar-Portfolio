@@ -45,7 +45,7 @@ export default function Hero() {
       {/* Main Asymmetric Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center my-auto py-8">
         {/* Left Column: Bold Editorial Typography & Narrative (7 cols) */}
-        <div className="lg:col-span-7 flex flex-col justify-center">
+        <div className="lg:col-span-7 xl:col-span-7 flex flex-col justify-center pr-0 lg:pr-6">
           {/* Subtitle tag */}
           <div className="inline-flex items-center gap-2 mb-4">
             <span className="font-mono-tag text-xs tracking-widest uppercase text-[#EB7D00] font-bold">
@@ -57,8 +57,8 @@ export default function Hero() {
             </span>
           </div>
 
-          {/* Large Bold Display Typography */}
-          <h1 className="font-display text-5xl sm:text-7xl lg:text-[5.5rem] font-extrabold uppercase tracking-tight leading-[0.92] text-[#FAF8F2] mb-6">
+          {/* Large Bold Display Typography with no-overflow responsive scaling */}
+          <h1 className="font-display text-4xl sm:text-6xl lg:text-[3.7rem] xl:text-[4.5rem] font-extrabold uppercase tracking-tight leading-[0.96] text-[#FAF8F2] mb-6">
             I BUILD <br />
             <span className="text-[#F3EBD8]">DIGITAL</span> <br />
             EXPERIENCES.

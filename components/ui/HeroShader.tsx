@@ -174,9 +174,10 @@ export default function HeroShader() {
       const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       const width = canvas.clientWidth;
       const height = canvas.clientHeight;
-      if (canvas.width !== width * dpr || canvas.height !== height * dpr) {
-        canvas.width = width * dpr;
-        canvas.height = height * dpr;
+      if (width === 0 || height === 0) return;
+      if (canvas.width !== Math.floor(width * dpr) || canvas.height !== Math.floor(height * dpr)) {
+        canvas.width = Math.floor(width * dpr);
+        canvas.height = Math.floor(height * dpr);
         gl.viewport(0, 0, canvas.width, canvas.height);
       }
     };
@@ -191,6 +192,12 @@ export default function HeroShader() {
     window.addEventListener('mousemove', handleMouseMove);
     resize();
 
+    // ResizeObserver on canvas container to handle dynamic layout shifts
+    const resizeObserver = new ResizeObserver(() => {
+      resize();
+    });
+    resizeObserver.observe(canvas);
+
     // IntersectionObserver to pause rendering when scrolled out of view
     const observer = new IntersectionObserver(([entry]) => {
       isVisible = entry.isIntersecting;
@@ -199,6 +206,7 @@ export default function HeroShader() {
 
     const render = () => {
       if (isVisible) {
+        resize();
         const currentTime = prefersReducedMotion ? 0 : (performance.now() - startTime) * 0.001;
         mouse.x += (mouse.targetX - mouse.x) * 0.05;
         mouse.y += (mouse.targetY - mouse.y) * 0.05;
@@ -238,16 +246,17 @@ export default function HeroShader() {
       canvas.removeEventListener('webglcontextrestored', handleContextRestored);
       window.removeEventListener('resize', resize);
       window.removeEventListener('mousemove', handleMouseMove);
+      resizeObserver.disconnect();
       observer.disconnect();
       if (program) gl.deleteProgram(program);
     };
   }, []);
 
   return (
-    <div className="relative w-full h-full min-h-[360px] md:min-h-[520px] rounded-2xl overflow-hidden border border-[#2C2720] bg-[#14120E]">
+    <div className="relative w-full h-[380px] sm:h-[460px] lg:h-[520px] rounded-2xl overflow-hidden border border-[#2C2720] bg-[#14120E]">
       <canvas
         ref={canvasRef}
-        className="w-full h-full block object-cover"
+        className="absolute inset-0 w-full h-full block"
         aria-hidden="true"
       />
     </div>
