@@ -58,7 +58,7 @@ export default function Hero() {
           </div>
 
           {/* Large Bold Display Typography with no-overflow responsive scaling */}
-          <h1 className="font-display text-4xl sm:text-6xl lg:text-[3.7rem] xl:text-[4.5rem] font-extrabold uppercase tracking-tight leading-[0.96] text-[#FAF8F2] mb-6">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[3.2rem] xl:text-[4rem] font-extrabold uppercase tracking-tight leading-[0.96] text-[#FAF8F2] mb-6">
             I BUILD <br />
             <span className="text-[#F3EBD8]">DIGITAL</span> <br />
             EXPERIENCES.

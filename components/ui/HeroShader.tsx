@@ -112,12 +112,7 @@ export default function HeroShader() {
         float orangeWeight = smoothstep(0.5, 0.85, snoise(st * 2.0 + r + t * 0.2));
         color = mix(color, cOrange, orangeWeight * 0.85);
 
-        // Vignette fade at edges for organic blending into page background
-        vec2 uvCenter = vUv - 0.5;
-        float vignette = 1.0 - dot(uvCenter, uvCenter) * 1.8;
-        vignette = clamp(vignette, 0.1, 1.0);
-
-        gl_FragColor = vec4(color * vignette, 0.95);
+        gl_FragColor = vec4(color, 1.0);
       }
     `;
 
@@ -171,14 +166,13 @@ export default function HeroShader() {
 
     const resize = () => {
       if (!canvas) return;
-      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-      const width = canvas.clientWidth;
-      const height = canvas.clientHeight;
-      if (width === 0 || height === 0) return;
-      if (canvas.width !== Math.floor(width * dpr) || canvas.height !== Math.floor(height * dpr)) {
-        canvas.width = Math.floor(width * dpr);
-        canvas.height = Math.floor(height * dpr);
-        gl.viewport(0, 0, canvas.width, canvas.height);
+      const rect = canvas.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const width = Math.max(1, Math.floor(rect.width * dpr));
+      const height = Math.max(1, Math.floor(rect.height * dpr));
+      if (canvas.width !== width || canvas.height !== height) {
+        canvas.width = width;
+        canvas.height = height;
       }
     };
 
@@ -207,6 +201,7 @@ export default function HeroShader() {
     const render = () => {
       if (isVisible) {
         resize();
+        gl.viewport(0, 0, canvas.width, canvas.height);
         const currentTime = prefersReducedMotion ? 0 : (performance.now() - startTime) * 0.001;
         mouse.x += (mouse.targetX - mouse.x) * 0.05;
         mouse.y += (mouse.targetY - mouse.y) * 0.05;
