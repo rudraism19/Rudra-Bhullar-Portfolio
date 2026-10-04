@@ -55,32 +55,32 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-full px-3 sm:px-6 lg:px-8 pt-3 sm:pt-5 pb-8 max-w-[1680px] mx-auto overflow-hidden bg-[#14120E]"
+      className="relative w-full px-3 sm:px-6 lg:px-8 pt-3 sm:pt-5 pb-8 max-w-[1680px] mx-auto overflow-hidden bg-[#0A0A0A]"
     >
-      {/* Editorial Orange Canvas Block */}
-      <div className="relative w-full rounded-[26px] sm:rounded-[36px] md:rounded-[42px] bg-[#EB7D00] overflow-hidden min-h-[92vh] sm:min-h-[94vh] lg:min-h-[96vh] flex flex-col justify-between shadow-2xl border border-[#EB7D00]/40">
+      {/* Editorial Titanium Architectural Limestone Canvas Block */}
+      <div className="relative w-full rounded-[26px] sm:rounded-[36px] md:rounded-[42px] bg-[#EDEAE4] overflow-hidden min-h-[92vh] sm:min-h-[94vh] lg:min-h-[96vh] flex flex-col justify-between shadow-2xl border border-[#EDEAE4]/40">
         
-        {/* Subtle Ambient Radial Highlight */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_25%,_rgba(255,160,30,0.35),_transparent_65%)] pointer-events-none" />
+        {/* Subtle Ambient Specular Lighting */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_25%,_rgba(255,255,255,0.7),_transparent_65%)] pointer-events-none" />
 
         {/* 1. TOP EDITORIAL BAR (z-30) */}
         <header className="relative px-6 sm:px-10 md:px-14 pt-6 sm:pt-8 flex items-center justify-between z-30">
           {/* Based In Location */}
           <div className="flex flex-col text-left">
-            <span className="font-mono text-[10px] sm:text-xs uppercase tracking-wider text-[#14120E]/70 font-bold">
+            <span className="font-mono text-[10px] sm:text-xs uppercase tracking-wider text-[#0A0A0A]/60 font-bold">
               Based in:
             </span>
-            <span className="font-sans text-xs sm:text-sm font-extrabold tracking-tight text-[#14120E]">
+            <span className="font-sans text-xs sm:text-sm font-extrabold tracking-tight text-[#0A0A0A]">
               Punjab, India
             </span>
           </div>
 
           {/* Live Indian Standard Time (IST) */}
           <div className="hidden sm:flex flex-col items-center text-center">
-            <span className="font-mono text-[10px] sm:text-xs uppercase tracking-wider text-[#14120E]/70 font-bold">
+            <span className="font-mono text-[10px] sm:text-xs uppercase tracking-wider text-[#0A0A0A]/60 font-bold">
               Local Time
             </span>
-            <span className="font-mono text-xs sm:text-sm font-bold tracking-tight text-[#14120E]">
+            <span className="font-mono text-xs sm:text-sm font-bold tracking-tight text-[#0A0A0A]">
               {time || '11:45:00 PM IST'}
             </span>
           </div>
@@ -89,7 +89,7 @@ export default function Hero() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => scrollTo('work')}
-              className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-[#14120E]/30 bg-[#14120E]/5 hover:bg-[#14120E] hover:text-[#FAF8F2] text-xs font-mono font-bold uppercase tracking-wider transition-all"
+              className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-[#0A0A0A]/20 bg-[#0A0A0A]/5 hover:bg-[#0A0A0A] hover:text-[#FAFAFA] text-xs font-mono font-bold uppercase tracking-wider transition-all"
               data-cursor="pointer"
             >
               <span>Explore Work</span>
@@ -101,7 +101,7 @@ export default function Hero() {
                   window.dispatchEvent(new CustomEvent('toggle-nav-menu'));
                 }
               }}
-              className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-lg border border-[#14120E] bg-[#14120E] text-[#FAF8F2] hover:bg-[#FAF8F2] hover:text-[#14120E] text-xs font-mono font-bold uppercase tracking-wider transition-all shadow-md group"
+              className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-lg border border-[#0A0A0A] bg-[#0A0A0A] text-[#FAFAFA] hover:bg-[#FAFAFA] hover:text-[#0A0A0A] text-xs font-mono font-bold uppercase tracking-wider transition-all shadow-md group"
               data-cursor="pointer"
               aria-label="Toggle navigation menu"
             >
@@ -114,10 +114,10 @@ export default function Hero() {
         {/* 2. GIANT CONDENSED DISPLAY TYPOGRAPHY (z-10) */}
         <div className="absolute top-[48%] -translate-y-1/2 left-6 sm:left-10 md:left-14 lg:left-16 z-10 pointer-events-none select-none flex flex-col leading-[0.8] tracking-tighter">
           <h1 className="flex flex-col select-none">
-            <span className="font-headline text-[22vw] sm:text-[18vw] lg:text-[14.5vw] xl:text-[195px] font-black uppercase text-[#14120E] leading-[0.8] tracking-tight">
+            <span className="font-headline text-[22vw] sm:text-[18vw] lg:text-[14.5vw] xl:text-[195px] font-black uppercase text-[#0A0A0A] leading-[0.8] tracking-tight">
               RUDRA
             </span>
-            <span className="font-headline text-[22vw] sm:text-[18vw] lg:text-[14.5vw] xl:text-[195px] font-black uppercase text-[#14120E] leading-[0.8] tracking-tight">
+            <span className="font-headline text-[22vw] sm:text-[18vw] lg:text-[14.5vw] xl:text-[195px] font-black uppercase text-[#0A0A0A] leading-[0.8] tracking-tight">
               BHULLAR
             </span>
           </h1>
@@ -128,19 +128,19 @@ export default function Hero() {
           <img
             src="/rudra-hero-cropped.png"
             alt="Rudra Bhullar - Creative Technologist & AI Engineer"
-            className="h-[58vh] sm:h-[68vh] md:h-[75vh] lg:h-[82vh] xl:h-[88vh] max-h-[860px] w-auto object-contain object-bottom filter drop-shadow-[0_25px_45px_rgba(0,0,0,0.65)]"
+            className="h-[58vh] sm:h-[68vh] md:h-[75vh] lg:h-[82vh] xl:h-[88vh] max-h-[860px] w-auto object-contain object-bottom filter drop-shadow-[0_25px_45px_rgba(0,0,0,0.5)]"
           />
         </div>
 
         {/* 4. RIGHT COLUMN: SPECIALIZATION / SERVICES (z-30) */}
         <div className="absolute top-[46%] -translate-y-1/2 right-6 sm:right-10 md:right-14 lg:right-16 z-30 hidden md:flex flex-col text-left max-w-[210px] lg:max-w-[250px]">
           <div className="flex items-center gap-2 mb-3">
-            <span className="w-2 h-2 rounded-full bg-[#14120E]" />
-            <span className="font-mono text-xs font-bold tracking-widest uppercase text-[#14120E]">
+            <span className="w-2 h-2 rounded-full bg-[#0A0A0A]" />
+            <span className="font-mono text-xs font-bold tracking-widest uppercase text-[#0A0A0A]">
               SPECIALIZATION
             </span>
           </div>
-          <ul className="space-y-2.5 text-[#14120E]/90 font-sans font-bold text-sm lg:text-[15px] leading-snug">
+          <ul className="space-y-2.5 text-[#0A0A0A]/90 font-sans font-bold text-sm lg:text-[15px] leading-snug">
             {FOCUS_AREAS.map((item) => (
               <li
                 key={item}
@@ -161,7 +161,7 @@ export default function Hero() {
           >
             <path
               d="M 520,220 C 640,220 680,100 820,100 L 1440,100 L 1440,220 Z"
-              fill="#14120E"
+              fill="#0A0A0A"
             />
           </svg>
         </div>
@@ -170,7 +170,7 @@ export default function Hero() {
         <div className="relative px-6 sm:px-10 md:px-14 pb-6 sm:pb-8 md:pb-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 z-30 mt-auto">
           {/* Left: Bio statement & Social icon links */}
           <div className="max-w-xs sm:max-w-sm md:max-w-md">
-            <p className="font-sans text-xs sm:text-sm text-[#14120E]/95 leading-relaxed font-bold mb-3 sm:mb-4">
+            <p className="font-sans text-xs sm:text-sm text-[#0A0A0A]/90 leading-relaxed font-bold mb-3 sm:mb-4">
               Building intelligent AI systems, robust full-stack architectures,
               and expressive digital experiences with engineering discipline.
             </p>
@@ -184,7 +184,7 @@ export default function Hero() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={link.name}
-                    className="w-8 h-8 sm:w-9 sm:h-9 rounded-md bg-[#14120E] text-[#EB7D00] hover:bg-[#FAF8F2] hover:text-[#14120E] flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-sm"
+                    className="w-8 h-8 sm:w-9 sm:h-9 rounded-md bg-[#0A0A0A] text-[#EDEAE4] hover:bg-[#FAFAFA] hover:text-[#0A0A0A] flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-sm"
                     data-cursor="pointer"
                   >
                     <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
@@ -202,11 +202,11 @@ export default function Hero() {
                 e.preventDefault();
                 scrollTo('contact');
               }}
-              className="inline-flex items-center justify-between sm:justify-start gap-3 w-full sm:w-auto px-5 sm:px-6 py-3 sm:py-3.5 rounded-lg bg-[#EB7D00] text-[#14120E] border border-[#14120E]/20 hover:bg-[#FAF8F2] hover:text-[#14120E] font-mono text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-300 shadow-xl hover:scale-105 active:scale-95 group"
+              className="inline-flex items-center justify-between sm:justify-start gap-3 w-full sm:w-auto px-5 sm:px-6 py-3 sm:py-3.5 rounded-lg bg-[#EDEAE4] text-[#0A0A0A] border border-[#222225] hover:bg-[#FFFFFF] hover:text-[#0A0A0A] font-mono text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-300 shadow-xl hover:scale-105 active:scale-95 group"
               data-cursor="pointer"
             >
               <span>START A PROJECT</span>
-              <span className="w-5 h-5 rounded bg-[#14120E] text-[#EB7D00] group-hover:bg-[#14120E] group-hover:text-[#FAF8F2] flex items-center justify-center text-xs transition-colors">
+              <span className="w-5 h-5 rounded bg-[#0A0A0A] text-[#EDEAE4] group-hover:bg-[#0A0A0A] group-hover:text-[#FFFFFF] flex items-center justify-center text-xs transition-colors">
                 →
               </span>
             </a>

@@ -79,23 +79,23 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#2C2720]/80"
+      className="relative py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#222225]/80"
     >
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#2C2720]/60 mb-12">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#222225]/60 mb-12">
         <div>
-          <div className="flex items-center gap-2 font-mono-tag text-xs text-[#EB7D00] uppercase tracking-widest mb-3">
+          <div className="flex items-center gap-2 font-mono-tag text-xs text-[#EDEAE4] uppercase tracking-widest mb-3">
             <span className="font-bold">03 / TECHNICAL REPERTOIRE</span>
-            <span className="text-[#2C2720]">—</span>
-            <span className="text-[#A39E91]">DEPTH OVER PERCENTAGE BARS</span>
+            <span className="text-[#222225]">—</span>
+            <span className="text-[#8E8E93]">DEPTH OVER PERCENTAGE BARS</span>
           </div>
 
-          <h2 className="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold uppercase tracking-tight text-[#FAF8F2]">
-            SKILLS & <span className="text-[#EB7D00]">TOOLING.</span>
+          <h2 className="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold uppercase tracking-tight text-[#FAFAFA]">
+            SKILLS & <span className="text-[#EDEAE4]">TOOLING.</span>
           </h2>
         </div>
 
-        <p className="max-w-md font-mono-tag text-xs text-[#A39E91] leading-relaxed">
+        <p className="max-w-md font-mono-tag text-xs text-[#8E8E93] leading-relaxed">
           I evaluate competency not through arbitrary percentage meters, but by systems shipped, algorithms implemented, and latency benchmarks achieved.
         </p>
       </div>
@@ -110,8 +110,8 @@ export default function Skills() {
               onClick={() => setActiveCategory(cat.id)}
               className={`flex items-center gap-2.5 px-5 py-3 rounded-xl font-mono-tag text-xs tracking-wider transition-all duration-200 select-none ${
                 isActive
-                  ? 'bg-[#1D241F] text-[#F3EBD8] border border-[#EB7D00]'
-                  : 'bg-[#14120E] text-[#A39E91] border border-[#2C2720] hover:text-[#FAF8F2] hover:border-[#F3EBD8]/40'
+                  ? 'bg-[#141416] text-[#EDEAE4] border border-[#EDEAE4]'
+                  : 'bg-[#0A0A0A] text-[#8E8E93] border border-[#222225] hover:text-[#FAFAFA] hover:border-[#EDEAE4]/40'
               }`}
               data-cursor="pointer"
             >
@@ -127,34 +127,34 @@ export default function Skills() {
         {currentCat.skills.map((skill) => (
           <div
             key={skill.name}
-            className="p-6 md:p-8 rounded-2xl bg-[#1D241F]/20 border border-[#2C2720] hover:border-[#EB7D00] hover:bg-[#1D241F]/30 transition-all duration-300 group flex flex-col justify-between"
+            className="p-6 md:p-8 rounded-2xl bg-[#141416]/20 border border-[#222225] hover:border-[#EDEAE4] hover:bg-[#141416]/30 transition-all duration-300 group flex flex-col justify-between"
             data-cursor="pointer"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="px-2.5 py-1 rounded bg-[#14120E] border border-[#2C2720] font-mono-tag text-[10px] text-[#EB7D00] uppercase tracking-widest font-semibold">
+                <span className="px-2.5 py-1 rounded bg-[#0A0A0A] border border-[#222225] font-mono-tag text-[10px] text-[#EDEAE4] uppercase tracking-widest font-semibold">
                   {skill.tag}
                 </span>
-                <span className="font-mono-tag text-xs text-[#F3EBD8]">
+                <span className="font-mono-tag text-xs text-[#EDEAE4]">
                   {skill.level}
                 </span>
               </div>
 
-              <h3 className="font-display text-2xl sm:text-3xl font-bold uppercase tracking-tight text-[#FAF8F2] group-hover:text-[#EB7D00] transition-colors mb-3">
+              <h3 className="font-display text-2xl sm:text-3xl font-bold uppercase tracking-tight text-[#FAFAFA] group-hover:text-[#EDEAE4] transition-colors mb-3">
                 {skill.name}
               </h3>
 
-              <p className="text-sm text-[#A39E91] font-normal leading-relaxed">
+              <p className="text-sm text-[#8E8E93] font-normal leading-relaxed">
                 {skill.context}
               </p>
             </div>
 
-            <div className="pt-6 mt-6 border-t border-[#2C2720]/50 flex items-center justify-between text-xs font-mono-tag text-[#A39E91]">
-              <span className="flex items-center gap-1.5 text-[#F3EBD8]">
-                <Check className="w-3.5 h-3.5 text-[#EB7D00]" />
+            <div className="pt-6 mt-6 border-t border-[#222225]/50 flex items-center justify-between text-xs font-mono-tag text-[#8E8E93]">
+              <span className="flex items-center gap-1.5 text-[#EDEAE4]">
+                <Check className="w-3.5 h-3.5 text-[#EDEAE4]" />
                 Validated in Production
               </span>
-              <span className="text-[#2C2720] group-hover:text-[#EB7D00] transition-colors">
+              <span className="text-[#222225] group-hover:text-[#EDEAE4] transition-colors">
                 PROVEN TECH
               </span>
             </div>

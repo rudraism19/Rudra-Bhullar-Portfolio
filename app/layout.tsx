@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#14120E',
+  themeColor: '#0A0A0A',
   width: 'device-width',
   initialScale: 1,
 };
@@ -49,7 +49,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body className="bg-[#14120E] text-[#FAF8F2] font-sans antialiased min-h-screen relative selection:bg-[#EB7D00] selection:text-[#14120E]">
+      <body className="bg-[#0A0A0A] text-[#FAFAFA] font-sans antialiased min-h-screen relative selection:bg-[#EDEAE4] selection:text-[#0A0A0A]">
         {/* Global smooth scrolling */}
         <SmoothScroll>
           <ScrollProgress />

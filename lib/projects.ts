@@ -42,7 +42,7 @@ export const PROJECTS: Project[] = [
       { label: 'Indian Languages', value: '11 Dialects' },
     ],
     githubUrl: 'https://github.com/rudraism19/jansetu-ai',
-    accentColor: '#EB7D00',
+    accentColor: '#EDEAE4',
     diagramType: 'civic',
   },
   {
@@ -70,7 +70,7 @@ export const PROJECTS: Project[] = [
       { label: 'Audit Time Saved', value: '78%' },
     ],
     githubUrl: 'https://github.com/rudraism19/bis-sahayak',
-    accentColor: '#1D241F',
+    accentColor: '#141416',
     diagramType: 'standards',
   },
   {
@@ -98,7 +98,7 @@ export const PROJECTS: Project[] = [
       { label: 'Placement Lift', value: '+34%' },
     ],
     githubUrl: 'https://github.com/rudraism19/digital-twin-verse',
-    accentColor: '#F3EBD8',
+    accentColor: '#EDEAE4',
     diagramType: 'twin',
   },
   {
@@ -126,7 +126,7 @@ export const PROJECTS: Project[] = [
       { label: 'Chunk Search', value: '<45ms' },
     ],
     githubUrl: 'https://github.com/rudraism19/voice-enabled-rag',
-    accentColor: '#EB7D00',
+    accentColor: '#EDEAE4',
     diagramType: 'voice',
   },
   {
@@ -154,7 +154,7 @@ export const PROJECTS: Project[] = [
       { label: 'Sync Latency', value: '<80ms' },
     ],
     githubUrl: 'https://github.com/rudraism19/mediqueue',
-    accentColor: '#1D241F',
+    accentColor: '#141416',
     diagramType: 'queue',
   },
 ];

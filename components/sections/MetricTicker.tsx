@@ -45,21 +45,21 @@ export default function MetricTicker() {
   return (
     <section
       aria-label="Key Impact Metrics"
-      className="border-y border-[#2C2720] bg-[#14120E] py-8 px-6 md:px-12 select-none"
+      className="border-y border-[#222225] bg-[#0A0A0A] py-8 px-6 md:px-12 select-none"
     >
       <div className="max-w-7xl mx-auto">
         {/* Editorial Subtitle */}
-        <div className="flex items-center justify-between pb-6 mb-6 border-b border-[#2C2720]/60 font-mono-tag text-xs text-[#A39E91]">
-          <span className="text-[#EB7D00] font-bold tracking-widest uppercase">
+        <div className="flex items-center justify-between pb-6 mb-6 border-b border-[#222225]/60 font-mono-tag text-xs text-[#8E8E93]">
+          <span className="text-[#EDEAE4] font-bold tracking-widest uppercase">
             00 // VERIFIED METRIC REGISTRY
           </span>
-          <span className="hidden sm:inline text-[#F3EBD8]">
+          <span className="hidden sm:inline text-[#EDEAE4]">
             2023 — 2026 // PRODUCTION RECORD
           </span>
         </div>
 
         {/* Metric Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-[#2C2720]/60">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-[#222225]/60">
           {METRICS.map((item, idx) => (
             <div
               key={item.label}
@@ -68,14 +68,14 @@ export default function MetricTicker() {
               }`}
             >
               <div>
-                <span className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#EB7D00] tracking-tight block">
+                <span className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#EDEAE4] tracking-tight block">
                   {item.number}
                 </span>
-                <span className="font-mono-tag text-xs font-bold text-[#FAF8F2] tracking-wider block mt-1 uppercase">
+                <span className="font-mono-tag text-xs font-bold text-[#FAFAFA] tracking-wider block mt-1 uppercase">
                   {item.label}
                 </span>
               </div>
-              <p className="font-mono-tag text-[11px] text-[#A39E91] mt-2 leading-relaxed">
+              <p className="font-mono-tag text-[11px] text-[#8E8E93] mt-2 leading-relaxed">
                 {item.sub}
               </p>
             </div>

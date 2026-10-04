@@ -9,13 +9,16 @@ const config: Config = {
     extend: {
       colors: {
         portfolio: {
-          bg: '#14120E',
-          green: '#1D241F',
-          orange: '#EB7D00',
-          vanilla: '#F3EBD8',
-          text: '#FAF8F2',
-          muted: '#A39E91',
-          border: '#2C2720',
+          bg: '#0A0A0A',
+          green: '#141416',
+          surface: '#141416',
+          orange: '#EDEAE4',
+          accent: '#FFFFFF',
+          chalk: '#EDEAE4',
+          vanilla: '#EDEAE4',
+          text: '#FAFAFA',
+          muted: '#8E8E93',
+          border: '#222225',
         },
       },
       fontFamily: {

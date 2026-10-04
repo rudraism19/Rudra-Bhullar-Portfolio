@@ -12,23 +12,23 @@ export default function ProjectShowcase() {
   return (
     <section
       id="work"
-      className="relative py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#2C2720]/80"
+      className="relative py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#222225]/80"
     >
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#2C2720]/60 mb-12">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#222225]/60 mb-12">
         <div>
-          <div className="flex items-center gap-2 font-mono-tag text-xs text-[#EB7D00] uppercase tracking-widest mb-3">
+          <div className="flex items-center gap-2 font-mono-tag text-xs text-[#EDEAE4] uppercase tracking-widest mb-3">
             <span className="font-bold">01 / SELECTED WORK</span>
-            <span className="text-[#2C2720]">—</span>
-            <span className="text-[#A39E91]">CASE STUDIES & PRODUCTION SYSTEMS</span>
+            <span className="text-[#222225]">—</span>
+            <span className="text-[#8E8E93]">CASE STUDIES & PRODUCTION SYSTEMS</span>
           </div>
 
-          <h2 className="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold uppercase tracking-tight text-[#FAF8F2]">
-            FEATURED <span className="text-[#EB7D00]">PROJECTS.</span>
+          <h2 className="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold uppercase tracking-tight text-[#FAFAFA]">
+            FEATURED <span className="text-[#EDEAE4]">PROJECTS.</span>
           </h2>
         </div>
 
-        <div className="max-w-md font-mono-tag text-xs text-[#A39E91] leading-relaxed">
+        <div className="max-w-md font-mono-tag text-xs text-[#8E8E93] leading-relaxed">
           <p>
             An editorial selection of full-stack platforms, multimodal AI systems, and low-latency tools engineered with an obsessive focus on performance and architectural clarity.
           </p>

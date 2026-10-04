@@ -17,7 +17,7 @@ export default function ProjectItem({ project, index, onSelectProject }: Project
 
   return (
     <article
-      className="py-16 md:py-24 border-b border-[#2C2720]/80 last:border-b-0 group"
+      className="py-16 md:py-24 border-b border-[#222225]/80 last:border-b-0 group"
       id={`project-${project.id}`}
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
@@ -28,23 +28,23 @@ export default function ProjectItem({ project, index, onSelectProject }: Project
           }`}
         >
           {/* Project Number & Category */}
-          <div className="flex items-center gap-4 mb-3 font-mono-tag text-xs tracking-widest text-[#A39E91]">
-            <span className="font-display text-4xl sm:text-5xl font-black text-[#EB7D00]/90">
+          <div className="flex items-center gap-4 mb-3 font-mono-tag text-xs tracking-widest text-[#8E8E93]">
+            <span className="font-display text-4xl sm:text-5xl font-black text-[#EDEAE4]/90">
               {project.number}
             </span>
-            <span className="text-[#2C2720] text-xl">/</span>
-            <span className="text-[#F3EBD8] uppercase font-semibold">
+            <span className="text-[#222225] text-xl">/</span>
+            <span className="text-[#EDEAE4] uppercase font-semibold">
               {project.category}
             </span>
           </div>
 
           {/* Project Title */}
-          <h3 className="font-display text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-[#FAF8F2] mb-4 group-hover:text-[#F3EBD8] transition-colors">
+          <h3 className="font-display text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-[#FAFAFA] mb-4 group-hover:text-[#EDEAE4] transition-colors">
             {project.name}
           </h3>
 
           {/* Project Description */}
-          <p className="text-base text-[#A39E91] leading-relaxed mb-6 font-normal">
+          <p className="text-base text-[#8E8E93] leading-relaxed mb-6 font-normal">
             {project.shortDesc}
           </p>
 
@@ -53,7 +53,7 @@ export default function ProjectItem({ project, index, onSelectProject }: Project
             {project.technologies.slice(0, 4).map((tech) => (
               <span
                 key={tech}
-                className="px-3 py-1 rounded-full border border-[#2C2720] bg-[#1D241F]/30 text-[#F3EBD8]"
+                className="px-3 py-1 rounded-full border border-[#222225] bg-[#141416]/30 text-[#EDEAE4]"
               >
                 {tech}
               </span>
@@ -67,7 +67,7 @@ export default function ProjectItem({ project, index, onSelectProject }: Project
               onClick={() => onSelectProject(project)}
             >
               <span>VIEW CASE STUDY</span>
-              <ArrowUpRight className="w-4 h-4 text-[#14120E]" />
+              <ArrowUpRight className="w-4 h-4 text-[#0A0A0A]" />
             </MagneticButton>
 
             <a
@@ -75,7 +75,7 @@ export default function ProjectItem({ project, index, onSelectProject }: Project
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`View ${project.name} GitHub Repository`}
-              className="p-3.5 rounded-full border border-[#2C2720] text-[#A39E91] hover:text-[#EB7D00] hover:border-[#EB7D00] transition-colors focus:outline-none"
+              className="p-3.5 rounded-full border border-[#222225] text-[#8E8E93] hover:text-[#EDEAE4] hover:border-[#EDEAE4] transition-colors focus:outline-none"
               data-cursor="pointer"
             >
               <Github className="w-4 h-4" />

@@ -104,7 +104,7 @@ export default function CustomCursor() {
       {/* Central precision dot */}
       <div
         ref={dotRef}
-        className={`fixed top-0 left-0 w-2 h-2 -ml-1 -mt-1 rounded-full bg-[#EB7D00] transition-opacity duration-150 ${
+        className={`fixed top-0 left-0 w-2 h-2 -ml-1 -mt-1 rounded-full bg-[#EDEAE4] transition-opacity duration-150 ${
           cursorState === 'view' ? 'opacity-0' : 'opacity-100'
         }`}
       />
@@ -114,10 +114,10 @@ export default function CustomCursor() {
         ref={ringRef}
         className={`fixed top-0 left-0 flex items-center justify-center -ml-5 -mt-5 transition-all duration-200 ease-out ${
           cursorState === 'view'
-            ? 'w-24 h-10 -ml-12 -mt-5 bg-[#EB7D00] text-[#14120E] font-mono-tag text-xs font-bold tracking-wider rounded-full'
+            ? 'w-24 h-10 -ml-12 -mt-5 bg-[#EDEAE4] text-[#0A0A0A] font-mono-tag text-xs font-bold tracking-wider rounded-full'
             : isHovered
-            ? 'w-12 h-12 -ml-6 -mt-6 rounded-full border border-[#EB7D00] bg-[#EB7D00]/10 scale-100'
-            : 'w-8 h-8 -ml-4 -mt-4 rounded-full border border-[#F3EBD8]/40 scale-75'
+            ? 'w-12 h-12 -ml-6 -mt-6 rounded-full border border-[#EDEAE4] bg-[#EDEAE4]/10 scale-100'
+            : 'w-8 h-8 -ml-4 -mt-4 rounded-full border border-[#EDEAE4]/40 scale-75'
         }`}
       >
         {cursorState === 'view' && <span>VIEW →</span>}

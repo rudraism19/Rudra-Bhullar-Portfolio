@@ -73,7 +73,7 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? 'translate-y-0 opacity-100 py-3.5 bg-[#14120E]/95 backdrop-blur-md border-b border-[#2C2720]'
+            ? 'translate-y-0 opacity-100 py-3.5 bg-[#0A0A0A]/95 backdrop-blur-md border-b border-[#222225]'
             : '-translate-y-full opacity-0 pointer-events-none'
         }`}
       >
@@ -86,10 +86,10 @@ export default function Navbar() {
             data-cursor="pointer"
           >
             <div className="flex flex-col">
-              <span className="font-display text-lg md:text-xl font-bold tracking-tight text-[#FAF8F2] group-hover:text-[#EB7D00] transition-colors">
+              <span className="font-display text-lg md:text-xl font-bold tracking-tight text-[#FAFAFA] group-hover:text-[#EDEAE4] transition-colors">
                 RUDRA BHULLAR
               </span>
-              <span className="font-mono-tag text-[10px] tracking-wider text-[#A39E91] group-hover:text-[#F3EBD8] transition-colors hidden sm:inline-block">
+              <span className="font-mono-tag text-[10px] tracking-wider text-[#8E8E93] group-hover:text-[#EDEAE4] transition-colors hidden sm:inline-block">
                 CSE • AI BUILDER • INDIA
               </span>
             </div>
@@ -107,14 +107,14 @@ export default function Navbar() {
                       onClick={(e) => scrollToSection(e, item.href)}
                       className={`relative font-mono-tag text-xs tracking-widest uppercase py-1 transition-colors duration-200 ${
                         isActive
-                          ? 'text-[#EB7D00] font-bold'
-                          : 'text-[#A39E91] hover:text-[#F3EBD8]'
+                          ? 'text-[#EDEAE4] font-bold'
+                          : 'text-[#8E8E93] hover:text-[#EDEAE4]'
                       }`}
                       data-cursor="pointer"
                     >
                       {item.label}
                       {isActive && (
-                        <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#EB7D00] rounded-full" />
+                        <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#EDEAE4] rounded-full" />
                       )}
                     </a>
                   </li>
@@ -126,7 +126,7 @@ export default function Navbar() {
             <a
               href="#contact"
               onClick={(e) => scrollToSection(e, '#contact')}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-[#2C2720] bg-[#1D241F]/40 text-[#F3EBD8] hover:border-[#EB7D00] hover:text-[#EB7D00] transition-all text-xs font-mono-tag"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-[#222225] bg-[#141416]/40 text-[#EDEAE4] hover:border-[#EDEAE4] hover:text-[#EDEAE4] transition-all text-xs font-mono-tag"
               data-cursor="pointer"
             >
               <span>CONNECT</span>
@@ -138,7 +138,7 @@ export default function Navbar() {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
-            className="md:hidden p-2 rounded-lg text-[#FAF8F2] hover:text-[#EB7D00] border border-[#2C2720] bg-[#14120E]/80 focus:outline-none"
+            className="md:hidden p-2 rounded-lg text-[#FAFAFA] hover:text-[#EDEAE4] border border-[#222225] bg-[#0A0A0A]/80 focus:outline-none"
             data-cursor="pointer"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -148,17 +148,17 @@ export default function Navbar() {
 
       {/* Navigation Drawer Menu (Mobile & Desktop) */}
       <div
-        className={`fixed inset-0 z-50 bg-[#14120E]/95 backdrop-blur-xl p-8 sm:p-12 md:p-16 flex flex-col justify-between transition-transform duration-500 ease-[cubic-bezier(0.85,0,0.15,1)] ${
+        className={`fixed inset-0 z-50 bg-[#0A0A0A]/95 backdrop-blur-xl p-8 sm:p-12 md:p-16 flex flex-col justify-between transition-transform duration-500 ease-[cubic-bezier(0.85,0,0.15,1)] ${
           mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="flex items-center justify-between pb-6 border-b border-[#2C2720]">
-          <p className="font-mono-tag text-xs text-[#EB7D00] tracking-widest uppercase">
+        <div className="flex items-center justify-between pb-6 border-b border-[#222225]">
+          <p className="font-mono-tag text-xs text-[#EDEAE4] tracking-widest uppercase">
             NAVIGATION INDEX // 2026
           </p>
           <button
             onClick={() => setMobileMenuOpen(false)}
-            className="p-2 rounded-lg text-[#FAF8F2] hover:text-[#EB7D00] border border-[#2C2720] hover:border-[#EB7D00] transition-colors font-mono text-xs flex items-center gap-1.5"
+            className="p-2 rounded-lg text-[#FAFAFA] hover:text-[#EDEAE4] border border-[#222225] hover:border-[#EDEAE4] transition-colors font-mono text-xs flex items-center gap-1.5"
             data-cursor="pointer"
           >
             <X className="w-4 h-4" />
@@ -169,16 +169,16 @@ export default function Navbar() {
         <div className="my-auto py-8">
           <ul className="flex flex-col gap-5 max-w-xl">
             {NAV_ITEMS.map((item, idx) => (
-              <li key={item.label} className="border-b border-[#2C2720]/40 pb-3">
+              <li key={item.label} className="border-b border-[#222225]/40 pb-3">
                 <a
                   href={item.href}
                   onClick={(e) => scrollToSection(e, item.href)}
-                  className="flex items-center justify-between text-2xl sm:text-3xl md:text-4xl font-display font-bold text-[#FAF8F2] hover:text-[#EB7D00] transition-colors group"
+                  className="flex items-center justify-between text-2xl sm:text-3xl md:text-4xl font-display font-bold text-[#FAFAFA] hover:text-[#EDEAE4] transition-colors group"
                 >
                   <span className="group-hover:translate-x-2 transition-transform duration-200">
                     {item.label}
                   </span>
-                  <span className="font-mono-tag text-xs sm:text-sm text-[#A39E91] group-hover:text-[#EB7D00]">
+                  <span className="font-mono-tag text-xs sm:text-sm text-[#8E8E93] group-hover:text-[#EDEAE4]">
                     0{idx + 1}
                   </span>
                 </a>
@@ -187,19 +187,19 @@ export default function Navbar() {
           </ul>
         </div>
 
-        <div className="border-t border-[#2C2720] pt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono-tag text-xs text-[#A39E91]">
+        <div className="border-t border-[#222225] pt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono-tag text-xs text-[#8E8E93]">
           <div>
-            <p className="text-[#F3EBD8] font-semibold mb-1">RUDRA BHULLAR</p>
+            <p className="text-[#EDEAE4] font-semibold mb-1">RUDRA BHULLAR</p>
             <p>Creative Technologist × AI Engineer</p>
           </div>
           <div>
             <a
               href="mailto:rudraism19@gmail.com"
-              className="text-[#EB7D00] hover:underline"
+              className="text-[#EDEAE4] hover:underline"
             >
               rudraism19@gmail.com
             </a>
-            <p className="text-[#A39E91] text-[11px] mt-0.5">Based in India • IST</p>
+            <p className="text-[#8E8E93] text-[11px] mt-0.5">Based in India • IST</p>
           </div>
         </div>
       </div>
