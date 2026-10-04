@@ -38,8 +38,17 @@ export default function Navbar() {
       }
     };
 
+    const handleToggleMenu = () => {
+      setMobileMenuOpen((prev) => !prev);
+    };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('toggle-nav-menu', handleToggleMenu);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('toggle-nav-menu', handleToggleMenu);
+    };
   }, []);
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -62,10 +71,10 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-200 ${
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? 'py-3.5 bg-[#14120E] border-b border-[#2C2720]'
-            : 'py-6 bg-transparent border-b border-transparent'
+            ? 'translate-y-0 opacity-100 py-3.5 bg-[#14120E]/95 backdrop-blur-md border-b border-[#2C2720]'
+            : '-translate-y-full opacity-0 pointer-events-none'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
@@ -137,26 +146,39 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Mobile Drawer Menu */}
+      {/* Navigation Drawer Menu (Mobile & Desktop) */}
       <div
-        className={`fixed inset-0 z-30 bg-[#14120E] p-8 pt-28 flex flex-col justify-between transition-transform duration-500 ease-[cubic-bezier(0.85,0,0.15,1)] md:hidden ${
+        className={`fixed inset-0 z-50 bg-[#14120E]/95 backdrop-blur-xl p-8 sm:p-12 md:p-16 flex flex-col justify-between transition-transform duration-500 ease-[cubic-bezier(0.85,0,0.15,1)] ${
           mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="flex flex-col gap-6">
+        <div className="flex items-center justify-between pb-6 border-b border-[#2C2720]">
           <p className="font-mono-tag text-xs text-[#EB7D00] tracking-widest uppercase">
-            NAVIGATION INDEX
+            NAVIGATION INDEX // 2026
           </p>
-          <ul className="flex flex-col gap-4">
+          <button
+            onClick={() => setMobileMenuOpen(false)}
+            className="p-2 rounded-lg text-[#FAF8F2] hover:text-[#EB7D00] border border-[#2C2720] hover:border-[#EB7D00] transition-colors font-mono text-xs flex items-center gap-1.5"
+            data-cursor="pointer"
+          >
+            <X className="w-4 h-4" />
+            <span>CLOSE</span>
+          </button>
+        </div>
+
+        <div className="my-auto py-8">
+          <ul className="flex flex-col gap-5 max-w-xl">
             {NAV_ITEMS.map((item, idx) => (
-              <li key={item.label} className="border-b border-[#2C2720]/50 pb-3">
+              <li key={item.label} className="border-b border-[#2C2720]/40 pb-3">
                 <a
                   href={item.href}
                   onClick={(e) => scrollToSection(e, item.href)}
-                  className="flex items-center justify-between text-2xl font-display font-semibold text-[#FAF8F2] hover:text-[#EB7D00] transition-colors"
+                  className="flex items-center justify-between text-2xl sm:text-3xl md:text-4xl font-display font-bold text-[#FAF8F2] hover:text-[#EB7D00] transition-colors group"
                 >
-                  <span>{item.label}</span>
-                  <span className="font-mono-tag text-xs text-[#A39E91]">
+                  <span className="group-hover:translate-x-2 transition-transform duration-200">
+                    {item.label}
+                  </span>
+                  <span className="font-mono-tag text-xs sm:text-sm text-[#A39E91] group-hover:text-[#EB7D00]">
                     0{idx + 1}
                   </span>
                 </a>
@@ -165,10 +187,20 @@ export default function Navbar() {
           </ul>
         </div>
 
-        <div className="border-t border-[#2C2720] pt-6 font-mono-tag text-xs text-[#A39E91]">
-          <p className="text-[#F3EBD8] font-semibold mb-1">RUDRA BHULLAR</p>
-          <p>Creative Technologist × AI Engineer</p>
-          <p className="mt-2 text-[#EB7D00]">rudraism19@gmail.com</p>
+        <div className="border-t border-[#2C2720] pt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono-tag text-xs text-[#A39E91]">
+          <div>
+            <p className="text-[#F3EBD8] font-semibold mb-1">RUDRA BHULLAR</p>
+            <p>Creative Technologist × AI Engineer</p>
+          </div>
+          <div>
+            <a
+              href="mailto:rudraism19@gmail.com"
+              className="text-[#EB7D00] hover:underline"
+            >
+              rudraism19@gmail.com
+            </a>
+            <p className="text-[#A39E91] text-[11px] mt-0.5">Based in India • IST</p>
+          </div>
         </div>
       </div>
     </>

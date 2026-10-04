@@ -19,6 +19,7 @@ const config: Config = {
         },
       },
       fontFamily: {
+        headline: ['"Anton"', '"Bebas Neue"', 'Impact', 'sans-serif'],
         editorial: ['"Syne"', 'Georgia', 'serif'],
         sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],

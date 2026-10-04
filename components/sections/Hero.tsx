@@ -1,13 +1,45 @@
 'use client';
 
-import React from 'react';
-import HeroShader from '@/components/ui/HeroShader';
-import MagneticButton from '@/components/ui/MagneticButton';
-import { ArrowDownRight, Sparkles, Terminal, Cpu } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Github, Linkedin, Twitter, Mail, Menu } from 'lucide-react';
 
-const TAGS = ['AI', 'WEB', 'JAVA', 'DSA', 'CREATIVE TECH'];
+const FOCUS_AREAS = [
+  'Full-Stack Systems',
+  'Multimodal AI & RAG',
+  'Distributed Architecture',
+  'Java & DSA Rigor',
+  'Creative Engineering',
+];
+
+const SOCIAL_LINKS = [
+  { name: 'GitHub', href: 'https://github.com/rudrabhullar', icon: Github },
+  { name: 'LinkedIn', href: 'https://linkedin.com/in/rudra-bhullar', icon: Linkedin },
+  { name: 'X / Twitter', href: 'https://x.com/rudrabhullar', icon: Twitter },
+  { name: 'Email', href: 'mailto:rudrabhullar19@gmail.com', icon: Mail },
+];
 
 export default function Hero() {
+  const [time, setTime] = useState<string>('');
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      setTime(
+        now.toLocaleTimeString('en-US', {
+          timeZone: 'Asia/Kolkata',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: true,
+        }) + ' IST'
+      );
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   const scrollTo = (targetId: string) => {
     const el = document.getElementById(targetId);
     if (el) {
@@ -23,106 +55,164 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[95vh] flex flex-col justify-between pt-28 md:pt-36 pb-16 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden"
+      className="relative w-full px-3 sm:px-6 lg:px-8 pt-3 sm:pt-5 pb-8 max-w-[1680px] mx-auto overflow-hidden bg-[#14120E]"
     >
-      {/* Top Editorial Metadata Banner */}
-      <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[#2C2720]/80 font-mono-tag text-xs text-[#A39E91]">
-        <div className="flex items-center gap-3">
-          <span className="w-2 h-2 rounded-full bg-[#EB7D00] inline-block animate-pulse" />
-          <span className="text-[#F3EBD8] tracking-wider font-semibold">PORTFOLIO EDITION // 2026</span>
-          <span className="hidden sm:inline text-[#2C2720]">|</span>
-          <span className="hidden sm:inline">BASED IN INDIA</span>
-        </div>
+      {/* Editorial Orange Canvas Block */}
+      <div className="relative w-full rounded-[26px] sm:rounded-[36px] md:rounded-[42px] bg-[#EB7D00] overflow-hidden min-h-[92vh] sm:min-h-[94vh] lg:min-h-[96vh] flex flex-col justify-between shadow-2xl border border-[#EB7D00]/40">
+        
+        {/* Subtle Ambient Radial Highlight */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_25%,_rgba(255,160,30,0.35),_transparent_65%)] pointer-events-none" />
 
-        <div className="flex items-center gap-4 text-[11px] tracking-widest text-[#A39E91]">
-          <span className="flex items-center gap-1.5">
-            <Cpu className="w-3.5 h-3.5 text-[#EB7D00]" />
-            SYSTEM ARCHITECTURE & INTELLIGENCE
-          </span>
-        </div>
-      </div>
-
-      {/* Main Asymmetric Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center my-auto py-8">
-        {/* Left Column: Bold Editorial Typography & Narrative (7 cols) */}
-        <div className="lg:col-span-7 xl:col-span-7 flex flex-col justify-center pr-0 lg:pr-6">
-          {/* Subtitle tag */}
-          <div className="inline-flex items-center gap-2 mb-4">
-            <span className="font-mono-tag text-xs tracking-widest uppercase text-[#EB7D00] font-bold">
-              RUDRA BHULLAR
+        {/* 1. TOP EDITORIAL BAR (z-30) */}
+        <header className="relative px-6 sm:px-10 md:px-14 pt-6 sm:pt-8 flex items-center justify-between z-30">
+          {/* Based In Location */}
+          <div className="flex flex-col text-left">
+            <span className="font-mono text-[10px] sm:text-xs uppercase tracking-wider text-[#14120E]/70 font-bold">
+              Based in:
             </span>
-            <span className="text-[#2C2720] font-mono-tag">/</span>
-            <span className="font-mono-tag text-xs tracking-widest text-[#A39E91]">
-              CREATIVE TECHNOLOGIST × AI ENGINEER
+            <span className="font-sans text-xs sm:text-sm font-extrabold tracking-tight text-[#14120E]">
+              Punjab, India
             </span>
           </div>
 
-          {/* Large Bold Display Typography with no-overflow responsive scaling */}
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[3.2rem] xl:text-[4rem] font-extrabold uppercase tracking-tight leading-[0.96] text-[#FAF8F2] mb-6">
-            I BUILD <br />
-            <span className="text-[#F3EBD8]">DIGITAL</span> <br />
-            EXPERIENCES.
-          </h1>
-
-          {/* Supporting Text */}
-          <p className="text-base sm:text-lg md:text-xl text-[#A39E91] font-normal max-w-xl leading-relaxed mb-8">
-            Computer Science Engineering student building AI-powered products,
-            high-performance web systems, and experimental technology that bridges algorithms with human intent.
-          </p>
-
-          {/* Skill Tag Badges */}
-          <div className="flex flex-wrap items-center gap-2.5 mb-10">
-            {TAGS.map((tag) => (
-              <span
-                key={tag}
-                className="px-3.5 py-1.5 rounded-full border border-[#2C2720] bg-[#1D241F]/30 text-[#F3EBD8] text-xs font-mono-tag tracking-wider hover:border-[#EB7D00] hover:text-[#EB7D00] transition-colors"
-              >
-                #{tag}
-              </span>
-            ))}
+          {/* Live Indian Standard Time (IST) */}
+          <div className="hidden sm:flex flex-col items-center text-center">
+            <span className="font-mono text-[10px] sm:text-xs uppercase tracking-wider text-[#14120E]/70 font-bold">
+              Local Time
+            </span>
+            <span className="font-mono text-xs sm:text-sm font-bold tracking-tight text-[#14120E]">
+              {time || '11:45:00 PM IST'}
+            </span>
           </div>
 
-          {/* CTAs */}
-          <div className="flex flex-wrap items-center gap-4">
-            <MagneticButton
-              variant="primary"
+          {/* Header Action Buttons */}
+          <div className="flex items-center gap-3">
+            <button
               onClick={() => scrollTo('work')}
+              className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-[#14120E]/30 bg-[#14120E]/5 hover:bg-[#14120E] hover:text-[#FAF8F2] text-xs font-mono font-bold uppercase tracking-wider transition-all"
+              data-cursor="pointer"
             >
-              <span>VIEW MY WORK</span>
-              <ArrowDownRight className="w-4 h-4 text-[#14120E]" />
-            </MagneticButton>
+              <span>Explore Work</span>
+              <span>↓</span>
+            </button>
+            <button
+              onClick={() => {
+                if (typeof window !== 'undefined') {
+                  window.dispatchEvent(new CustomEvent('toggle-nav-menu'));
+                }
+              }}
+              className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-lg border border-[#14120E] bg-[#14120E] text-[#FAF8F2] hover:bg-[#FAF8F2] hover:text-[#14120E] text-xs font-mono font-bold uppercase tracking-wider transition-all shadow-md group"
+              data-cursor="pointer"
+              aria-label="Toggle navigation menu"
+            >
+              <Menu className="w-3.5 h-3.5" />
+              <span>Menu</span>
+            </button>
+          </div>
+        </header>
 
-            <MagneticButton
-              variant="outline"
-              onClick={() => scrollTo('contact')}
+        {/* 2. GIANT CONDENSED DISPLAY TYPOGRAPHY (z-10) */}
+        <div className="absolute top-[48%] -translate-y-1/2 left-6 sm:left-10 md:left-14 lg:left-16 z-10 pointer-events-none select-none flex flex-col leading-[0.8] tracking-tighter">
+          <h1 className="flex flex-col select-none">
+            <span className="font-headline text-[22vw] sm:text-[18vw] lg:text-[14.5vw] xl:text-[195px] font-black uppercase text-[#14120E] leading-[0.8] tracking-tight">
+              RUDRA
+            </span>
+            <span className="font-headline text-[22vw] sm:text-[18vw] lg:text-[14.5vw] xl:text-[195px] font-black uppercase text-[#14120E] leading-[0.8] tracking-tight">
+              BHULLAR
+            </span>
+          </h1>
+        </div>
+
+        {/* 3. PORTRAIT SILHOUETTE CUTOUT (z-20) */}
+        <div className="absolute bottom-0 left-[34%] sm:left-[36%] md:left-[38%] lg:left-[42%] translate-x-[-15%] sm:translate-x-0 z-20 pointer-events-none select-none flex items-end justify-center">
+          <img
+            src="/rudra-hero-cropped.png"
+            alt="Rudra Bhullar - Creative Technologist & AI Engineer"
+            className="h-[58vh] sm:h-[68vh] md:h-[75vh] lg:h-[82vh] xl:h-[88vh] max-h-[860px] w-auto object-contain object-bottom filter drop-shadow-[0_25px_45px_rgba(0,0,0,0.65)]"
+          />
+        </div>
+
+        {/* 4. RIGHT COLUMN: SPECIALIZATION / SERVICES (z-30) */}
+        <div className="absolute top-[46%] -translate-y-1/2 right-6 sm:right-10 md:right-14 lg:right-16 z-30 hidden md:flex flex-col text-left max-w-[210px] lg:max-w-[250px]">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="w-2 h-2 rounded-full bg-[#14120E]" />
+            <span className="font-mono text-xs font-bold tracking-widest uppercase text-[#14120E]">
+              SPECIALIZATION
+            </span>
+          </div>
+          <ul className="space-y-2.5 text-[#14120E]/90 font-sans font-bold text-sm lg:text-[15px] leading-snug">
+            {FOCUS_AREAS.map((item) => (
+              <li
+                key={item}
+                className="transition-transform duration-200 hover:translate-x-1.5 cursor-default flex items-center gap-1.5"
+              >
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* 5. ORGANIC CURVED BOTTOM BASELINE DIVIDER (z-15) */}
+        <div className="absolute bottom-0 right-0 w-full h-[140px] sm:h-[180px] md:h-[220px] pointer-events-none z-15 overflow-hidden">
+          <svg
+            viewBox="0 0 1440 220"
+            preserveAspectRatio="none"
+            className="w-full h-full"
+          >
+            <path
+              d="M 520,220 C 640,220 680,100 820,100 L 1440,100 L 1440,220 Z"
+              fill="#14120E"
+            />
+          </svg>
+        </div>
+
+        {/* 6. BOTTOM ROW: EDITORIAL BIO + SOCIALS (LEFT) & CTA BUTTON (RIGHT) (z-30) */}
+        <div className="relative px-6 sm:px-10 md:px-14 pb-6 sm:pb-8 md:pb-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 z-30 mt-auto">
+          {/* Left: Bio statement & Social icon links */}
+          <div className="max-w-xs sm:max-w-sm md:max-w-md">
+            <p className="font-sans text-xs sm:text-sm text-[#14120E]/95 leading-relaxed font-bold mb-3 sm:mb-4">
+              Building intelligent AI systems, robust full-stack architectures,
+              and expressive digital experiences with engineering discipline.
+            </p>
+            <div className="flex items-center gap-2">
+              {SOCIAL_LINKS.map((link) => {
+                const Icon = link.icon;
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={link.name}
+                    className="w-8 h-8 sm:w-9 sm:h-9 rounded-md bg-[#14120E] text-[#EB7D00] hover:bg-[#FAF8F2] hover:text-[#14120E] flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-sm"
+                    data-cursor="pointer"
+                  >
+                    <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Right: Bold CTA Button on the dark foundation */}
+          <div className="w-full sm:w-auto">
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollTo('contact');
+              }}
+              className="inline-flex items-center justify-between sm:justify-start gap-3 w-full sm:w-auto px-5 sm:px-6 py-3 sm:py-3.5 rounded-lg bg-[#EB7D00] text-[#14120E] border border-[#14120E]/20 hover:bg-[#FAF8F2] hover:text-[#14120E] font-mono text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-300 shadow-xl hover:scale-105 active:scale-95 group"
+              data-cursor="pointer"
             >
-              <span>LET&apos;S CONNECT</span>
-            </MagneticButton>
+              <span>START A PROJECT</span>
+              <span className="w-5 h-5 rounded bg-[#14120E] text-[#EB7D00] group-hover:bg-[#14120E] group-hover:text-[#FAF8F2] flex items-center justify-center text-xs transition-colors">
+                →
+              </span>
+            </a>
           </div>
         </div>
 
-        {/* Right Column: WebGL Interactive Shader Visual (5 cols) */}
-        <div className="lg:col-span-5 relative flex items-center justify-center">
-          <div className="w-full relative">
-            <HeroShader />
-          </div>
-        </div>
-      </div>
-
-      {/* Hero Footer Strip / Editorial Details */}
-      <div className="pt-6 border-t border-[#2C2720]/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono-tag text-xs text-[#A39E91]">
-        <div className="flex items-center gap-2">
-          <Terminal className="w-3.5 h-3.5 text-[#EB7D00]" />
-          <span>CORE FOCUS: SCALABLE ARCHITECTURES × GENERATIVE AI × GRAPHIC DISCIPLINE</span>
-        </div>
-
-        <button
-          onClick={() => scrollTo('about')}
-          className="flex items-center gap-2 text-[#F3EBD8] hover:text-[#EB7D00] transition-colors group"
-        >
-          <span>EXPLORE PROFILE</span>
-          <span className="text-[#EB7D00] group-hover:translate-y-0.5 transition-transform">↓</span>
-        </button>
       </div>
     </section>
   );
