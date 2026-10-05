@@ -1,13 +1,12 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://rudra-bhullar.vercel.app';
-  const currentDate = new Date();
+  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://rudra-bhullar.vercel.app').replace(/\/+$/, '');
 
   return [
     {
-      url: baseUrl,
-      lastModified: currentDate,
+      url: `${baseUrl}/`,
+      lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1.0,
     },
