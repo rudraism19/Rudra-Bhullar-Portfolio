@@ -20,8 +20,11 @@ const SOCIAL_LINKS = [
 
 export default function Hero() {
   const [time, setTime] = useState<string>('');
+  const [scrollY, setScrollY] = useState<number>(0);
+  const [mousePos, setMousePos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
 
   useEffect(() => {
+    // 1. Live IST clock
     const updateTime = () => {
       const now = new Date();
       setTime(
@@ -37,8 +40,36 @@ export default function Hero() {
 
     updateTime();
     const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
+
+    // 2. Smooth Scroll Parallax tracking (within hero range)
+    const handleScroll = () => {
+      if (window.scrollY <= 1400) {
+        setScrollY(window.scrollY);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+    const { clientX, clientY, currentTarget } = e;
+    const { left, top, width, height } = currentTarget.getBoundingClientRect();
+    const x = ((clientX - left) / width - 0.5) * 2;
+    const y = ((clientY - top) / height - 0.5) * 2;
+    setMousePos({ x, y });
+  };
+
+  const handleMouseLeave = () => {
+    setMousePos({ x: 0, y: 0 });
+  };
 
   const scrollTo = (targetId: string) => {
     const el = document.getElementById(targetId);
@@ -58,10 +89,23 @@ export default function Hero() {
       className="relative w-full px-3 sm:px-6 lg:px-8 pt-3 sm:pt-5 pb-8 max-w-[1680px] mx-auto overflow-hidden bg-[#0A0A0A]"
     >
       {/* Editorial Titanium Architectural Limestone Canvas Block */}
-      <div className="relative w-full rounded-[26px] sm:rounded-[36px] md:rounded-[42px] bg-[#EDEAE4] overflow-hidden min-h-[92vh] sm:min-h-[94vh] lg:min-h-[96vh] flex flex-col justify-between shadow-2xl border border-[#EDEAE4]/40">
+      <div
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        className="relative w-full rounded-[26px] sm:rounded-[36px] md:rounded-[42px] bg-[#EDEAE4] overflow-hidden min-h-[92vh] sm:min-h-[94vh] lg:min-h-[96vh] flex flex-col justify-between shadow-2xl border border-[#EDEAE4]/40 transition-colors duration-500"
+      >
         
         {/* Subtle Ambient Specular Lighting */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_25%,_rgba(255,255,255,0.7),_transparent_65%)] pointer-events-none" />
+
+        {/* Fine Editorial Grid Watermark Lines */}
+        <div 
+          className="absolute inset-0 pointer-events-none opacity-[0.04]"
+          style={{
+            backgroundImage: `linear-gradient(to right, #0A0A0A 1px, transparent 1px), linear-gradient(to bottom, #0A0A0A 1px, transparent 1px)`,
+            backgroundSize: '48px 48px'
+          }}
+        />
 
         {/* 1. TOP EDITORIAL BAR (z-30) */}
         <header className="relative px-6 sm:px-10 md:px-14 pt-6 sm:pt-8 flex items-center justify-between z-30">
@@ -111,8 +155,15 @@ export default function Hero() {
           </div>
         </header>
 
-        {/* 2. GIANT CONDENSED DISPLAY TYPOGRAPHY (z-10) */}
-        <div className="absolute top-[48%] -translate-y-1/2 left-6 sm:left-10 md:left-14 lg:left-16 z-10 pointer-events-none select-none flex flex-col leading-[0.8] tracking-tighter">
+        {/* 2. GIANT CONDENSED DISPLAY TYPOGRAPHY WITH 3D PARALLAX (z-10) */}
+        <div 
+          style={{
+            transform: `translate3d(${-mousePos.x * 8}px, ${-scrollY * 0.12 - mousePos.y * 6}px, 0)`,
+            transition: 'transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1)',
+            willChange: 'transform',
+          }}
+          className="absolute top-[48%] -translate-y-1/2 left-6 sm:left-10 md:left-14 lg:left-16 z-10 pointer-events-none select-none flex flex-col leading-[0.8] tracking-tighter"
+        >
           <h1 className="flex flex-col select-none">
             <span className="font-headline text-[22vw] sm:text-[18vw] lg:text-[14.5vw] xl:text-[195px] font-black uppercase text-[#0A0A0A] leading-[0.8] tracking-tight">
               RUDRA
@@ -123,12 +174,20 @@ export default function Hero() {
           </h1>
         </div>
 
-        {/* 3. PORTRAIT SILHOUETTE CUTOUT (z-20) */}
-        <div className="absolute bottom-0 left-[34%] sm:left-[36%] md:left-[38%] lg:left-[42%] translate-x-[-15%] sm:translate-x-0 z-20 pointer-events-none select-none flex items-end justify-center">
+        {/* 3. PORTRAIT SILHOUETTE CUTOUT WITH 3D DEPTH PARALLAX (z-20) */}
+        <div 
+          style={{
+            transform: `translate3d(${mousePos.x * 12}px, ${scrollY * 0.22 + mousePos.y * 8}px, 0) scale(${Math.max(0.92, 1 - scrollY * 0.00025)})`,
+            transition: 'transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1)',
+            willChange: 'transform',
+          }}
+          className="absolute bottom-0 left-[34%] sm:left-[36%] md:left-[38%] lg:left-[43%] translate-x-[-15%] sm:translate-x-0 z-20 pointer-events-none select-none flex items-end justify-center"
+        >
+          {/* Crisp HD Cutout Image (Scaled cleanly so zero pixelation occurs) */}
           <img
-            src="/rudra-hero-cropped.png"
+            src="/rudra-hero-hd.png"
             alt="Rudra Bhullar - Creative Technologist & AI Engineer"
-            className="h-[58vh] sm:h-[68vh] md:h-[75vh] lg:h-[82vh] xl:h-[88vh] max-h-[860px] w-auto object-contain object-bottom filter drop-shadow-[0_25px_45px_rgba(0,0,0,0.5)]"
+            className="h-[46vh] sm:h-[52vh] md:h-[58vh] lg:h-[64vh] xl:h-[68vh] max-h-[580px] w-auto object-contain object-bottom filter drop-shadow-[0_20px_35px_rgba(0,0,0,0.38)]"
           />
         </div>
 
