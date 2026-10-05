@@ -37,7 +37,7 @@ export default function Contact() {
       {/* Section Tag */}
       <div className="flex flex-wrap items-center justify-between gap-3 pb-8 mb-12 border-b border-[#222225]/60 font-mono-tag text-xs text-[#8E8E93]">
         <div className="flex items-center gap-2">
-          <span className="text-[#EDEAE4] font-bold">06 / INQUIRY & DISCOURSE</span>
+          <span className="text-[#EDEAE4] font-bold">07 / INQUIRY & DISCOURSE</span>
           <span className="text-[#222225]">—</span>
           <span>GET IN TOUCH</span>
         </div>

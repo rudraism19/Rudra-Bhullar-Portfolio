@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Trophy, Code2, Cpu, Cloud, CheckCircle2 } from 'lucide-react';
 
 interface Milestone {
   phase: string;
@@ -63,29 +62,6 @@ const MILESTONES: Milestone[] = [
   },
 ];
 
-const ACHIEVEMENTS = [
-  {
-    icon: Trophy,
-    title: '5+ National Hackathons',
-    desc: 'Podium and finalist recognitions for shipping high-velocity civic tech and healthcare solutions within 36-hour sprint windows.',
-  },
-  {
-    icon: Cpu,
-    title: 'Gemini API & React Integration',
-    desc: 'Architected real-world multimodal AI platforms leveraging Google AI Studio, Gemini 1.5, and low-latency audio pipelines.',
-  },
-  {
-    icon: Code2,
-    title: '500+ DSA Problems Solved',
-    desc: 'Rigorous algorithmic foundation across Java and C++, emphasizing asymptotic efficiency, tree traversals, and dynamic programming.',
-  },
-  {
-    icon: Cloud,
-    title: 'Google Cloud & AI Practitioner',
-    desc: 'Certified foundational proficiency across Google Cloud infrastructure, vector embeddings, and containerized deployments.',
-  },
-];
-
 export default function Timeline() {
   return (
     <section
@@ -96,9 +72,9 @@ export default function Timeline() {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#222225] mb-16">
         <div>
           <div className="flex flex-wrap items-center gap-2 font-mono-tag text-xs text-[#EDEAE4] uppercase tracking-widest mb-3">
-            <span className="font-bold">05 / TIMELINE &amp; ACHIEVEMENTS</span>
+            <span className="font-bold">06 / CHRONOLOGICAL EVOLUTION</span>
             <span className="text-[#222225]">—</span>
-            <span className="text-[#8E8E93]">VERIFIED TRACK RECORD</span>
+            <span className="text-[#8E8E93]">FIRST-PRINCIPLES TO PRODUCTION</span>
           </div>
 
           <h2 className="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold uppercase tracking-tight text-[#FAFAFA]">
@@ -110,48 +86,6 @@ export default function Timeline() {
           From first-principles theoretical computation to national hackathon podiums, multimodal AI deployments, and creative web engineering.
         </p>
       </div>
-
-      {/* Verified Key Achievements Strip */}
-      <div className="mb-20">
-        <p className="font-mono-tag text-xs uppercase tracking-widest text-[#EDEAE4] mb-6 font-semibold">
-          [ KEY ACHIEVEMENTS &amp; RECOGNITION ]
-        </p>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {ACHIEVEMENTS.map((item) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={item.title}
-                className="p-5 sm:p-6 rounded-xl border border-[#222225] bg-[#141416]/20 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="w-10 h-10 rounded-lg bg-[#0A0A0A] border border-[#EDEAE4] flex items-center justify-center text-[#EDEAE4] mb-4">
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <h3 className="font-display text-base sm:text-lg font-bold text-[#FAFAFA] mb-2 uppercase break-words">
-                    {item.title}
-                  </h3>
-                  <p className="font-mono-tag text-xs text-[#8E8E93] leading-relaxed break-words">
-                    {item.desc}
-                  </p>
-                </div>
-
-                <div className="mt-4 pt-4 border-t border-[#222225]/60 flex items-center gap-1.5 text-[11px] font-mono-tag text-[#EDEAE4]">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#EDEAE4]" />
-                  <span>VERIFIED RECORD</span>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Editorial Vertical Timeline */}
-      <div>
-        <p className="font-mono-tag text-xs uppercase tracking-widest text-[#EDEAE4] mb-8 font-semibold">
-          [ CHRONOLOGICAL EVOLUTION ]
-        </p>
 
         <div className="relative pl-6 md:pl-10 border-l border-[#222225] space-y-12">
           {MILESTONES.map((milestone) => (
@@ -186,7 +120,6 @@ export default function Timeline() {
             </div>
           ))}
         </div>
-      </div>
     </section>
   );
 }

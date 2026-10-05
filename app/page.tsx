@@ -9,6 +9,7 @@ import About from '@/components/sections/About';
 import ProjectShowcase from '@/components/sections/ProjectShowcase';
 import Skills from '@/components/sections/Skills';
 import Experiments from '@/components/sections/Experiments';
+import TrophyCabinet from '@/components/sections/TrophyCabinet';
 import Timeline from '@/components/sections/Timeline';
 import Contact from '@/components/sections/Contact';
 import Footer from '@/components/sections/Footer';
@@ -31,6 +32,7 @@ export default function Home() {
           <About />
           <Skills />
           <Experiments />
+          <TrophyCabinet />
           <Timeline />
           <Contact />
         </main>

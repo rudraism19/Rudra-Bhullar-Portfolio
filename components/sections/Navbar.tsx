@@ -7,7 +7,8 @@ const NAV_ITEMS = [
   { label: 'WORK', href: '#work' },
   { label: 'ABOUT', href: '#about' },
   { label: 'SKILLS', href: '#skills' },
-  { label: 'EXPERIMENTS', href: '#experiments' },
+  { label: 'LAB', href: '#experiments' },
+  { label: 'VAULT', href: '#trophies' },
   { label: 'JOURNEY', href: '#journey' },
   { label: 'CONTACT', href: '#contact' },
 ];
@@ -22,7 +23,7 @@ export default function Navbar() {
       setIsScrolled(window.scrollY > 40);
 
       // Detect active section
-      const sectionIds = ['hero', 'work', 'about', 'skills', 'experiments', 'journey', 'contact'];
+      const sectionIds = ['hero', 'work', 'about', 'skills', 'experiments', 'trophies', 'journey', 'contact'];
       const scrollPos = window.scrollY + 200;
 
       for (const id of sectionIds) {
