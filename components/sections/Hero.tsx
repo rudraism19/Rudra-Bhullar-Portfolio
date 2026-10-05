@@ -162,13 +162,13 @@ export default function Hero() {
             transition: 'transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1)',
             willChange: 'transform',
           }}
-          className="absolute top-[48%] -translate-y-1/2 left-6 sm:left-10 md:left-14 lg:left-16 z-10 pointer-events-none select-none flex flex-col leading-[0.8] tracking-tighter"
+          className="absolute top-20 sm:top-24 md:top-28 lg:top-32 left-6 sm:left-10 md:left-14 lg:left-16 z-10 pointer-events-none select-none flex flex-col leading-[0.82] tracking-tighter"
         >
           <h1 className="flex flex-col select-none">
-            <span className="font-headline text-[22vw] sm:text-[18vw] lg:text-[14.5vw] xl:text-[195px] font-black uppercase text-[#0A0A0A] leading-[0.8] tracking-tight">
+            <span className="font-headline text-[16vw] sm:text-[13vw] md:text-[11vw] lg:text-[9.5vw] xl:text-[135px] 2xl:text-[150px] font-black uppercase text-[#0A0A0A] leading-[0.82] tracking-tighter">
               RUDRA
             </span>
-            <span className="font-headline text-[22vw] sm:text-[18vw] lg:text-[14.5vw] xl:text-[195px] font-black uppercase text-[#0A0A0A] leading-[0.8] tracking-tight">
+            <span className="font-headline text-[16vw] sm:text-[13vw] md:text-[11vw] lg:text-[9.5vw] xl:text-[135px] 2xl:text-[150px] font-black uppercase text-[#0A0A0A] leading-[0.82] tracking-tighter">
               BHULLAR
             </span>
           </h1>
@@ -181,13 +181,13 @@ export default function Hero() {
             transition: 'transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1)',
             willChange: 'transform',
           }}
-          className="absolute bottom-0 left-[34%] sm:left-[36%] md:left-[38%] lg:left-[43%] translate-x-[-15%] sm:translate-x-0 z-20 pointer-events-none select-none flex items-end justify-center"
+          className="absolute bottom-0 left-[30%] sm:left-[34%] md:left-[38%] lg:left-[42%] translate-x-[-10%] sm:translate-x-0 z-20 pointer-events-none select-none flex items-end justify-center"
         >
-          {/* Crisp HD Cutout Image (Scaled cleanly so zero pixelation occurs) */}
+          {/* Crisp HD Cutout Image (Clean subtle shadow without dark box artifact) */}
           <img
             src="/rudra-hero-hd.png"
             alt="Rudra Bhullar - Creative Technologist & AI Engineer"
-            className="h-[46vh] sm:h-[52vh] md:h-[58vh] lg:h-[64vh] xl:h-[68vh] max-h-[580px] w-auto object-contain object-bottom filter drop-shadow-[0_20px_35px_rgba(0,0,0,0.38)]"
+            className="h-[48vh] sm:h-[54vh] md:h-[60vh] lg:h-[66vh] xl:h-[70vh] max-h-[600px] w-auto object-contain object-bottom filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.12)]"
           />
         </div>
 
