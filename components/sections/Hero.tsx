@@ -162,13 +162,13 @@ export default function Hero() {
             transition: 'transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1)',
             willChange: 'transform',
           }}
-          className="absolute top-20 sm:top-24 md:top-28 lg:top-32 left-6 sm:left-10 md:left-14 lg:left-16 z-10 pointer-events-none select-none flex flex-col leading-[0.82] tracking-tighter"
+          className="absolute top-20 sm:top-24 md:top-28 lg:top-32 left-6 sm:left-10 md:left-14 lg:left-16 z-10 pointer-events-none select-none flex flex-col"
         >
-          <h1 className="flex flex-col select-none">
-            <span className="font-headline text-[16vw] sm:text-[13vw] md:text-[11vw] lg:text-[9.5vw] xl:text-[135px] 2xl:text-[150px] font-black uppercase text-[#0A0A0A] leading-[0.82] tracking-tighter">
+          <h1 className="flex flex-col gap-1.5 sm:gap-2.5 select-none">
+            <span className="font-headline text-[15vw] sm:text-[12.5vw] md:text-[10.5vw] lg:text-[9vw] xl:text-[130px] 2xl:text-[142px] font-black uppercase text-[#0A0A0A] leading-[0.88] tracking-[0.02em]">
               RUDRA
             </span>
-            <span className="font-headline text-[16vw] sm:text-[13vw] md:text-[11vw] lg:text-[9.5vw] xl:text-[135px] 2xl:text-[150px] font-black uppercase text-[#0A0A0A] leading-[0.82] tracking-tighter">
+            <span className="font-headline text-[15vw] sm:text-[12.5vw] md:text-[10.5vw] lg:text-[9vw] xl:text-[130px] 2xl:text-[142px] font-black uppercase text-[#0A0A0A] leading-[0.88] tracking-[0.02em]">
               BHULLAR
             </span>
           </h1>
