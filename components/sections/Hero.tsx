@@ -221,7 +221,7 @@ export default function Hero() {
             transform: `translate3d(0, ${specsY}px, 0)`,
             transition: 'transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1)',
           }}
-          className="absolute top-[46%] -translate-y-1/2 right-6 sm:right-10 md:right-14 lg:right-16 z-30 hidden md:flex flex-col text-left max-w-[210px] lg:max-w-[250px]"
+          className="absolute top-[46%] -translate-y-1/2 right-6 sm:right-10 md:right-14 lg:right-16 z-30 hidden lg:flex flex-col text-left max-w-[210px] lg:max-w-[250px]"
         >
           <div className="flex items-center gap-2 mb-3">
             <span className="w-2 h-2 rounded-full bg-[#0A0A0A]" />
@@ -242,7 +242,7 @@ export default function Hero() {
         </div>
 
         {/* 5. ORGANIC CURVED BOTTOM BASELINE DIVIDER (z-15) */}
-        <div className="absolute bottom-0 right-0 w-full h-[140px] sm:h-[180px] md:h-[220px] pointer-events-none z-15 overflow-hidden">
+        <div className="absolute bottom-0 right-0 w-full h-[140px] sm:h-[180px] md:h-[220px] pointer-events-none z-15 overflow-hidden hidden md:block">
           <svg
             viewBox="0 0 1440 220"
             preserveAspectRatio="none"
@@ -259,7 +259,7 @@ export default function Hero() {
         <div className="relative px-6 sm:px-10 md:px-14 pb-6 sm:pb-8 md:pb-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 z-30 mt-auto">
           {/* Left: Bio statement & Social icon links */}
           <div className="max-w-xs sm:max-w-sm md:max-w-md">
-            <p className="font-sans text-xs sm:text-sm text-[#0A0A0A]/90 leading-relaxed font-bold mb-3 sm:mb-4">
+            <p className="font-sans text-xs sm:text-sm text-[#0A0A0A]/90 leading-relaxed font-bold mb-3 sm:mb-4 break-words">
               Building intelligent AI systems, robust full-stack architectures,
               and expressive digital experiences with engineering discipline.
             </p>
@@ -291,11 +291,11 @@ export default function Hero() {
                 e.preventDefault();
                 scrollTo('contact');
               }}
-              className="inline-flex items-center justify-between sm:justify-start gap-3 w-full sm:w-auto px-5 sm:px-6 py-3 sm:py-3.5 rounded-lg bg-[#EDEAE4] text-[#0A0A0A] border border-[#222225] hover:bg-[#FFFFFF] hover:text-[#0A0A0A] font-mono text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-300 shadow-xl hover:scale-105 active:scale-95 group"
+              className="inline-flex items-center justify-between sm:justify-start gap-3 w-full sm:w-auto px-5 sm:px-6 py-3 sm:py-3.5 rounded-lg bg-[#0A0A0A] text-[#FAFAFA] md:bg-[#EDEAE4] md:text-[#0A0A0A] border border-[#222225] hover:bg-[#141416] md:hover:bg-[#FFFFFF] md:hover:text-[#0A0A0A] font-mono text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-300 shadow-xl hover:scale-105 active:scale-95 group"
               data-cursor="pointer"
             >
               <span>START A PROJECT</span>
-              <span className="w-5 h-5 rounded bg-[#0A0A0A] text-[#EDEAE4] group-hover:bg-[#0A0A0A] group-hover:text-[#FFFFFF] flex items-center justify-center text-xs transition-colors">
+              <span className="w-5 h-5 rounded bg-[#FAFAFA] text-[#0A0A0A] md:bg-[#0A0A0A] md:text-[#EDEAE4] group-hover:bg-[#FFFFFF] group-hover:text-[#0A0A0A] flex items-center justify-center text-xs transition-colors">
                 →
               </span>
             </a>

@@ -93,7 +93,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
         {/* Header */}
         <div className="border-b border-[#222225] pb-6 mb-8">
-          <div className="flex items-center gap-3 font-mono-tag text-xs text-[#EDEAE4] mb-2 uppercase tracking-widest">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 font-mono-tag text-xs text-[#EDEAE4] mb-2 uppercase tracking-widest">
             <span>PROJECT {project.number}</span>
             <span>//</span>
             <span>{project.category}</span>
@@ -101,24 +101,24 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
           <h2
             id="modal-project-title"
-            className="font-display text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-[#FAFAFA]"
+            className="font-display text-2xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-[#FAFAFA] break-words pr-8 sm:pr-0"
           >
             {project.name}
           </h2>
 
-          <p className="text-[#8E8E93] text-base sm:text-lg mt-3 font-normal leading-relaxed">
+          <p className="text-[#8E8E93] text-sm sm:text-base md:text-lg mt-3 font-normal leading-relaxed break-words">
             {project.shortDesc}
           </p>
         </div>
 
         {/* Metrics Grid */}
-        <div className="grid grid-cols-3 gap-4 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-8">
           {project.metrics.map((m) => (
-            <div key={m.label} className="p-4 rounded-xl border border-[#222225] bg-[#141416]/30">
-              <span className="block font-display text-2xl sm:text-3xl font-bold text-[#EDEAE4]">
+            <div key={m.label} className="p-3.5 sm:p-4 rounded-xl border border-[#222225] bg-[#141416]/30">
+              <span className="block font-display text-xl sm:text-2xl lg:text-3xl font-bold text-[#EDEAE4]">
                 {m.value}
               </span>
-              <span className="font-mono-tag text-xs text-[#8E8E93] mt-1 block">
+              <span className="font-mono-tag text-[11px] sm:text-xs text-[#8E8E93] mt-1 block leading-tight break-words">
                 {m.label}
               </span>
             </div>
@@ -131,14 +131,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             <h3 className="font-mono-tag text-xs uppercase tracking-widest text-[#EDEAE4] mb-2">
               THE PROBLEM &amp; VISION
             </h3>
-            <p className="text-[#8E8E93]">{project.fullDesc}</p>
+            <p className="text-[#8E8E93] break-words">{project.fullDesc}</p>
           </div>
 
-          <div className="p-5 rounded-xl border border-[#222225] bg-[#0A0A0A]">
+          <div className="p-4 sm:p-5 rounded-xl border border-[#222225] bg-[#0A0A0A]">
             <h3 className="font-mono-tag text-xs uppercase tracking-widest text-[#EDEAE4] mb-2">
               SYSTEM ARCHITECTURE
             </h3>
-            <p className="font-mono-tag text-xs text-[#FAFAFA] leading-relaxed">
+            <p className="font-mono-tag text-xs text-[#FAFAFA] leading-relaxed break-words">
               {project.architecture}
             </p>
           </div>
@@ -151,7 +151,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               {project.features.map((feat, i) => (
                 <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#8E8E93]">
                   <CheckCircle2 className="w-4 h-4 text-[#EDEAE4] shrink-0 mt-0.5" />
-                  <span>{feat}</span>
+                  <span className="break-words">{feat}</span>
                 </li>
               ))}
             </ul>

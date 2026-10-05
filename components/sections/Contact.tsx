@@ -35,13 +35,13 @@ export default function Contact() {
       className="relative py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#222225]/80"
     >
       {/* Section Tag */}
-      <div className="flex items-center justify-between pb-8 mb-12 border-b border-[#222225]/60 font-mono-tag text-xs text-[#8E8E93]">
+      <div className="flex flex-wrap items-center justify-between gap-3 pb-8 mb-12 border-b border-[#222225]/60 font-mono-tag text-xs text-[#8E8E93]">
         <div className="flex items-center gap-2">
           <span className="text-[#EDEAE4] font-bold">06 / INQUIRY & DISCOURSE</span>
           <span className="text-[#222225]">—</span>
           <span>GET IN TOUCH</span>
         </div>
-        <div className="text-[#EDEAE4]">
+        <div className="text-[#EDEAE4] text-[11px] sm:text-xs">
           [ OPEN TO NEW OPPORTUNITIES ]
         </div>
       </div>
@@ -50,25 +50,25 @@ export default function Contact() {
         {/* Left Column: Massive Editorial Statement (7 cols) */}
         <div className="lg:col-span-7 flex flex-col justify-between">
           <div>
-            <h2 className="font-display text-5xl sm:text-7xl lg:text-[5.5rem] font-extrabold uppercase tracking-tight leading-[0.92] text-[#FAFAFA] mb-8">
+            <h2 className="font-display text-4xl sm:text-6xl lg:text-[5.5rem] font-extrabold uppercase tracking-tight leading-[0.92] text-[#FAFAFA] mb-8 break-words">
               LET&apos;S BUILD <br />
               <span className="text-[#EDEAE4]">SOMETHING</span> <br />
               <span className="text-[#EDEAE4]">INTERESTING.</span>
             </h2>
 
-            <p className="text-base sm:text-lg text-[#8E8E93] max-w-xl leading-relaxed mb-8">
+            <p className="text-base sm:text-lg text-[#8E8E93] max-w-xl leading-relaxed mb-8 break-words">
               Whether you are looking to collaborate on high-impact AI products, build cutting-edge web platforms, explore hackathon ventures, or discuss computer science architecture—my inbox is always open.
             </p>
 
             {/* Quick Email Box */}
-            <div className="inline-flex items-center gap-3 p-3 rounded-xl bg-[#141416]/30 border border-[#222225] mb-10 max-w-full">
+            <div className="inline-flex flex-wrap sm:flex-nowrap items-center gap-3 p-3 rounded-xl bg-[#141416]/30 border border-[#222225] mb-10 max-w-full">
               <Mail className="w-5 h-5 text-[#EDEAE4] shrink-0" />
               <span className="font-mono-tag text-xs sm:text-sm text-[#FAFAFA] truncate">
                 {emailAddress}
               </span>
               <button
                 onClick={copyEmail}
-                className="px-3 py-1.5 rounded-lg bg-[#0A0A0A] hover:bg-[#141416] text-[#EDEAE4] border border-[#222225] text-xs font-mono-tag flex items-center gap-1.5 transition-colors shrink-0"
+                className="px-3 py-1.5 rounded-lg bg-[#0A0A0A] hover:bg-[#141416] text-[#EDEAE4] border border-[#222225] text-xs font-mono-tag flex items-center gap-1.5 transition-colors shrink-0 ml-auto sm:ml-0"
                 data-cursor="pointer"
               >
                 {copied ? (

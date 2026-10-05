@@ -86,20 +86,20 @@ export default function About() {
                     : 'translateY(24px)',
                   transition: `opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${idx * 80}ms, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${idx * 80}ms`,
                 }}
-                className={`group cursor-pointer p-5 md:p-6 border rounded-xl select-none ${
+                className={`group cursor-pointer p-4 sm:p-5 md:p-6 border rounded-xl select-none ${
                   isActive
                     ? 'bg-[#141416]/60 border-[#EDEAE4]'
                     : 'bg-[#0A0A0A] border-[#222225] hover:border-[#EDEAE4]/50 hover:bg-[#141416]/20'
                 }`}
                 data-cursor="pointer"
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <span className="font-mono-tag text-xs font-semibold text-[#EDEAE4]">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+                    <span className="font-mono-tag text-xs font-semibold text-[#EDEAE4] shrink-0">
                       0{idx + 1}
                     </span>
                     <h3
-                      className={`font-display text-xl sm:text-3xl font-bold tracking-tight uppercase transition-colors duration-200 ${
+                      className={`font-display text-lg sm:text-2xl lg:text-3xl font-bold tracking-tight uppercase transition-colors duration-200 truncate sm:overflow-visible sm:whitespace-normal ${
                         isActive ? 'text-[#FAFAFA]' : 'text-[#8E8E93] group-hover:text-[#EDEAE4]'
                       }`}
                     >
@@ -107,15 +107,15 @@ export default function About() {
                     </h3>
                   </div>
 
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
                     <Icon
-                      className={`w-5 h-5 transition-colors duration-200 ${
+                      className={`w-4 h-4 sm:w-5 sm:h-5 transition-colors duration-200 ${
                         isActive ? 'text-[#EDEAE4]' : 'text-[#222225] group-hover:text-[#8E8E93]'
                       }`}
                     />
                     {idx < IDENTITY_STEPS.length - 1 && (
                       <ArrowDown
-                        className={`w-4 h-4 ml-1 transition-opacity duration-200 ${
+                        className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ml-0.5 sm:ml-1 transition-opacity duration-200 ${
                           isActive ? 'text-[#EDEAE4] opacity-100' : 'text-[#222225] opacity-40'
                         }`}
                       />
@@ -125,10 +125,10 @@ export default function About() {
 
                 <div
                   className={`overflow-hidden transition-all duration-300 ${
-                    isActive ? 'max-h-24 opacity-100 mt-3 pt-3 border-t border-[#222225]/80' : 'max-h-0 opacity-0'
+                    isActive ? 'max-h-56 opacity-100 mt-3 pt-3 border-t border-[#222225]/80' : 'max-h-0 opacity-0'
                   }`}
                 >
-                  <p className="text-sm text-[#EDEAE4] font-normal leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#EDEAE4] font-normal leading-relaxed break-words">
                     {step.desc}
                   </p>
                 </div>
@@ -138,63 +138,63 @@ export default function About() {
         </div>
 
         {/* Right: Editorial Manifesto & Foundations (5 cols) */}
-        <div className="lg:col-span-5 flex flex-col gap-8">
-          <div className="p-8 rounded-2xl bg-[#141416]/30 border border-[#222225] relative overflow-hidden">
+        <div className="lg:col-span-5 flex flex-col gap-6 sm:gap-8">
+          <div className="p-6 sm:p-8 rounded-2xl bg-[#141416]/30 border border-[#222225] relative overflow-hidden">
             <div className="absolute top-4 right-4">
-              <InteractiveGlyph type="neural" size={54} />
+              <InteractiveGlyph type="neural" size={48} />
             </div>
 
             <p className="font-mono-tag text-xs text-[#EDEAE4] uppercase tracking-widest mb-3">
               PROFESSIONAL SYNOPSIS
             </p>
 
-            <h4 className="font-display text-xl sm:text-2xl font-bold text-[#FAFAFA] mb-4 leading-snug">
+            <h4 className="font-display text-xl sm:text-2xl font-bold text-[#FAFAFA] mb-4 leading-snug break-words pr-12">
               Bridging mathematical precision with human-centric technology.
             </h4>
 
-            <p className="text-sm sm:text-base text-[#8E8E93] leading-relaxed mb-4">
+            <p className="text-sm sm:text-base text-[#8E8E93] leading-relaxed mb-4 break-words">
               As a Computer Science Engineering student based in India, I don&apos;t just build interfaces—I architect robust backend foundations, optimize complex data structures, and harness modern Large Language Models to solve meaningful problems.
             </p>
 
-            <p className="text-sm sm:text-base text-[#8E8E93] leading-relaxed">
+            <p className="text-sm sm:text-base text-[#8E8E93] leading-relaxed break-words">
               My engineering approach prioritizes speed, modularity, and intentional design over bloated frameworks. From civic platforms like JanSetu AI to voice-driven RAG pipelines, every system is crafted to deliver palpable utility with editorial restraint.
             </p>
           </div>
 
           {/* Quick Metrics / Distinct Capabilities */}
-          <div className="grid grid-cols-2 gap-4 font-mono-tag">
-            <div className="p-5 border border-[#222225] bg-[#0A0A0A] rounded-xl hover:border-[#EDEAE4]/50 transition-colors">
-              <span className="block text-2xl sm:text-3xl font-display font-extrabold text-[#EDEAE4]">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 font-mono-tag">
+            <div className="p-3.5 sm:p-5 border border-[#222225] bg-[#0A0A0A] rounded-xl hover:border-[#EDEAE4]/50 transition-colors flex flex-col justify-between min-w-0">
+              <span className="block text-base xs:text-lg sm:text-2xl lg:text-3xl font-display font-extrabold text-[#EDEAE4] truncate tracking-tight">
                 CORE DSA
               </span>
-              <span className="text-xs text-[#8E8E93] mt-1 block">
+              <span className="text-[10px] sm:text-xs text-[#8E8E93] mt-1.5 block leading-tight break-words">
                 Java & Problem Solving Rigor
               </span>
             </div>
 
-            <div className="p-5 border border-[#222225] bg-[#0A0A0A] rounded-xl hover:border-[#EDEAE4]/50 transition-colors">
-              <span className="block text-2xl sm:text-3xl font-display font-extrabold text-[#EDEAE4]">
+            <div className="p-3.5 sm:p-5 border border-[#222225] bg-[#0A0A0A] rounded-xl hover:border-[#EDEAE4]/50 transition-colors flex flex-col justify-between min-w-0">
+              <span className="block text-base xs:text-lg sm:text-2xl lg:text-3xl font-display font-extrabold text-[#EDEAE4] truncate tracking-tight">
                 FULL-STACK
               </span>
-              <span className="text-xs text-[#8E8E93] mt-1 block">
+              <span className="text-[10px] sm:text-xs text-[#8E8E93] mt-1.5 block leading-tight break-words">
                 Next.js, Node, Supabase
               </span>
             </div>
 
-            <div className="p-5 border border-[#222225] bg-[#0A0A0A] rounded-xl hover:border-[#EDEAE4]/50 transition-colors">
-              <span className="block text-2xl sm:text-3xl font-display font-extrabold text-[#EDEAE4]">
+            <div className="p-3.5 sm:p-5 border border-[#222225] bg-[#0A0A0A] rounded-xl hover:border-[#EDEAE4]/50 transition-colors flex flex-col justify-between min-w-0">
+              <span className="block text-base xs:text-lg sm:text-2xl lg:text-3xl font-display font-extrabold text-[#EDEAE4] truncate tracking-tight">
                 AI AGENTS
               </span>
-              <span className="text-xs text-[#8E8E93] mt-1 block">
+              <span className="text-[10px] sm:text-xs text-[#8E8E93] mt-1.5 block leading-tight break-words">
                 RAG, Gemini, MCP Tools
               </span>
             </div>
 
-            <div className="p-5 border border-[#222225] bg-[#0A0A0A] rounded-xl hover:border-[#EDEAE4]/50 transition-colors">
-              <span className="block text-2xl sm:text-3xl font-display font-extrabold text-[#EDEAE4]">
+            <div className="p-3.5 sm:p-5 border border-[#222225] bg-[#0A0A0A] rounded-xl hover:border-[#EDEAE4]/50 transition-colors flex flex-col justify-between min-w-0">
+              <span className="block text-base xs:text-lg sm:text-2xl lg:text-3xl font-display font-extrabold text-[#EDEAE4] truncate tracking-tight">
                 HACKATHONS
               </span>
-              <span className="text-xs text-[#8E8E93] mt-1 block">
+              <span className="text-[10px] sm:text-xs text-[#8E8E93] mt-1.5 block leading-tight break-words">
                 High Velocity Prototyping
               </span>
             </div>

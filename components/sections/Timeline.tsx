@@ -95,7 +95,7 @@ export default function Timeline() {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#222225] mb-16">
         <div>
-          <div className="flex items-center gap-2 font-mono-tag text-xs text-[#EDEAE4] uppercase tracking-widest mb-3">
+          <div className="flex flex-wrap items-center gap-2 font-mono-tag text-xs text-[#EDEAE4] uppercase tracking-widest mb-3">
             <span className="font-bold">05 / TIMELINE &amp; ACHIEVEMENTS</span>
             <span className="text-[#222225]">—</span>
             <span className="text-[#8E8E93]">VERIFIED TRACK RECORD</span>
@@ -123,16 +123,16 @@ export default function Timeline() {
             return (
               <div
                 key={item.title}
-                className="p-6 rounded-xl border border-[#222225] bg-[#141416]/20 flex flex-col justify-between"
+                className="p-5 sm:p-6 rounded-xl border border-[#222225] bg-[#141416]/20 flex flex-col justify-between"
               >
                 <div>
                   <div className="w-10 h-10 rounded-lg bg-[#0A0A0A] border border-[#EDEAE4] flex items-center justify-center text-[#EDEAE4] mb-4">
                     <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="font-display text-lg font-bold text-[#FAFAFA] mb-2 uppercase">
+                  <h3 className="font-display text-base sm:text-lg font-bold text-[#FAFAFA] mb-2 uppercase break-words">
                     {item.title}
                   </h3>
-                  <p className="font-mono-tag text-xs text-[#8E8E93] leading-relaxed">
+                  <p className="font-mono-tag text-xs text-[#8E8E93] leading-relaxed break-words">
                     {item.desc}
                   </p>
                 </div>
@@ -172,15 +172,15 @@ export default function Timeline() {
                 </span>
               </div>
 
-              <h3 className="font-display text-2xl sm:text-3xl font-bold uppercase tracking-tight text-[#FAFAFA] group-hover:text-[#EDEAE4] transition-colors mb-2">
+              <h3 className="font-display text-2xl sm:text-3xl font-bold uppercase tracking-tight text-[#FAFAFA] group-hover:text-[#EDEAE4] transition-colors mb-2 break-words">
                 {milestone.title}
               </h3>
 
-              <p className="text-sm font-mono-tag text-[#EDEAE4]/90 mb-2">
+              <p className="text-sm font-mono-tag text-[#EDEAE4]/90 mb-2 break-words">
                 {milestone.focus}
               </p>
 
-              <p className="text-sm text-[#8E8E93] leading-relaxed max-w-2xl font-normal">
+              <p className="text-sm text-[#8E8E93] leading-relaxed max-w-2xl font-normal break-words">
                 {milestone.impact}
               </p>
             </div>

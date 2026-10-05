@@ -18,22 +18,22 @@ export default function ProjectVisual({ project }: ProjectVisualProps) {
       data-cursor="view"
     >
       {/* Top Header with Interactive Mode Toggle */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#222225] pb-4 font-mono-tag text-xs text-[#8E8E93]">
-        <div className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#EDEAE4]" />
-          <span className="text-[#EDEAE4] uppercase font-semibold">
+      <div className="flex items-center justify-between gap-3 border-b border-[#222225] pb-4 font-mono-tag text-xs text-[#8E8E93]">
+        <div className="flex items-center gap-2 min-w-0 flex-1">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#EDEAE4] shrink-0" />
+          <span className="text-[#EDEAE4] uppercase font-semibold truncate text-[11px] sm:text-xs">
             {viewMode === 'architecture' ? 'ARCHITECTURE' : 'BENCHMARKS'} // {name}
           </span>
         </div>
 
         {/* Minimal Editorial Mode Toggle */}
-        <div className="flex items-center gap-1 border border-[#222225] rounded-lg p-0.5 bg-[#0A0A0A]">
+        <div className="flex items-center gap-1 border border-[#222225] rounded-lg p-0.5 bg-[#0A0A0A] shrink-0">
           <button
             onClick={(e) => {
               e.stopPropagation();
               setViewMode('architecture');
             }}
-            className={`px-2.5 py-1 rounded text-[10px] font-mono-tag tracking-wider transition-colors ${
+            className={`px-2 sm:px-2.5 py-1 rounded text-[9px] sm:text-[10px] font-mono-tag tracking-wider transition-colors ${
               viewMode === 'architecture'
                 ? 'bg-[#141416] text-[#EDEAE4] font-bold'
                 : 'text-[#8E8E93] hover:text-[#FAFAFA]'
@@ -47,7 +47,7 @@ export default function ProjectVisual({ project }: ProjectVisualProps) {
               e.stopPropagation();
               setViewMode('benchmarks');
             }}
-            className={`px-2.5 py-1 rounded text-[10px] font-mono-tag tracking-wider transition-colors ${
+            className={`px-2 sm:px-2.5 py-1 rounded text-[9px] sm:text-[10px] font-mono-tag tracking-wider transition-colors ${
               viewMode === 'benchmarks'
                 ? 'bg-[#EDEAE4] text-[#0A0A0A] font-bold'
                 : 'text-[#8E8E93] hover:text-[#FAFAFA]'
@@ -60,122 +60,124 @@ export default function ProjectVisual({ project }: ProjectVisualProps) {
       </div>
 
       {/* Main Diagram or Benchmark Grid */}
-      <div className="my-auto py-6">
+      <div className="my-auto py-5 sm:py-6">
         {viewMode === 'benchmarks' ? (
-          <div className="flex flex-col gap-4 font-mono-tag">
-            <div className="grid grid-cols-3 gap-3">
-              {metrics.map((m) => (
+          <div className="flex flex-col gap-3 sm:gap-4 font-mono-tag">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3">
+              {metrics.map((m, idx) => (
                 <div
                   key={m.label}
-                  className="p-4 rounded-xl border border-[#222225] bg-[#141416]/30 flex flex-col justify-between"
+                  className={`p-3 sm:p-4 rounded-xl border border-[#222225] bg-[#141416]/30 flex flex-col justify-between ${
+                    idx === 2 ? 'col-span-2 sm:col-span-1' : ''
+                  }`}
                 >
-                  <span className="font-display text-2xl sm:text-3xl font-extrabold text-[#EDEAE4]">
+                  <span className="font-display text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#EDEAE4]">
                     {m.value}
                   </span>
-                  <span className="text-[11px] text-[#8E8E93] mt-2 block font-semibold">
+                  <span className="text-[10px] sm:text-[11px] text-[#8E8E93] mt-1.5 block font-semibold leading-tight break-words">
                     {m.label}
                   </span>
                 </div>
               ))}
             </div>
 
-            <div className="p-4 rounded-xl bg-[#0A0A0A] border border-[#222225] text-xs leading-relaxed">
-              <span className="text-[#EDEAE4] font-bold block mb-1 flex items-center gap-1.5">
-                <Gauge className="w-4 h-4 text-[#EDEAE4]" />
+            <div className="p-3.5 sm:p-4 rounded-xl bg-[#0A0A0A] border border-[#222225] text-xs leading-relaxed">
+              <span className="text-[#EDEAE4] font-bold block mb-1 flex items-center gap-1.5 text-[11px] sm:text-xs">
+                <Gauge className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#EDEAE4] shrink-0" />
                 VERIFIED PRODUCTION IMPACT
               </span>
-              <p className="text-[#8E8E93] text-[11px]">
+              <p className="text-[#8E8E93] text-[10px] sm:text-[11px] leading-relaxed break-words">
                 {impact}
               </p>
             </div>
 
-            <div className="flex items-center justify-between text-[11px] text-[#8E8E93] px-1">
-              <span className="flex items-center gap-1 text-[#EDEAE4]">
+            <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-[#8E8E93] px-1 gap-2">
+              <span className="flex items-center gap-1 text-[#EDEAE4] shrink-0">
                 <Zap className="w-3.5 h-3.5 text-[#EDEAE4]" />
                 SLA Compliant
               </span>
-              <span className="text-[#222225]">PROD SPEC {number}</span>
+              <span className="text-[#222225] truncate">PROD SPEC {number}</span>
             </div>
           </div>
         ) : (
           <>
             {diagramType === 'civic' && (
-              <div className="flex flex-col gap-3 font-mono-tag text-xs">
-                <div className="p-4 rounded-xl bg-[#141416]/30 border border-[#222225] flex items-center justify-between">
-                  <div>
-                    <span className="text-[#EDEAE4] block font-bold">VERNACULAR AUDIO INGESTION</span>
-                    <span className="text-[#8E8E93] text-[11px]">Sarvam AI Indian Speech Model • 11 Dialects</span>
+              <div className="flex flex-col gap-2.5 sm:gap-3 font-mono-tag text-xs">
+                <div className="p-3 sm:p-4 rounded-xl bg-[#141416]/30 border border-[#222225] flex items-center justify-between gap-3">
+                  <div className="min-w-0 flex-1">
+                    <span className="text-[#EDEAE4] block font-bold text-xs sm:text-[13px] truncate">VERNACULAR AUDIO INGESTION</span>
+                    <span className="text-[#8E8E93] text-[10px] sm:text-[11px] block truncate">Sarvam AI Indian Speech Model • 11 Dialects</span>
                   </div>
-                  <span className="text-[#EDEAE4] font-bold">16kHz</span>
+                  <span className="text-[#EDEAE4] font-bold text-xs sm:text-sm shrink-0">16kHz</span>
                 </div>
 
-                <div className="p-4 rounded-xl bg-[#0A0A0A] border border-[#222225] flex items-center justify-between">
-                  <div>
-                    <span className="text-[#FAFAFA] block font-bold">REASONING &amp; SCHEME ROUTING</span>
-                    <span className="text-[#8E8E93] text-[11px]">Gemini 1.5 Flash • Semantic Mapping</span>
+                <div className="p-3 sm:p-4 rounded-xl bg-[#0A0A0A] border border-[#222225] flex items-center justify-between gap-3">
+                  <div className="min-w-0 flex-1">
+                    <span className="text-[#FAFAFA] block font-bold text-xs sm:text-[13px] truncate">REASONING &amp; SCHEME ROUTING</span>
+                    <span className="text-[#8E8E93] text-[10px] sm:text-[11px] block truncate">Gemini 1.5 Flash • Semantic Mapping</span>
                   </div>
-                  <span className="text-[#EDEAE4]">ACTIVE</span>
+                  <span className="text-[#EDEAE4] font-bold text-xs sm:text-sm shrink-0">ACTIVE</span>
                 </div>
 
-                <div className="p-4 rounded-xl bg-[#141416]/30 border border-[#222225] flex items-center justify-between">
-                  <div>
-                    <span className="text-[#EDEAE4] block font-bold">VECTOR SCHEME DATABASE</span>
-                    <span className="text-[#8E8E93] text-[11px]">Supabase pgvector • 500+ Public Welfare Specs</span>
+                <div className="p-3 sm:p-4 rounded-xl bg-[#141416]/30 border border-[#222225] flex items-center justify-between gap-3">
+                  <div className="min-w-0 flex-1">
+                    <span className="text-[#EDEAE4] block font-bold text-xs sm:text-[13px] truncate">VECTOR SCHEME DATABASE</span>
+                    <span className="text-[#8E8E93] text-[10px] sm:text-[11px] block truncate">Supabase pgvector • 500+ Public Welfare Specs</span>
                   </div>
-                  <span className="text-[#EDEAE4] font-bold">&lt;1.4s</span>
+                  <span className="text-[#EDEAE4] font-bold text-xs sm:text-sm shrink-0">&lt;1.4s</span>
                 </div>
               </div>
             )}
 
             {diagramType === 'standards' && (
-              <div className="flex flex-col gap-3 font-mono-tag text-xs">
-                <div className="p-4 rounded-xl bg-[#141416]/30 border border-[#222225] flex items-center justify-between">
-                  <div>
-                    <span className="text-[#EDEAE4] block font-bold">REGULATORY CORPUS</span>
-                    <span className="text-[#8E8E93] text-[11px]">12,000+ Bureau of Indian Standards (BIS) Clauses</span>
+              <div className="flex flex-col gap-2.5 sm:gap-3 font-mono-tag text-xs">
+                <div className="p-3 sm:p-4 rounded-xl bg-[#141416]/30 border border-[#222225] flex items-center justify-between gap-3">
+                  <div className="min-w-0 flex-1">
+                    <span className="text-[#EDEAE4] block font-bold text-xs sm:text-[13px] truncate">REGULATORY CORPUS</span>
+                    <span className="text-[#8E8E93] text-[10px] sm:text-[11px] block truncate">12,000+ Bureau of Indian Standards (BIS) Clauses</span>
                   </div>
-                  <span className="text-[#EDEAE4] font-bold">IS SPEC</span>
+                  <span className="text-[#EDEAE4] font-bold text-xs sm:text-sm shrink-0">IS SPEC</span>
                 </div>
 
-                <div className="p-4 rounded-xl bg-[#0A0A0A] border border-[#222225]">
-                  <span className="text-[#EDEAE4] font-bold block mb-1">HYBRID RETRIEVAL PIPELINE</span>
-                  <p className="text-[#8E8E93] text-[11px] leading-relaxed">
+                <div className="p-3 sm:p-4 rounded-xl bg-[#0A0A0A] border border-[#222225]">
+                  <span className="text-[#EDEAE4] font-bold block mb-1 text-xs sm:text-[13px]">HYBRID RETRIEVAL PIPELINE</span>
+                  <p className="text-[#8E8E93] text-[10px] sm:text-[11px] leading-relaxed break-words">
                     Dense BGE embeddings combined with sparse BM25 term weighting, cross-encoder re-ranking, and clause-level citation linking.
                   </p>
                 </div>
 
-                <div className="grid grid-cols-3 gap-2 text-center text-[10px] text-[#8E8E93]">
-                  <div className="p-2.5 border border-[#222225] rounded bg-[#0A0A0A]">QDRANT VECTOR</div>
-                  <div className="p-2.5 border border-[#222225] rounded bg-[#0A0A0A]">BM25 RE-RANK</div>
-                  <div className="p-2.5 border border-[#222225] rounded bg-[#141416]/40 text-[#EDEAE4]">99.2% PRECISION</div>
+                <div className="grid grid-cols-3 gap-1.5 sm:gap-2 text-center text-[9px] sm:text-[10px] text-[#8E8E93]">
+                  <div className="p-2 sm:p-2.5 border border-[#222225] rounded bg-[#0A0A0A] truncate">QDRANT VECTOR</div>
+                  <div className="p-2 sm:p-2.5 border border-[#222225] rounded bg-[#0A0A0A] truncate">BM25 RE-RANK</div>
+                  <div className="p-2 sm:p-2.5 border border-[#222225] rounded bg-[#141416]/40 text-[#EDEAE4] font-semibold truncate">99.2% PRECISION</div>
                 </div>
               </div>
             )}
 
             {diagramType === 'twin' && (
-              <div className="flex flex-col gap-3 font-mono-tag text-xs">
-                <div className="p-4 rounded-xl bg-[#141416]/30 border border-[#222225] flex items-center justify-between">
-                  <div>
-                    <span className="text-[#EDEAE4] block font-bold">CANDIDATE VECTOR ENGINES</span>
-                    <span className="text-[#8E8E93] text-[11px]">Dynamic skill evaluation across 1,400 graph nodes</span>
+              <div className="flex flex-col gap-2.5 sm:gap-3 font-mono-tag text-xs">
+                <div className="p-3 sm:p-4 rounded-xl bg-[#141416]/30 border border-[#222225] flex items-center justify-between gap-3">
+                  <div className="min-w-0 flex-1">
+                    <span className="text-[#EDEAE4] block font-bold text-xs sm:text-[13px] truncate">CANDIDATE VECTOR ENGINES</span>
+                    <span className="text-[#8E8E93] text-[10px] sm:text-[11px] block truncate">Dynamic skill evaluation across 1,400 graph nodes</span>
                   </div>
-                  <span className="text-[#EDEAE4] font-bold">NEO4J</span>
+                  <span className="text-[#EDEAE4] font-bold text-xs sm:text-sm shrink-0">NEO4J</span>
                 </div>
 
-                <div className="p-4 rounded-xl bg-[#0A0A0A] border border-[#222225]">
-                  <span className="text-[#EDEAE4] font-bold block mb-1">TRAJECTORY SIMULATION</span>
-                  <p className="text-[#8E8E93] text-[11px] leading-relaxed">
+                <div className="p-3 sm:p-4 rounded-xl bg-[#0A0A0A] border border-[#222225]">
+                  <span className="text-[#EDEAE4] font-bold block mb-1 text-xs sm:text-[13px]">TRAJECTORY SIMULATION</span>
+                  <p className="text-[#8E8E93] text-[10px] sm:text-[11px] leading-relaxed break-words">
                     Deterministic gap analysis matching academic milestones, DSA problem vectors, and system architecture benchmarks.
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-2 text-center text-[11px]">
-                  <div className="p-3 border border-[#222225] rounded-xl bg-[#0A0A0A] text-[#8E8E93]">
-                    <span className="text-[#EDEAE4] block font-bold">300+ STUDENTS</span>
+                <div className="grid grid-cols-2 gap-2 text-center text-[10px] sm:text-[11px]">
+                  <div className="p-2.5 sm:p-3 border border-[#222225] rounded-xl bg-[#0A0A0A] text-[#8E8E93]">
+                    <span className="text-[#EDEAE4] block font-bold text-xs sm:text-sm truncate">300+ STUDENTS</span>
                     Evaluated Cohort
                   </div>
-                  <div className="p-3 border border-[#222225] rounded-xl bg-[#141416]/40 text-[#8E8E93]">
-                    <span className="text-[#EDEAE4] block font-bold">+34% LIFT</span>
+                  <div className="p-2.5 sm:p-3 border border-[#222225] rounded-xl bg-[#141416]/40 text-[#8E8E93]">
+                    <span className="text-[#EDEAE4] block font-bold text-xs sm:text-sm truncate">+34% LIFT</span>
                     Placement Preparedness
                   </div>
                 </div>
@@ -183,29 +185,29 @@ export default function ProjectVisual({ project }: ProjectVisualProps) {
             )}
 
             {diagramType === 'voice' && (
-              <div className="flex flex-col gap-3 font-mono-tag text-xs">
-                <div className="p-4 rounded-xl bg-[#141416]/30 border border-[#222225] flex items-center justify-between">
-                  <div>
-                    <span className="text-[#EDEAE4] block font-bold">FULL-DUPLEX WEBSOCKET BUS</span>
-                    <span className="text-[#8E8E93] text-[11px]">Binary stream with acoustic echo suppression</span>
+              <div className="flex flex-col gap-2.5 sm:gap-3 font-mono-tag text-xs">
+                <div className="p-3 sm:p-4 rounded-xl bg-[#141416]/30 border border-[#222225] flex items-center justify-between gap-3">
+                  <div className="min-w-0 flex-1">
+                    <span className="text-[#EDEAE4] block font-bold text-xs sm:text-[13px] truncate">FULL-DUPLEX WEBSOCKET BUS</span>
+                    <span className="text-[#8E8E93] text-[10px] sm:text-[11px] block truncate">Binary stream with acoustic echo suppression</span>
                   </div>
-                  <span className="text-[#EDEAE4] font-bold">480ms E2E</span>
+                  <span className="text-[#EDEAE4] font-bold text-xs sm:text-sm shrink-0">480ms E2E</span>
                 </div>
 
-                <div className="p-4 rounded-xl bg-[#0A0A0A] border border-[#222225]">
-                  <span className="text-[#EDEAE4] font-bold block mb-1">PIPELINE FLOW</span>
-                  <p className="text-[#8E8E93] text-[11px] leading-relaxed">
+                <div className="p-3 sm:p-4 rounded-xl bg-[#0A0A0A] border border-[#222225]">
+                  <span className="text-[#EDEAE4] font-bold block mb-1 text-xs sm:text-[13px]">PIPELINE FLOW</span>
+                  <p className="text-[#8E8E93] text-[10px] sm:text-[11px] leading-relaxed break-words">
                     Audio Ring Buffer → Streaming Whisper ASR → Sub-45ms Vector Retrieval → Streaming Kokoro/ElevenLabs TTS.
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-2 text-center text-[11px]">
-                  <div className="p-3 border border-[#222225] rounded-xl bg-[#0A0A0A] text-[#8E8E93]">
-                    <span className="text-[#EDEAE4] block font-bold">&lt;45ms</span>
+                <div className="grid grid-cols-2 gap-2 text-center text-[10px] sm:text-[11px]">
+                  <div className="p-2.5 sm:p-3 border border-[#222225] rounded-xl bg-[#0A0A0A] text-[#8E8E93]">
+                    <span className="text-[#EDEAE4] block font-bold text-xs sm:text-sm truncate">&lt;45ms</span>
                     Retrieval Latency
                   </div>
-                  <div className="p-3 border border-[#222225] rounded-xl bg-[#141416]/40 text-[#8E8E93]">
-                    <span className="text-[#EDEAE4] block font-bold">BARGE-IN</span>
+                  <div className="p-2.5 sm:p-3 border border-[#222225] rounded-xl bg-[#141416]/40 text-[#8E8E93]">
+                    <span className="text-[#EDEAE4] block font-bold text-xs sm:text-sm truncate">BARGE-IN</span>
                     Realtime Interruption
                   </div>
                 </div>
@@ -213,29 +215,29 @@ export default function ProjectVisual({ project }: ProjectVisualProps) {
             )}
 
             {diagramType === 'queue' && (
-              <div className="flex flex-col gap-3 font-mono-tag text-xs">
-                <div className="p-4 rounded-xl bg-[#141416]/30 border border-[#222225] flex items-center justify-between">
-                  <div>
-                    <span className="text-[#EDEAE4] block font-bold">OPD LOGISTICS ENGINE</span>
-                    <span className="text-[#8E8E93] text-[11px]">Redis Pub/Sub load balancer across clinic lanes</span>
+              <div className="flex flex-col gap-2.5 sm:gap-3 font-mono-tag text-xs">
+                <div className="p-3 sm:p-4 rounded-xl bg-[#141416]/30 border border-[#222225] flex items-center justify-between gap-3">
+                  <div className="min-w-0 flex-1">
+                    <span className="text-[#EDEAE4] block font-bold text-xs sm:text-[13px] truncate">OPD LOGISTICS ENGINE</span>
+                    <span className="text-[#8E8E93] text-[10px] sm:text-[11px] block truncate">Redis Pub/Sub load balancer across clinic lanes</span>
                   </div>
-                  <span className="text-[#EDEAE4] font-bold">&lt;80ms RELAY</span>
+                  <span className="text-[#EDEAE4] font-bold text-xs sm:text-sm shrink-0">&lt;80ms RELAY</span>
                 </div>
 
-                <div className="p-4 rounded-xl bg-[#0A0A0A] border border-[#222225]">
-                  <span className="text-[#EDEAE4] font-bold block mb-1">TRIAGE COORDINATION</span>
-                  <p className="text-[#8E8E93] text-[11px] leading-relaxed">
+                <div className="p-3 sm:p-4 rounded-xl bg-[#0A0A0A] border border-[#222225]">
+                  <span className="text-[#EDEAE4] font-bold block mb-1 text-xs sm:text-[13px]">TRIAGE COORDINATION</span>
+                  <p className="text-[#8E8E93] text-[10px] sm:text-[11px] leading-relaxed break-words">
                     Real-time appointment slotting, emergency priority lanes, and dynamic consultation duration predictions.
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-2 text-center text-[11px]">
-                  <div className="p-3 border border-[#222225] rounded-xl bg-[#0A0A0A] text-[#8E8E93]">
-                    <span className="text-[#EDEAE4] block font-bold">15,000+</span>
+                <div className="grid grid-cols-2 gap-2 text-center text-[10px] sm:text-[11px]">
+                  <div className="p-2.5 sm:p-3 border border-[#222225] rounded-xl bg-[#0A0A0A] text-[#8E8E93]">
+                    <span className="text-[#EDEAE4] block font-bold text-xs sm:text-sm truncate">15,000+</span>
                     Tokens Handled
                   </div>
-                  <div className="p-3 border border-[#222225] rounded-xl bg-[#141416]/40 text-[#8E8E93]">
-                    <span className="text-[#EDEAE4] block font-bold">-62% WAIT</span>
+                  <div className="p-2.5 sm:p-3 border border-[#222225] rounded-xl bg-[#141416]/40 text-[#8E8E93]">
+                    <span className="text-[#EDEAE4] block font-bold text-xs sm:text-sm truncate">-62% WAIT</span>
                     Queue Congestion Cut
                   </div>
                 </div>
@@ -246,16 +248,16 @@ export default function ProjectVisual({ project }: ProjectVisualProps) {
       </div>
 
       {/* Bottom Footer */}
-      <div className="border-t border-[#222225] pt-4 flex items-center justify-between font-mono-tag text-xs text-[#8E8E93]">
-        <div className="flex items-center gap-2">
-          <Cpu className="w-3.5 h-3.5 text-[#EDEAE4]" />
-          <span className="truncate max-w-[200px] sm:max-w-none">
+      <div className="border-t border-[#222225] pt-4 flex items-center justify-between gap-2 font-mono-tag text-xs text-[#8E8E93]">
+        <div className="flex items-center gap-2 min-w-0 flex-1">
+          <Cpu className="w-3.5 h-3.5 text-[#EDEAE4] shrink-0" />
+          <span className="truncate max-w-[160px] sm:max-w-xs md:max-w-none text-[11px] sm:text-xs">
             {technologies.slice(0, 3).join(' • ')}
           </span>
         </div>
 
-        <div className="flex items-center gap-1 text-[#EDEAE4]">
-          <span>INSPECT CASE STUDY</span>
+        <div className="flex items-center gap-1 text-[#EDEAE4] shrink-0 text-[11px] sm:text-xs font-semibold">
+          <span className="hidden xs:inline">INSPECT CASE STUDY</span>
           <ArrowUpRight className="w-4 h-4" />
         </div>
       </div>

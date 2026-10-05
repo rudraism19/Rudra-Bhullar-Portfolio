@@ -88,7 +88,7 @@ export default function MetricTicker() {
         </div>
 
         {/* Staggered Metric Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-[#222225]/60">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
           {METRICS.map((item, idx) => (
             <div
               key={item.label}
@@ -97,19 +97,17 @@ export default function MetricTicker() {
                 transform: isVisible ? 'translateY(0)' : 'translateY(28px)',
                 transition: `opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${idx * 90}ms, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${idx * 90}ms`,
               }}
-              className={`flex flex-col justify-between group hover:translate-y-[-4px] transition-transform duration-300 ${
-                idx !== 0 ? 'pt-4 md:pt-0 md:pl-4 lg:pl-6' : ''
-              }`}
+              className="p-3.5 sm:p-4 rounded-xl border border-[#222225] bg-[#141416]/20 hover:border-[#EDEAE4]/50 hover:bg-[#141416]/40 flex flex-col justify-between group hover:translate-y-[-4px] transition-all duration-300 min-w-0"
             >
               <div>
-                <span className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#EDEAE4] tracking-tight block group-hover:text-[#FFFFFF] group-hover:scale-105 transition-all origin-left">
+                <span className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#EDEAE4] tracking-tight block group-hover:text-[#FFFFFF] group-hover:scale-105 transition-all origin-left truncate">
                   {item.number}
                 </span>
-                <span className="font-mono-tag text-xs font-bold text-[#FAFAFA] tracking-wider block mt-1 uppercase group-hover:text-[#EDEAE4] transition-colors">
+                <span className="font-mono-tag text-[10px] sm:text-xs font-bold text-[#FAFAFA] tracking-wide block mt-1.5 uppercase group-hover:text-[#EDEAE4] transition-colors leading-tight break-words">
                   {item.label}
                 </span>
               </div>
-              <p className="font-mono-tag text-[11px] text-[#8E8E93] mt-2 leading-relaxed">
+              <p className="font-mono-tag text-[10px] sm:text-[11px] text-[#8E8E93] mt-2.5 leading-relaxed break-words">
                 {item.sub}
               </p>
             </div>
