@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Rudra Bhullar', url: 'https://github.com/rudraism19' }],
   creator: 'Rudra Bhullar',
-  metadataBase: new URL('https://rudrabhullar.dev'),
+  metadataBase: new URL('https://rudra-bhullar.vercel.app'),
   alternates: {
     canonical: '/',
   },
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: 'Rudra Bhullar | AI Backend Engineer & Ex-CTO @DTV',
     description:
       'AI Backend Engineer building scalable APIs, FastAPI microservices, LLMs, and RAG architectures. Ex-CTO @DTV, UIT RGPV CSE.',
-    url: 'https://rudrabhullar.dev',
+    url: 'https://rudra-bhullar.vercel.app',
     siteName: 'Rudra Bhullar — Engineering Portfolio',
     locale: 'en_IN',
     type: 'profile',
@@ -61,7 +61,7 @@ const PERSON_JSON_LD = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Rudra Bhullar',
-  url: 'https://rudrabhullar.dev',
+  url: 'https://rudra-bhullar.vercel.app',
   jobTitle: 'AI Backend Engineer',
   worksFor: {
     '@type': 'Organization',
