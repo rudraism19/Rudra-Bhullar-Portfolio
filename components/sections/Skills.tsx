@@ -73,11 +73,31 @@ const SKILL_CATEGORIES: SkillCategory[] = [
 
 export default function Skills() {
   const [activeCategory, setActiveCategory] = useState<string>('languages');
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = React.useRef<HTMLElement | null>(null);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.12 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   const currentCat = SKILL_CATEGORIES.find((c) => c.id === activeCategory) || SKILL_CATEGORIES[0];
 
   return (
     <section
+      ref={sectionRef}
       id="skills"
       className="relative py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#222225]/80"
     >
@@ -124,9 +144,14 @@ export default function Skills() {
 
       {/* Skills Editorial Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {currentCat.skills.map((skill) => (
+        {currentCat.skills.map((skill, idx) => (
           <div
             key={skill.name}
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(28px)',
+              transition: `opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${idx * 90}ms, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${idx * 90}ms`,
+            }}
             className="p-6 md:p-8 rounded-2xl bg-[#141416]/20 border border-[#222225] hover:border-[#EDEAE4] hover:bg-[#141416]/30 transition-all duration-300 group flex flex-col justify-between"
             data-cursor="pointer"
           >

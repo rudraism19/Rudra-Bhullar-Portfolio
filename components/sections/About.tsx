@@ -14,9 +14,29 @@ const IDENTITY_STEPS = [
 
 export default function About() {
   const [activeStep, setActiveStep] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = React.useRef<HTMLElement | null>(null);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.12 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section
+      ref={sectionRef}
       id="about"
       className="relative py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#222225]/80"
     >
@@ -59,9 +79,16 @@ export default function About() {
                 key={step.role}
                 onMouseEnter={() => setActiveStep(idx)}
                 onClick={() => setActiveStep(idx)}
-                className={`group cursor-pointer transition-all duration-200 p-5 md:p-6 border rounded-xl select-none ${
+                style={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible
+                    ? isActive ? 'translateX(8px)' : 'translateX(0)'
+                    : 'translateY(24px)',
+                  transition: `opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${idx * 80}ms, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${idx * 80}ms`,
+                }}
+                className={`group cursor-pointer p-5 md:p-6 border rounded-xl select-none ${
                   isActive
-                    ? 'bg-[#141416]/60 border-[#EDEAE4] translate-x-2'
+                    ? 'bg-[#141416]/60 border-[#EDEAE4]'
                     : 'bg-[#0A0A0A] border-[#222225] hover:border-[#EDEAE4]/50 hover:bg-[#141416]/20'
                 }`}
                 data-cursor="pointer"

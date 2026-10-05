@@ -83,16 +83,33 @@ export default function Hero() {
     }
   };
 
+  // Scroll ratio for smooth animations (0 to 1 over first 700px)
+  const scrollRatio = Math.min(1, Math.max(0, scrollY / 700));
+  const canvasScale = 1 - scrollRatio * 0.045; // 1.0 -> 0.955
+  const canvasRadius = 32 + scrollRatio * 20; // 32px -> 52px
+  const headerOpacity = Math.max(0, 1 - scrollY / 160);
+  const silhouetteY = scrollY * 0.32 + mousePos.y * 10;
+  const silhouetteScale = Math.max(0.86, 1 - scrollRatio * 0.12);
+  const typographyY = -scrollY * 0.18 - mousePos.y * 8;
+  const specsY = -scrollY * 0.1;
+
   return (
     <section
       id="hero"
       className="relative w-full px-3 sm:px-6 lg:px-8 pt-3 sm:pt-5 pb-8 max-w-[1680px] mx-auto overflow-hidden bg-[#0A0A0A]"
     >
-      {/* Editorial Titanium Architectural Limestone Canvas Block */}
+      {/* Editorial Titanium Architectural Limestone Canvas Block with 3D Card Recess */}
       <div
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="relative w-full rounded-[26px] sm:rounded-[36px] md:rounded-[42px] bg-[#EDEAE4] overflow-hidden min-h-[92vh] sm:min-h-[94vh] lg:min-h-[96vh] flex flex-col justify-between shadow-2xl border border-[#EDEAE4]/40 transition-colors duration-500"
+        style={{
+          transform: `scale(${canvasScale}) translate3d(0, ${scrollY * 0.06}px, 0)`,
+          borderRadius: `${canvasRadius}px`,
+          transformOrigin: 'center top',
+          transition: 'transform 0.12s cubic-bezier(0.2, 0.8, 0.2, 1), border-radius 0.12s ease-out',
+          willChange: 'transform, border-radius',
+        }}
+        className="relative w-full bg-[#EDEAE4] overflow-hidden min-h-[92vh] sm:min-h-[94vh] lg:min-h-[96vh] flex flex-col justify-between shadow-2xl border border-[#EDEAE4]/40"
       >
         
         {/* Subtle Ambient Specular Lighting */}
@@ -107,8 +124,15 @@ export default function Hero() {
           }}
         />
 
-        {/* 1. TOP EDITORIAL BAR (z-30) */}
-        <header className="relative px-6 sm:px-10 md:px-14 pt-6 sm:pt-8 flex items-center justify-between z-30">
+        {/* 1. TOP EDITORIAL BAR (Dissolves gracefully on scroll) (z-30) */}
+        <header 
+          style={{
+            opacity: headerOpacity,
+            transform: `translate3d(0, ${-scrollY * 0.2}px, 0)`,
+            transition: 'opacity 0.2s ease-out',
+          }}
+          className="relative px-6 sm:px-10 md:px-14 pt-6 sm:pt-8 flex items-center justify-between z-30"
+        >
           {/* Based In Location */}
           <div className="flex flex-col text-left">
             <span className="font-mono text-[10px] sm:text-xs uppercase tracking-wider text-[#0A0A0A]/60 font-bold">
@@ -158,7 +182,7 @@ export default function Hero() {
         {/* 2. GIANT CONDENSED DISPLAY TYPOGRAPHY WITH 3D PARALLAX (z-10) */}
         <div 
           style={{
-            transform: `translate3d(${-mousePos.x * 8}px, ${-scrollY * 0.12 - mousePos.y * 6}px, 0)`,
+            transform: `translate3d(${-mousePos.x * 8}px, ${typographyY}px, 0)`,
             transition: 'transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1)',
             willChange: 'transform',
           }}
@@ -177,7 +201,7 @@ export default function Hero() {
         {/* 3. PORTRAIT SILHOUETTE CUTOUT WITH 3D DEPTH PARALLAX (z-20) */}
         <div 
           style={{
-            transform: `translate3d(${mousePos.x * 12}px, ${scrollY * 0.22 + mousePos.y * 8}px, 0) scale(${Math.max(0.92, 1 - scrollY * 0.00025)})`,
+            transform: `translate3d(${mousePos.x * 12}px, ${silhouetteY}px, 0) scale(${silhouetteScale})`,
             transition: 'transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1)',
             willChange: 'transform',
           }}
@@ -192,7 +216,13 @@ export default function Hero() {
         </div>
 
         {/* 4. RIGHT COLUMN: SPECIALIZATION / SERVICES (z-30) */}
-        <div className="absolute top-[46%] -translate-y-1/2 right-6 sm:right-10 md:right-14 lg:right-16 z-30 hidden md:flex flex-col text-left max-w-[210px] lg:max-w-[250px]">
+        <div 
+          style={{
+            transform: `translate3d(0, ${specsY}px, 0)`,
+            transition: 'transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1)',
+          }}
+          className="absolute top-[46%] -translate-y-1/2 right-6 sm:right-10 md:right-14 lg:right-16 z-30 hidden md:flex flex-col text-left max-w-[210px] lg:max-w-[250px]"
+        >
           <div className="flex items-center gap-2 mb-3">
             <span className="w-2 h-2 rounded-full bg-[#0A0A0A]" />
             <span className="font-mono text-xs font-bold tracking-widest uppercase text-[#0A0A0A]">
