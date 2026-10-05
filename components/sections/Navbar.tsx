@@ -20,10 +20,11 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
+      const threshold = typeof window !== 'undefined' ? window.innerHeight * 0.65 : 40;
+      setIsScrolled(window.scrollY > threshold);
 
       // Detect active section
-      const sectionIds = ['hero', 'work', 'about', 'skills', 'experiments', 'trophies', 'journey', 'contact'];
+      const sectionIds = ['intro', 'hero', 'work', 'about', 'skills', 'experiments', 'trophies', 'journey', 'contact'];
       const scrollPos = window.scrollY + 200;
 
       for (const id of sectionIds) {
