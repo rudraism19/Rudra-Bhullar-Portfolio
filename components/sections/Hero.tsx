@@ -4,15 +4,15 @@ import React, { useEffect, useState } from 'react';
 import { Github, Linkedin, Twitter, Mail, Menu } from 'lucide-react';
 
 const FOCUS_AREAS = [
-  'Full-Stack Systems',
-  'Multimodal AI & RAG',
-  'Distributed Architecture',
-  'Java & DSA Rigor',
-  'Creative Engineering',
+  'AI Backend & Agent Systems',
+  'Scalable FastAPI & Cloud APIs',
+  'RAG & Vector Retrieval',
+  'Java & Algorithmic Rigor (DSA)',
+  'Digital Twin Systems (Ex-CTO @DTV)',
 ];
 
 const SOCIAL_LINKS = [
-  { name: 'GitHub', href: 'https://github.com/rudrabhullar', icon: Github },
+  { name: 'GitHub', href: 'https://github.com/rudraism19', icon: Github },
   { name: 'LinkedIn', href: 'https://linkedin.com/in/rudra-bhullar', icon: Linkedin },
   { name: 'X / Twitter', href: 'https://x.com/rudrabhullar', icon: Twitter },
   { name: 'Email', href: 'mailto:rudrabhullar19@gmail.com', icon: Mail },
@@ -139,7 +139,7 @@ export default function Hero() {
               Based in:
             </span>
             <span className="font-sans text-xs sm:text-sm font-extrabold tracking-tight text-[#0A0A0A]">
-              Punjab, India
+              Madhya Pradesh, India
             </span>
           </div>
 
@@ -260,8 +260,8 @@ export default function Hero() {
           {/* Left: Bio statement & Social icon links */}
           <div className="max-w-xs sm:max-w-sm md:max-w-md">
             <p className="font-sans text-xs sm:text-sm text-[#0A0A0A]/90 leading-relaxed font-bold mb-3 sm:mb-4 break-words">
-              Building intelligent AI systems, robust full-stack architectures,
-              and expressive digital experiences with engineering discipline.
+              Building scalable AI backend architectures, high-performance APIs,
+              and intelligent agent systems with engineering discipline.
             </p>
             <div className="flex items-center gap-2">
               {SOCIAL_LINKS.map((link) => {

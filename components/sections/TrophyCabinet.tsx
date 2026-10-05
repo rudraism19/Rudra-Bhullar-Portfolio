@@ -177,7 +177,7 @@ export default function TrophyCabinet() {
           { label: 'NATIONAL HACKATHONS', value: 'HACKATHON' },
           { label: 'CERTIFICATIONS', value: 'CERTIFICATION' },
           { label: 'ALGORITHMIC RIGOR', value: 'ALGORITHMIC' },
-          { label: 'OPEN SOURCE', value: 'OPEN_SOURCE' },
+          { label: 'LEADERSHIP & COMMUNITY', value: 'OPEN_SOURCE' },
         ].map((tab) => {
           const isActive = filter === tab.value;
           return (
@@ -300,9 +300,23 @@ export default function TrophyCabinet() {
 
             {/* Footer */}
             <div className="border-t border-[#222225] pt-4 flex flex-wrap items-center justify-between gap-3 font-mono-tag text-xs">
-              <div className="flex items-center gap-1.5 text-[#EDEAE4]">
-                <CheckCircle2 className="w-4 h-4 text-[#EDEAE4]" />
-                <span>VERIFIED RECORD ON FILE</span>
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="flex items-center gap-1.5 text-[#EDEAE4]">
+                  <CheckCircle2 className="w-4 h-4 text-[#EDEAE4]" />
+                  <span>VERIFIED RECORD ON FILE</span>
+                </div>
+                {inspectedTrophy.verificationUrl && (
+                  <a
+                    href={inspectedTrophy.verificationUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#EDEAE4] bg-[#EDEAE4]/10 text-[#EDEAE4] hover:bg-[#EDEAE4] hover:text-[#0A0A0A] font-bold text-xs transition-colors"
+                    data-cursor="pointer"
+                  >
+                    <span>VERIFY ON ISSUER PORTAL</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+                )}
               </div>
 
               <button

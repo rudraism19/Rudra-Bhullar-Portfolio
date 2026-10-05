@@ -91,7 +91,7 @@ export default function Navbar() {
                 RUDRA BHULLAR
               </span>
               <span className="font-mono-tag text-[10px] tracking-wider text-[#8E8E93] group-hover:text-[#EDEAE4] transition-colors hidden sm:inline-block">
-                CSE • AI BUILDER • INDIA
+                AI BACKEND • EX-CTO @DTV • INDIA
               </span>
             </div>
           </a>
@@ -191,7 +191,7 @@ export default function Navbar() {
         <div className="border-t border-[#222225] pt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono-tag text-xs text-[#8E8E93]">
           <div>
             <p className="text-[#EDEAE4] font-semibold mb-1">RUDRA BHULLAR</p>
-            <p>Creative Technologist × AI Engineer</p>
+            <p>AI Backend Engineer • Ex-CTO @DTV</p>
           </div>
           <div>
             <a
@@ -200,7 +200,7 @@ export default function Navbar() {
             >
               rudraism19@gmail.com
             </a>
-            <p className="text-[#8E8E93] text-[11px] mt-0.5">Based in India • IST</p>
+            <p className="text-[#8E8E93] text-[11px] mt-0.5">Based in Madhya Pradesh, India • IST</p>
           </div>
         </div>
       </div>

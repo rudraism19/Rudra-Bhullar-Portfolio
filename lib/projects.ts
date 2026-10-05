@@ -79,9 +79,9 @@ export const PROJECTS: Project[] = [
     name: 'Digital Twin Verse',
     category: 'PLACEMENT INTELLIGENCE × GRAPH ML',
     shortDesc:
-      'Dynamic student digital twin engine that simulates campus placement trajectories, identifies skill deficits, and generates personalized roadmap graphs.',
+      'Dynamic student digital twin engine architected by Rudra as CTO & Tech Lead at DTV, simulating campus placement trajectories and generating personalized roadmap graphs.',
     fullDesc:
-      'Digital Twin Verse models each university candidate as a continuously updated vector representation of their skills, code quality, academic standing, and problem-solving velocity. By comparing individual vectors against successful company candidate profiles, it provides deterministic skill trajectories.',
+      'Architected during tenure as Chief Technology Officer and Web Lead at Digital Twin Verse (honored with official Certificate of Recognition DTV-CORE-2026-006). Digital Twin Verse models each university candidate as a continuously updated vector representation of their skills, code quality, academic standing, and problem-solving velocity. By comparing individual vectors against successful company candidate profiles, it provides deterministic skill trajectories.',
     architecture:
       'Student Skill Vectorizer → Neo4j Skill Knowledge Graph → Adaptive Placement Probability Engine → Next.js Interactive Radar & Journey Visualizer.',
     impact: 'Helped 300+ students map concrete preparation paths for Tier-1 technology and engineering recruitment.',
@@ -97,6 +97,7 @@ export const PROJECTS: Project[] = [
       { label: 'Skill Nodes', value: '1,400' },
       { label: 'Placement Lift', value: '+34%' },
     ],
+    liveUrl: 'https://digital-twin-certificates.onrender.com/verify/DTV-CORE-2026-006',
     githubUrl: 'https://github.com/rudraism19/digital-twin-verse',
     accentColor: '#EDEAE4',
     diagramType: 'twin',

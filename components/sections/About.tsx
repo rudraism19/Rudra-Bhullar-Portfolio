@@ -5,11 +5,11 @@ import { ArrowDown, Code2, Sparkles, Brain, Compass, Layers } from 'lucide-react
 import InteractiveGlyph from '@/components/ui/InteractiveGlyph';
 
 const IDENTITY_STEPS = [
-  { role: 'CSE STUDENT', desc: 'Rigorous engineering foundations in algorithms, data structures & systems architecture.', icon: Code2 },
-  { role: 'DEVELOPER', desc: 'Crafting responsive, type-safe full-stack web platforms with Next.js & React.', icon: Layers },
-  { role: 'BUILDER', desc: 'Shipping end-to-end products solving real civic, educational, and healthcare problems.', icon: Compass },
-  { role: 'AI EXPLORER', desc: 'Designing multimodal workflows, RAG agents, and domain-tuned LLM architectures.', icon: Brain },
-  { role: 'CREATIVE ENGINEER', desc: 'Experimenting with GLSL shaders, micro-interactions, and editorial web design.', icon: Sparkles },
+  { role: 'AI BACKEND ARCHITECT', desc: 'Designing high-throughput asynchronous APIs, FastAPI services, and distributed cloud backends with rigorous latency guarantees.', icon: Code2 },
+  { role: 'EX-CTO @ DTV', desc: 'Directed core technical team and web infrastructure at Digital Twin Verse, scaling immersive 3D digital twin systems.', icon: Layers },
+  { role: 'AI AGENTS & RAG', desc: 'Pioneering Kaggle AI agent workflows, Google Gemini reasoning loops, and multi-source RAG architectures.', icon: Brain },
+  { role: 'CSE SCHOLAR (UIT RGPV)', desc: 'First-principles academic and algorithmic foundations in Data Structures, Java, and System Architecture.', icon: Compass },
+  { role: 'CREATIVE TECHNOLOGIST', desc: 'Synthesizing robust systems programming with editorial aesthetics, micro-interactions, and real-time experiences.', icon: Sparkles },
 ];
 
 export default function About() {
@@ -153,16 +153,34 @@ export default function About() {
             </h4>
 
             <p className="text-sm sm:text-base text-[#8E8E93] leading-relaxed mb-4 break-words">
-              As a Computer Science Engineering student based in India, I don&apos;t just build interfaces—I architect robust backend foundations, optimize complex data structures, and harness modern Large Language Models to solve meaningful problems.
+              As a Computer Science Engineering student at UIT RGPV and former Chief Technology Officer at Digital Twin Verse (DTV), I don&apos;t just build interfaces—I architect robust backend foundations, optimize complex data structures, and harness modern Large Language Models to solve meaningful problems.
             </p>
 
             <p className="text-sm sm:text-base text-[#8E8E93] leading-relaxed break-words">
-              My engineering approach prioritizes speed, modularity, and intentional design over bloated frameworks. From civic platforms like JanSetu AI to voice-driven RAG pipelines, every system is crafted to deliver palpable utility with editorial restraint.
+              My engineering approach prioritizes speed, modularity, and intentional design over bloated frameworks. From civic platforms like JanSetu AI to high-concurrency FastAPI microservices and digital twin systems, every architecture is crafted to deliver palpable utility with editorial restraint.
             </p>
           </div>
 
           {/* Quick Metrics / Distinct Capabilities */}
           <div className="grid grid-cols-2 gap-3 sm:gap-4 font-mono-tag">
+            <div className="p-3.5 sm:p-5 border border-[#222225] bg-[#0A0A0A] rounded-xl hover:border-[#EDEAE4]/50 transition-colors flex flex-col justify-between min-w-0">
+              <span className="block text-base xs:text-lg sm:text-2xl lg:text-3xl font-display font-extrabold text-[#EDEAE4] truncate tracking-tight">
+                FASTAPI & AI
+              </span>
+              <span className="text-[10px] sm:text-xs text-[#8E8E93] mt-1.5 block leading-tight break-words">
+                Scalable Backends & LLM Agents
+              </span>
+            </div>
+
+            <div className="p-3.5 sm:p-5 border border-[#222225] bg-[#0A0A0A] rounded-xl hover:border-[#EDEAE4]/50 transition-colors flex flex-col justify-between min-w-0">
+              <span className="block text-base xs:text-lg sm:text-2xl lg:text-3xl font-display font-extrabold text-[#EDEAE4] truncate tracking-tight">
+                EX-CTO @DTV
+              </span>
+              <span className="text-[10px] sm:text-xs text-[#8E8E93] mt-1.5 block leading-tight break-words">
+                Tech Leadership & 3D Systems
+              </span>
+            </div>
+
             <div className="p-3.5 sm:p-5 border border-[#222225] bg-[#0A0A0A] rounded-xl hover:border-[#EDEAE4]/50 transition-colors flex flex-col justify-between min-w-0">
               <span className="block text-base xs:text-lg sm:text-2xl lg:text-3xl font-display font-extrabold text-[#EDEAE4] truncate tracking-tight">
                 CORE DSA
@@ -174,28 +192,10 @@ export default function About() {
 
             <div className="p-3.5 sm:p-5 border border-[#222225] bg-[#0A0A0A] rounded-xl hover:border-[#EDEAE4]/50 transition-colors flex flex-col justify-between min-w-0">
               <span className="block text-base xs:text-lg sm:text-2xl lg:text-3xl font-display font-extrabold text-[#EDEAE4] truncate tracking-tight">
-                FULL-STACK
+                UIT RGPV
               </span>
               <span className="text-[10px] sm:text-xs text-[#8E8E93] mt-1.5 block leading-tight break-words">
-                Next.js, Node, Supabase
-              </span>
-            </div>
-
-            <div className="p-3.5 sm:p-5 border border-[#222225] bg-[#0A0A0A] rounded-xl hover:border-[#EDEAE4]/50 transition-colors flex flex-col justify-between min-w-0">
-              <span className="block text-base xs:text-lg sm:text-2xl lg:text-3xl font-display font-extrabold text-[#EDEAE4] truncate tracking-tight">
-                AI AGENTS
-              </span>
-              <span className="text-[10px] sm:text-xs text-[#8E8E93] mt-1.5 block leading-tight break-words">
-                RAG, Gemini, MCP Tools
-              </span>
-            </div>
-
-            <div className="p-3.5 sm:p-5 border border-[#222225] bg-[#0A0A0A] rounded-xl hover:border-[#EDEAE4]/50 transition-colors flex flex-col justify-between min-w-0">
-              <span className="block text-base xs:text-lg sm:text-2xl lg:text-3xl font-display font-extrabold text-[#EDEAE4] truncate tracking-tight">
-                HACKATHONS
-              </span>
-              <span className="text-[10px] sm:text-xs text-[#8E8E93] mt-1.5 block leading-tight break-words">
-                High Velocity Prototyping
+                BTech Computer Science
               </span>
             </div>
           </div>
