@@ -22,6 +22,7 @@ export default function Hero() {
   const [time, setTime] = useState<string>('');
   const [scrollY, setScrollY] = useState<number>(0);
   const [mousePos, setMousePos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+  const [glarePos, setGlarePos] = useState<{ x: number; y: number; opacity: number }>({ x: 50, y: 50, opacity: 0 });
 
   useEffect(() => {
     // 1. Live IST clock
@@ -65,10 +66,16 @@ export default function Hero() {
     const x = ((clientX - left) / width - 0.5) * 2;
     const y = ((clientY - top) / height - 0.5) * 2;
     setMousePos({ x, y });
+    setGlarePos({
+      x: ((clientX - left) / width) * 100,
+      y: ((clientY - top) / height) * 100,
+      opacity: 0.65,
+    });
   };
 
   const handleMouseLeave = () => {
     setMousePos({ x: 0, y: 0 });
+    setGlarePos((prev) => ({ ...prev, opacity: 0 }));
   };
 
   const scrollTo = (targetId: string) => {
@@ -96,6 +103,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
+      style={{ perspective: '1400px' }}
       className="relative w-full px-3 sm:px-6 lg:px-8 pt-3 sm:pt-5 pb-8 max-w-[1680px] mx-auto overflow-hidden bg-[#0A0A0A]"
     >
       {/* Editorial Titanium Architectural Limestone Canvas Block with 3D Card Recess */}
@@ -103,17 +111,26 @@ export default function Hero() {
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{
-          transform: `scale(${canvasScale}) translate3d(0, ${scrollY * 0.06}px, 0)`,
+          transform: `scale(${canvasScale}) translate3d(0, ${scrollY * 0.06}px, 0) rotateX(${-mousePos.y * 3.2}deg) rotateY(${mousePos.x * 3.2}deg)`,
           borderRadius: `${canvasRadius}px`,
           transformOrigin: 'center top',
-          transition: 'transform 0.12s cubic-bezier(0.2, 0.8, 0.2, 1), border-radius 0.12s ease-out',
+          transformStyle: 'preserve-3d',
+          transition: 'transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1), border-radius 0.12s ease-out',
           willChange: 'transform, border-radius',
         }}
         className="relative w-full bg-[#EDEAE4] overflow-hidden min-h-[92vh] sm:min-h-[94vh] lg:min-h-[96vh] flex flex-col justify-between shadow-2xl border border-[#EDEAE4]/40"
       >
         
-        {/* Subtle Ambient Specular Lighting */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_25%,_rgba(255,255,255,0.7),_transparent_65%)] pointer-events-none" />
+        {/* Dynamic Specular Sheen Tracking Cursor Across Limestone */}
+        <div
+          className="absolute inset-0 pointer-events-none transition-opacity duration-300"
+          style={{
+            background: `radial-gradient(circle 800px at ${glarePos.x}% ${glarePos.y}%, rgba(255,255,255,${glarePos.opacity}), rgba(255,255,255,0.08) 40%, transparent 70%)`,
+          }}
+        />
+
+        {/* Ambient Warm Corner Sheen */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_25%,_rgba(255,255,255,0.5),_transparent_65%)] pointer-events-none" />
 
         {/* Fine Editorial Grid Watermark Lines */}
         <div 
@@ -179,10 +196,10 @@ export default function Hero() {
           </div>
         </header>
 
-        {/* 2. GIANT CONDENSED DISPLAY TYPOGRAPHY WITH 3D PARALLAX (z-10) */}
+        {/* 2. GIANT CONDENSED DISPLAY TYPOGRAPHY WITH 3D PARALLAX (z-10 - Deep Plane) */}
         <div 
           style={{
-            transform: `translate3d(${-mousePos.x * 8}px, ${typographyY}px, 0)`,
+            transform: `translate3d(${-mousePos.x * 16}px, ${typographyY - mousePos.y * 8}px, -24px)`,
             transition: 'transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1)',
             willChange: 'transform',
           }}
@@ -198,27 +215,31 @@ export default function Hero() {
           </h1>
         </div>
 
-        {/* 3. PORTRAIT SILHOUETTE CUTOUT WITH 3D DEPTH PARALLAX (z-20) */}
+        {/* 3. PORTRAIT SILHOUETTE CUTOUT WITH 3D DEPTH PARALLAX (z-20 - Foreground Plane) */}
         <div 
           style={{
-            transform: `translate3d(${mousePos.x * 12}px, ${silhouetteY}px, 0) scale(${silhouetteScale})`,
+            transform: `translate3d(${mousePos.x * 22}px, ${silhouetteY + mousePos.y * 14}px, 45px) scale(${silhouetteScale})`,
             transition: 'transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1)',
             willChange: 'transform',
           }}
           className="absolute bottom-0 left-[30%] sm:left-[34%] md:left-[38%] lg:left-[42%] translate-x-[-10%] sm:translate-x-0 z-20 pointer-events-none select-none flex items-end justify-center"
         >
-          {/* Crisp HD Cutout Image (Clean subtle shadow without dark box artifact) */}
+          {/* Crisp HD Cutout Image with Directional Light-Angle Drop Shadow */}
           <img
             src="/rudra-hero-hd.png"
             alt="Rudra Bhullar - Creative Technologist & AI Engineer"
-            className="h-[48vh] sm:h-[54vh] md:h-[60vh] lg:h-[66vh] xl:h-[70vh] max-h-[600px] w-auto object-contain object-bottom filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.12)]"
+            style={{
+              filter: `drop-shadow(${-mousePos.x * 16}px ${18 - mousePos.y * 8}px 28px rgba(0,0,0,0.18))`,
+              transition: 'filter 0.15s ease-out',
+            }}
+            className="h-[48vh] sm:h-[54vh] md:h-[60vh] lg:h-[66vh] xl:h-[70vh] max-h-[600px] w-auto object-contain object-bottom"
           />
         </div>
 
-        {/* 4. RIGHT COLUMN: SPECIALIZATION / SERVICES (z-30) */}
+        {/* 4. RIGHT COLUMN: SPECIALIZATION / SERVICES (z-30 - Floating Plane) */}
         <div 
           style={{
-            transform: `translate3d(0, ${specsY}px, 0)`,
+            transform: `translate3d(${mousePos.x * 8}px, ${specsY + mousePos.y * 6}px, 20px)`,
             transition: 'transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1)',
           }}
           className="absolute top-[46%] -translate-y-1/2 right-6 sm:right-10 md:right-14 lg:right-16 z-30 hidden lg:flex flex-col text-left max-w-[210px] lg:max-w-[250px]"

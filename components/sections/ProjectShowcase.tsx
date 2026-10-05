@@ -35,13 +35,14 @@ export default function ProjectShowcase() {
         </div>
       </div>
 
-      {/* Projects List: Asymmetric Editorial Spreads */}
-      <div className="flex flex-col">
+      {/* Projects List: Layered Architectural Slabs (Sticky Stacking Parallax) */}
+      <div className="relative flex flex-col pb-16">
         {PROJECTS.map((project, idx) => (
           <ProjectItem
             key={project.id}
             project={project}
             index={idx}
+            total={PROJECTS.length}
             onSelectProject={(proj) => setSelectedProject(proj)}
           />
         ))}
