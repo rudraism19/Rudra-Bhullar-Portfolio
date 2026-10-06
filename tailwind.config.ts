@@ -22,10 +22,10 @@ const config: Config = {
         },
       },
       fontFamily: {
-        headline: ['var(--font-headline)', '"Anton"', '"Bebas Neue"', 'Impact', 'sans-serif'],
-        editorial: ['var(--font-editorial)', '"Syne"', 'Georgia', 'serif'],
-        sans: ['var(--font-sans)', '"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
-        mono: ['var(--font-mono)', '"JetBrains Mono"', 'monospace'],
+        headline: ['"Anton"', '"Bebas Neue"', 'Impact', 'sans-serif'],
+        editorial: ['"Syne"', 'Georgia', 'serif'],
+        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
       },
       animation: {
         'pulse-subtle': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',

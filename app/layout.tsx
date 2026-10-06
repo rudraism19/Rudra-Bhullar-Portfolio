@@ -1,37 +1,8 @@
 import type { Metadata, Viewport } from 'next';
-import { Anton, Syne, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import SmoothScroll from '@/components/providers/SmoothScroll';
 import CustomCursor from '@/components/ui/CustomCursor';
 import ScrollProgress from '@/components/ui/ScrollProgress';
-
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-sans',
-  weight: ['400', '500', '600', '700', '800'],
-});
-
-const anton = Anton({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-headline',
-});
-
-const syne = Syne({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-editorial',
-  weight: ['500', '600', '700', '800'],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-mono',
-  weight: ['400', '500', '700'],
-});
 
 export const metadata: Metadata = {
   title: 'Rudra Bhullar | AI Backend Engineer & Ex-CTO @DTV',
@@ -142,11 +113,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`dark ${plusJakartaSans.variable} ${anton.variable} ${syne.variable} ${jetbrainsMono.variable}`}
-    >
+    <html lang="en" className="dark">
       <head>
+        {/* Preconnect to Google Fonts CDN to eliminate TLS/DNS handshake latency */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap"
+          rel="stylesheet"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_JSON_LD) }}
