@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState, useCallback } from 'react';
+import Image from 'next/image';
 import { Github, Linkedin, Twitter, Mail, Menu, ArrowDown } from 'lucide-react';
 
 const FOCUS_AREAS = [
@@ -315,12 +316,11 @@ export default function Hero() {
           <div
             style={{
               transform: `scale(${canvasScale}) translate3d(0, ${canvasTranslateY}px, 0)`,
-              borderRadius: `${canvasRadius}px`,
               opacity: canvasOpacity,
               transformOrigin: 'center center',
-              willChange: 'transform, opacity, border-radius',
+              willChange: 'transform, opacity',
             }}
-            className="absolute inset-0 bg-[#EDEAE4] overflow-hidden shadow-2xl border border-[#EDEAE4]/40 z-0 pointer-events-none"
+            className="absolute inset-0 bg-[#EDEAE4] overflow-hidden rounded-[32px] sm:rounded-[40px] shadow-2xl border border-[#EDEAE4]/40 z-0 pointer-events-none"
           >
             {/* Subtle Ambient Specular Lighting */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_25%,_rgba(255,255,255,0.7),_transparent_65%)] pointer-events-none" />
@@ -353,7 +353,7 @@ export default function Hero() {
           >
             {/* Based In Location */}
             <div className="flex flex-col text-left">
-              <span className="font-mono text-[10px] sm:text-xs uppercase tracking-wider text-[#0A0A0A]/60 font-bold">
+              <span className="font-mono text-[10px] sm:text-xs uppercase tracking-wider text-[#0A0A0A]/85 font-bold">
                 Based in:
               </span>
               <span className="font-sans text-xs sm:text-sm font-extrabold tracking-tight text-[#0A0A0A]">
@@ -363,7 +363,7 @@ export default function Hero() {
 
             {/* Live Indian Standard Time (IST) */}
             <div className="hidden sm:flex flex-col items-center text-center">
-              <span className="font-mono text-[10px] sm:text-xs uppercase tracking-wider text-[#0A0A0A]/60 font-bold">
+              <span className="font-mono text-[10px] sm:text-xs uppercase tracking-wider text-[#0A0A0A]/85 font-bold">
                 Local Time
               </span>
               <span className="font-mono text-xs sm:text-sm font-bold tracking-tight text-[#0A0A0A]">
@@ -451,9 +451,13 @@ export default function Hero() {
             }}
             className="absolute bottom-0 left-[30%] sm:left-[34%] md:left-[38%] lg:left-[42%] translate-x-[-10%] sm:translate-x-0 z-20 pointer-events-none select-none flex items-end justify-center"
           >
-            <img
+            <Image
               src="/rudra-hero-hd.png"
               alt="Rudra Bhullar - Creative Technologist & AI Engineer"
+              width={600}
+              height={700}
+              priority
+              sizes="(max-width: 640px) 75vw, (max-width: 1024px) 50vw, 600px"
               className="h-[48vh] sm:h-[54vh] md:h-[60vh] lg:h-[66vh] xl:h-[70vh] max-h-[600px] w-auto object-contain object-bottom filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.12)]"
             />
           </div>

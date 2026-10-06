@@ -11,19 +11,25 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
-    // Check prefers-reduced-motion
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (mediaQuery.matches) {
+    if (typeof window === 'undefined') return;
+
+    // Disable Lenis on touch / coarse pointer devices (phones, tablets).
+    // Native mobile browsers already have 120Hz hardware momentum scrolling.
+    // Disabling on mobile eliminates long main-thread tasks and cuts Total Blocking Time (TBT).
+    const isTouch = window.matchMedia('(pointer: coarse)').matches || !window.matchMedia('(pointer: fine)').matches;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (isTouch || prefersReducedMotion) {
       return;
     }
 
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.1,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      touchMultiplier: 1.5,
+      touchMultiplier: 1.0,
     });
 
     lenisRef.current = lenis;
@@ -51,7 +57,7 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
         e.preventDefault();
         lenis.scrollTo(targetElement as HTMLElement, {
           offset: -40,
-          duration: 1.2,
+          duration: 1.1,
         });
         if (history.pushState) {
           history.pushState(null, '', href);
@@ -62,10 +68,10 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
     document.addEventListener('click', handleAnchorClick);
 
     return () => {
-      document.removeEventListener('click', handleAnchorClick);
       cancelAnimationFrame(animId);
       lenis.destroy();
-      delete (window as unknown as { __lenis?: Lenis }).__lenis;
+      (window as unknown as { __lenis?: Lenis }).__lenis = undefined;
+      document.removeEventListener('click', handleAnchorClick);
     };
   }, []);
 

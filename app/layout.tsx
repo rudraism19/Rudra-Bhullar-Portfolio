@@ -1,8 +1,37 @@
 import type { Metadata, Viewport } from 'next';
+import { Anton, Syne, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import SmoothScroll from '@/components/providers/SmoothScroll';
 import CustomCursor from '@/components/ui/CustomCursor';
 import ScrollProgress from '@/components/ui/ScrollProgress';
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-sans',
+  weight: ['400', '500', '600', '700', '800'],
+});
+
+const anton = Anton({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-headline',
+});
+
+const syne = Syne({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-editorial',
+  weight: ['500', '600', '700', '800'],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-mono',
+  weight: ['400', '500', '700'],
+});
 
 export const metadata: Metadata = {
   title: 'Rudra Bhullar | AI Backend Engineer & Ex-CTO @DTV',
@@ -29,6 +58,17 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://rudra-bhullar.vercel.app'),
   alternates: {
     canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   openGraph: {
     title: 'Rudra Bhullar | AI Backend Engineer & Ex-CTO @DTV',
@@ -102,7 +142,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
+    <html
+      lang="en"
+      className={`dark ${plusJakartaSans.variable} ${anton.variable} ${syne.variable} ${jetbrainsMono.variable}`}
+    >
       <head>
         <script
           type="application/ld+json"

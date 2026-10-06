@@ -23,7 +23,7 @@ export default function Footer() {
           <p className="font-mono-tag text-xs text-[#EDEAE4] mt-1 font-semibold tracking-wider">
             AI BACKEND • EX-CTO @DTV • UIT RGPV
           </p>
-          <p className="font-mono-tag text-xs text-[#8E8E93]/70 mt-2">
+          <p className="font-mono-tag text-xs text-[#A0A0A5] mt-2">
             © 2026 Rudra Bhullar. Designed with editorial restraint &amp; mathematical precision.
           </p>
         </div>

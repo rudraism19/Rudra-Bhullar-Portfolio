@@ -60,7 +60,7 @@ export default function ProjectItem({ project, index, onSelectProject }: Project
           <span className="text-[#222225]">—</span>
           <span className="uppercase text-[11px] tracking-widest text-[#EDEAE4]/90">{project.category}</span>
         </div>
-        <div className="flex items-center gap-3 text-[11px] tracking-widest uppercase font-mono text-[#8E8E93]/70">
+        <div className="flex items-center gap-3 text-[11px] tracking-widest uppercase font-mono text-[#A0A0A5]">
           <span className="hidden sm:inline-block">SPECIFICATION DOSSIER</span>
           <span className="px-2 py-0.5 rounded bg-[#141416] border border-[#222225] text-[#EDEAE4]">
             {project.blueprint.throughput}

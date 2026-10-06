@@ -1,10 +1,12 @@
 'use client';
 
 import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import { PROJECTS, Project } from '@/lib/projects';
 import ProjectItem from './ProjectItem';
-import ProjectModal from './ProjectModal';
 import { Sparkles, Terminal } from 'lucide-react';
+
+const ProjectModal = dynamic(() => import('./ProjectModal'), { ssr: false });
 
 export default function ProjectShowcase() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);

@@ -316,7 +316,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-3 mb-4 p-3.5 rounded-lg bg-[#141416]/40 border border-[#222225] text-xs font-mono-tag">
                   <div className="md:col-span-5 text-[#8E8E93]">
-                    <span className="text-[10px] uppercase text-[#8E8E93]/70 block mb-0.5">EVALUATED ALTERNATIVE</span>
+                    <span className="text-[10px] uppercase text-[#A0A0A5] block mb-0.5">EVALUATED ALTERNATIVE</span>
                     <span className="text-[#FAFAFA]">{item.alternative}</span>
                   </div>
                   <div className="md:col-span-7 text-[#8E8E93] border-t md:border-t-0 md:border-l border-[#222225] pt-2 md:pt-0 md:pl-3">
