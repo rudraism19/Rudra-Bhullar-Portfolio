@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { useScrollParallax } from '@/hooks/useScrollParallax';
 
 interface Milestone {
   phase: string;
@@ -70,13 +71,40 @@ const MILESTONES: Milestone[] = [
 ];
 
 export default function Timeline() {
+  const { ref: sectionRef, offset, progress } = useScrollParallax<HTMLElement>({
+    speed: 0.14,
+    maxOffset: 50,
+  });
+
+  // Calculate beam fill height along the vertical timeline spine
+  const beamProgress = Math.min(100, Math.max(0, (progress - 0.1) * 125));
+
   return (
     <section
+      ref={sectionRef}
       id="journey"
-      className="relative py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#222225]"
+      className="relative py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#222225] overflow-hidden"
     >
-      {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#222225] mb-16">
+      {/* Background Architectural Watermark Track */}
+      <div
+        aria-hidden="true"
+        style={{
+          transform: `translate3d(${offset * 0.3}px, ${offset * -0.15}px, 0)`,
+          willChange: 'transform',
+        }}
+        className="absolute top-10 left-0 font-display text-[6.5rem] sm:text-[9.5rem] md:text-[13rem] font-black uppercase text-[#141416]/30 pointer-events-none select-none whitespace-nowrap overflow-hidden leading-none tracking-tighter"
+      >
+        JOURNEY // 06
+      </div>
+
+      {/* Header with depth glide */}
+      <div
+        style={{
+          transform: `translate3d(0, ${offset * -0.08}px, 0)`,
+          willChange: 'transform',
+        }}
+        className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#222225] mb-16"
+      >
         <div>
           <div className="flex flex-wrap items-center gap-2 font-mono-tag text-xs text-[#EDEAE4] uppercase tracking-widest mb-3">
             <span className="font-bold">06 / CHRONOLOGICAL EVOLUTION</span>
@@ -94,15 +122,44 @@ export default function Timeline() {
         </p>
       </div>
 
-        <div className="relative pl-6 md:pl-10 border-l border-[#222225] space-y-12">
-          {MILESTONES.map((milestone) => (
+      {/* Timeline Track Container with Dynamic Illuminated Spine */}
+      <div className="relative z-10 pl-6 md:pl-10 space-y-12">
+        {/* Base Track Line */}
+        <div className="absolute left-0 top-2 bottom-2 w-[1px] bg-[#222225]" />
+
+        {/* Dynamic Illuminated Laser Spine Beam */}
+        <div
+          style={{
+            height: `${beamProgress}%`,
+            willChange: 'height',
+          }}
+          className="absolute left-0 top-2 w-[2px] -translate-x-[0.5px] bg-gradient-to-b from-[#EDEAE4] via-[#EDEAE4] to-transparent shadow-[0_0_10px_rgba(237,234,228,0.6)] pointer-events-none transition-[height] duration-75 ease-out"
+        />
+
+        {MILESTONES.map((milestone, idx) => {
+          // Check if this milestone has been reached by the illuminated beam
+          const milestoneRatio = (idx / (MILESTONES.length - 1)) * 100;
+          const isReached = beamProgress >= milestoneRatio;
+          const driftY = offset * (idx * 0.02 - 0.08);
+
+          return (
             <div
               key={milestone.title}
-              className="relative group select-none"
+              style={{
+                transform: `translate3d(0, ${driftY}px, 0)`,
+                willChange: 'transform',
+              }}
+              className="relative group select-none transition-transform duration-150 ease-out"
               data-cursor="pointer"
             >
-              {/* Node marker */}
-              <div className="absolute -left-[31px] md:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-[#0A0A0A] border-2 border-[#222225] group-hover:border-[#EDEAE4] group-hover:bg-[#EDEAE4] transition-colors" />
+              {/* Node marker with illumination state */}
+              <div
+                className={`absolute -left-[31px] md:-left-[47px] top-1.5 w-4 h-4 rounded-full border-2 transition-all duration-300 ${
+                  isReached
+                    ? 'bg-[#EDEAE4] border-[#EDEAE4] shadow-[0_0_8px_rgba(237,234,228,0.7)] scale-110'
+                    : 'bg-[#0A0A0A] border-[#222225] group-hover:border-[#EDEAE4] group-hover:bg-[#EDEAE4]'
+                }`}
+              />
 
               <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-2 font-mono-tag text-xs">
                 <span className="text-[#EDEAE4] font-bold tracking-wider uppercase">
@@ -125,8 +182,9 @@ export default function Timeline() {
                 {milestone.impact}
               </p>
             </div>
-          ))}
-        </div>
+          );
+        })}
+      </div>
     </section>
   );
 }

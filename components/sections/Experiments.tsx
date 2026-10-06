@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { FlaskConical, Terminal, Play, Cpu, Sparkles, Layers, RefreshCw, GitBranch, ArrowUpRight } from 'lucide-react';
 import MagneticButton from '@/components/ui/MagneticButton';
+import { useScrollParallax } from '@/hooks/useScrollParallax';
 
 interface Experiment {
   id: string;
@@ -56,6 +57,10 @@ const EXPERIMENTS: Experiment[] = [
 export default function Experiments() {
   const [activeExp, setActiveExp] = useState(EXPERIMENTS[0].id);
   const [mcpLogStep, setMcpLogStep] = useState(1);
+  const { ref: sectionRef, offset } = useScrollParallax<HTMLElement>({
+    speed: 0.14,
+    maxOffset: 55,
+  });
 
   const cycleMcpStep = () => {
     setMcpLogStep((prev) => (prev % 3) + 1);
@@ -63,11 +68,30 @@ export default function Experiments() {
 
   return (
     <section
+      ref={sectionRef}
       id="experiments"
-      className="relative py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#222225]/80"
+      className="relative py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#222225]/80 overflow-hidden"
     >
-      {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#222225]/60 mb-12">
+      {/* Background Architectural Watermark Track */}
+      <div
+        aria-hidden="true"
+        style={{
+          transform: `translate3d(${offset * 0.3}px, ${offset * -0.15}px, 0)`,
+          willChange: 'transform',
+        }}
+        className="absolute top-10 left-0 font-display text-[6.5rem] sm:text-[9.5rem] md:text-[13rem] font-black uppercase text-[#141416]/30 pointer-events-none select-none whitespace-nowrap overflow-hidden leading-none tracking-tighter"
+      >
+        LAB // 04
+      </div>
+
+      {/* Header with depth glide */}
+      <div
+        style={{
+          transform: `translate3d(0, ${offset * -0.08}px, 0)`,
+          willChange: 'transform',
+        }}
+        className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#222225]/60 mb-12"
+      >
         <div>
           <div className="flex flex-wrap items-center gap-2 font-mono-tag text-xs text-[#EDEAE4] uppercase tracking-widest mb-3">
             <span className="font-bold">04 / THE LABORATORY</span>
@@ -86,9 +110,15 @@ export default function Experiments() {
       </div>
 
       {/* Experimental Laboratory Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Left: Experiments List (5 cols) */}
-        <div className="lg:col-span-5 flex flex-col gap-4">
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        {/* Left: Experiments List (5 cols) with subtle forward glide */}
+        <div
+          style={{
+            transform: `translate3d(0, ${offset * 0.1}px, 0)`,
+            willChange: 'transform',
+          }}
+          className="lg:col-span-5 flex flex-col gap-4"
+        >
           {EXPERIMENTS.map((exp) => {
             const isSelected = activeExp === exp.id;
             return (
@@ -130,9 +160,15 @@ export default function Experiments() {
           })}
         </div>
 
-        {/* Right: Live Interactive Sandbox Terminal (7 cols) */}
-        <div className="lg:col-span-7">
-          <div className="rounded-2xl border border-[#222225] bg-[#0A0A0A] overflow-hidden">
+        {/* Right: Live Interactive Sandbox Terminal (7 cols) with counter-elevation float */}
+        <div
+          style={{
+            transform: `translate3d(0, ${offset * -0.14}px, 0)`,
+            willChange: 'transform',
+          }}
+          className="lg:col-span-7"
+        >
+          <div className="rounded-2xl border border-[#222225] bg-[#0A0A0A] overflow-hidden shadow-2xl">
             {/* Terminal Window Header */}
             <div className="p-3.5 sm:p-4 bg-[#141416]/30 border-b border-[#222225] flex flex-wrap items-center justify-between gap-2 font-mono-tag text-xs">
               <span className="text-[#EDEAE4] font-semibold truncate text-[11px] sm:text-xs">

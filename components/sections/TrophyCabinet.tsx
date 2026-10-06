@@ -3,6 +3,7 @@
 import React, { useState, useRef } from 'react';
 import { TROPHIES, TrophyItem } from '@/lib/trophies';
 import { Trophy, Award, ShieldCheck, Binary, Sparkles, X, CheckCircle2, ArrowUpRight, Cpu } from 'lucide-react';
+import { useScrollParallax } from '@/hooks/useScrollParallax';
 
 type CategoryFilter = 'ALL' | 'HACKATHON' | 'CERTIFICATION' | 'ALGORITHMIC' | 'OPEN_SOURCE';
 
@@ -141,6 +142,10 @@ function TrophyCard({ trophy, onInspect }: TrophyCardProps) {
 export default function TrophyCabinet() {
   const [filter, setFilter] = useState<CategoryFilter>('ALL');
   const [inspectedTrophy, setInspectedTrophy] = useState<TrophyItem | null>(null);
+  const { ref: sectionRef, offset } = useScrollParallax<HTMLElement>({
+    speed: 0.14,
+    maxOffset: 55,
+  });
 
   const filtered = filter === 'ALL'
     ? TROPHIES
@@ -148,11 +153,30 @@ export default function TrophyCabinet() {
 
   return (
     <section
+      ref={sectionRef}
       id="trophies"
-      className="relative py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#222225]/80"
+      className="relative py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#222225]/80 overflow-hidden"
     >
-      {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#222225]/60 mb-12">
+      {/* Background Architectural Watermark Track */}
+      <div
+        aria-hidden="true"
+        style={{
+          transform: `translate3d(${offset * -0.3}px, ${offset * 0.15}px, 0)`,
+          willChange: 'transform',
+        }}
+        className="absolute top-10 right-0 font-display text-[6.5rem] sm:text-[9.5rem] md:text-[13rem] font-black uppercase text-[#141416]/30 pointer-events-none select-none whitespace-nowrap overflow-hidden leading-none tracking-tighter"
+      >
+        VAULT // 05
+      </div>
+
+      {/* Section Header with depth glide */}
+      <div
+        style={{
+          transform: `translate3d(0, ${offset * -0.08}px, 0)`,
+          willChange: 'transform',
+        }}
+        className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#222225]/60 mb-12"
+      >
         <div>
           <div className="flex flex-wrap items-center gap-2 font-mono-tag text-xs text-[#EDEAE4] uppercase tracking-widest mb-3">
             <span className="font-bold">05 / THE VAULT</span>
@@ -171,7 +195,13 @@ export default function TrophyCabinet() {
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex flex-wrap items-center gap-2.5 mb-10">
+      <div
+        style={{
+          transform: `translate3d(0, ${offset * -0.04}px, 0)`,
+          willChange: 'transform',
+        }}
+        className="relative z-10 flex flex-wrap items-center gap-2.5 mb-10"
+      >
         {[
           { label: 'ALL ACCREDITATIONS', value: 'ALL' },
           { label: 'NATIONAL HACKATHONS', value: 'HACKATHON' },
@@ -199,15 +229,29 @@ export default function TrophyCabinet() {
         })}
       </div>
 
-      {/* 3D Trophies Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filtered.map((trophy) => (
-          <TrophyCard
-            key={trophy.id}
-            trophy={trophy}
-            onInspect={(t) => setInspectedTrophy(t)}
-          />
-        ))}
+      {/* 3D Trophies Grid with Staggered Parallax Wave */}
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filtered.map((trophy, idx) => {
+          // Tri-column staggered vertical float
+          const colMultiplier = (idx % 3 === 0 ? -1 : idx % 3 === 1 ? 0.35 : 1) * 0.16;
+          const cardOffset = offset * colMultiplier;
+
+          return (
+            <div
+              key={trophy.id}
+              style={{
+                transform: `translate3d(0, ${cardOffset}px, 0)`,
+                willChange: 'transform',
+              }}
+              className="h-full transition-transform duration-150 ease-out"
+            >
+              <TrophyCard
+                trophy={trophy}
+                onInspect={(t) => setInspectedTrophy(t)}
+              />
+            </div>
+          );
+        })}
       </div>
 
       {/* Detailed Credential Inspection Modal */}

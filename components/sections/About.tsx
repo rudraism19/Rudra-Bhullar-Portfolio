@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { ArrowDown, Code2, Sparkles, Brain, Compass, Layers } from 'lucide-react';
 import InteractiveGlyph from '@/components/ui/InteractiveGlyph';
+import { useScrollParallax } from '@/hooks/useScrollParallax';
 
 const IDENTITY_STEPS = [
   { role: 'AI BACKEND ARCHITECT', desc: 'Designing high-throughput asynchronous APIs, FastAPI services, and distributed cloud backends with rigorous latency guarantees.', icon: Code2 },
@@ -15,7 +16,10 @@ const IDENTITY_STEPS = [
 export default function About() {
   const [activeStep, setActiveStep] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = React.useRef<HTMLElement | null>(null);
+  const { ref: sectionRef, offset } = useScrollParallax<HTMLElement>({
+    speed: 0.15,
+    maxOffset: 55,
+  });
 
   React.useEffect(() => {
     const observer = new IntersectionObserver(
@@ -32,16 +36,34 @@ export default function About() {
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [sectionRef]);
 
   return (
     <section
       ref={sectionRef}
       id="about"
-      className="relative py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#222225]/80"
+      className="relative py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#222225]/80 overflow-hidden"
     >
+      {/* Background Architectural Watermark Track */}
+      <div
+        aria-hidden="true"
+        style={{
+          transform: `translate3d(${offset * 0.3}px, ${offset * -0.2}px, 0)`,
+          willChange: 'transform',
+        }}
+        className="absolute top-12 left-0 font-display text-[7rem] sm:text-[10rem] md:text-[14rem] font-black uppercase text-[#141416]/30 pointer-events-none select-none whitespace-nowrap overflow-hidden leading-none tracking-tighter"
+      >
+        RUDRA // PROFILE
+      </div>
+
       {/* Section Marker */}
-      <div className="flex items-center justify-between pb-8 mb-12 border-b border-[#222225]/60 font-mono-tag text-xs text-[#8E8E93]">
+      <div
+        style={{
+          transform: `translate3d(0, ${offset * -0.06}px, 0)`,
+          willChange: 'transform',
+        }}
+        className="relative z-10 flex items-center justify-between pb-8 mb-12 border-b border-[#222225]/60 font-mono-tag text-xs text-[#8E8E93]"
+      >
         <div className="flex items-center gap-2">
           <span className="text-[#EDEAE4] font-bold">02 / ABOUT</span>
           <span className="text-[#222225]">—</span>
@@ -53,7 +75,13 @@ export default function About() {
       </div>
 
       {/* Main Headline */}
-      <div className="mb-16">
+      <div
+        style={{
+          transform: `translate3d(0, ${offset * -0.1}px, 0)`,
+          willChange: 'transform',
+        }}
+        className="relative z-10 mb-16"
+      >
         <h2 className="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold uppercase tracking-tight text-[#FAFAFA]">
           I&apos;M <span className="text-[#EDEAE4]">RUDRA.</span>
         </h2>
@@ -63,9 +91,15 @@ export default function About() {
       </div>
 
       {/* Asymmetric Content Split */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-        {/* Left: Interactive Scroll Identity Cascade (7 cols) */}
-        <div className="lg:col-span-7 flex flex-col gap-3">
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        {/* Left: Interactive Scroll Identity Cascade (7 cols) with subtle forward glide */}
+        <div
+          style={{
+            transform: `translate3d(0, ${offset * 0.08}px, 0)`,
+            willChange: 'transform',
+          }}
+          className="lg:col-span-7 flex flex-col gap-3"
+        >
           <p className="font-mono-tag text-xs text-[#EDEAE4] tracking-wider mb-2">
             HOVER OR SELECT A PHASE TO INSPECT:
           </p>
@@ -137,10 +171,22 @@ export default function About() {
           })}
         </div>
 
-        {/* Right: Editorial Manifesto & Foundations (5 cols) */}
-        <div className="lg:col-span-5 flex flex-col gap-6 sm:gap-8">
+        {/* Right: Editorial Manifesto & Foundations (5 cols) with counter-elevation float */}
+        <div
+          style={{
+            transform: `translate3d(0, ${offset * -0.14}px, 0)`,
+            willChange: 'transform',
+          }}
+          className="lg:col-span-5 flex flex-col gap-6 sm:gap-8"
+        >
           <div className="p-6 sm:p-8 rounded-2xl bg-[#141416]/30 border border-[#222225] relative overflow-hidden">
-            <div className="absolute top-4 right-4">
+            <div
+              style={{
+                transform: `rotate(${offset * 0.35}deg)`,
+                willChange: 'transform',
+              }}
+              className="absolute top-4 right-4"
+            >
               <InteractiveGlyph type="neural" size={48} />
             </div>
 

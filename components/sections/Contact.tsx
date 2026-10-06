@@ -3,11 +3,16 @@
 import React, { useState } from 'react';
 import MagneticButton from '@/components/ui/MagneticButton';
 import { ArrowUpRight, Copy, Check, Mail, Github, Linkedin, Instagram, Send } from 'lucide-react';
+import { useScrollParallax } from '@/hooks/useScrollParallax';
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
   const [formSent, setFormSent] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const { ref: sectionRef, offset } = useScrollParallax<HTMLElement>({
+    speed: 0.16,
+    maxOffset: 60,
+  });
 
   const emailAddress = 'rudraism19@gmail.com';
 
@@ -31,11 +36,30 @@ export default function Contact() {
 
   return (
     <section
+      ref={sectionRef}
       id="contact"
-      className="relative py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#222225]/80"
+      className="relative py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#222225]/80 overflow-hidden"
     >
+      {/* Background Architectural Watermark Track */}
+      <div
+        aria-hidden="true"
+        style={{
+          transform: `translate3d(${offset * 0.35}px, ${offset * -0.2}px, 0)`,
+          willChange: 'transform',
+        }}
+        className="absolute top-10 right-0 font-display text-[6.5rem] sm:text-[9.5rem] md:text-[14rem] font-black uppercase text-[#141416]/30 pointer-events-none select-none whitespace-nowrap overflow-hidden leading-none tracking-tighter"
+      >
+        CONNECT // 07
+      </div>
+
       {/* Section Tag */}
-      <div className="flex flex-wrap items-center justify-between gap-3 pb-8 mb-12 border-b border-[#222225]/60 font-mono-tag text-xs text-[#8E8E93]">
+      <div
+        style={{
+          transform: `translate3d(0, ${offset * -0.06}px, 0)`,
+          willChange: 'transform',
+        }}
+        className="relative z-10 flex flex-wrap items-center justify-between gap-3 pb-8 mb-12 border-b border-[#222225]/60 font-mono-tag text-xs text-[#8E8E93]"
+      >
         <div className="flex items-center gap-2">
           <span className="text-[#EDEAE4] font-bold">07 / INQUIRY & DISCOURSE</span>
           <span className="text-[#222225]">—</span>
@@ -46,9 +70,15 @@ export default function Contact() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-        {/* Left Column: Massive Editorial Statement (7 cols) */}
-        <div className="lg:col-span-7 flex flex-col justify-between">
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        {/* Left Column: Massive Editorial Statement (7 cols) with heavyweight slow parallax */}
+        <div
+          style={{
+            transform: `translate3d(0, ${offset * -0.14}px, 0)`,
+            willChange: 'transform',
+          }}
+          className="lg:col-span-7 flex flex-col justify-between"
+        >
           <div>
             <h2 className="font-display text-4xl sm:text-6xl lg:text-[5.5rem] font-extrabold uppercase tracking-tight leading-[0.92] text-[#FAFAFA] mb-8 break-words">
               LET&apos;S BUILD <br />
@@ -142,11 +172,17 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Right Column: Direct Dispatch Terminal (5 cols) */}
-        <div className="lg:col-span-5">
+        {/* Right Column: Direct Dispatch Terminal (5 cols) with counter float */}
+        <div
+          style={{
+            transform: `translate3d(0, ${offset * 0.12}px, 0)`,
+            willChange: 'transform',
+          }}
+          className="lg:col-span-5"
+        >
           <form
             onSubmit={handleSubmit}
-            className="p-8 rounded-2xl bg-[#141416]/20 border border-[#222225] flex flex-col gap-5"
+            className="p-8 rounded-2xl bg-[#141416]/20 border border-[#222225] flex flex-col gap-5 shadow-2xl"
           >
             <div className="border-b border-[#222225]/80 pb-4 mb-2 flex items-center justify-between font-mono-tag text-xs">
               <span className="text-[#EDEAE4] font-bold">TRANSMIT DISPATCH</span>
