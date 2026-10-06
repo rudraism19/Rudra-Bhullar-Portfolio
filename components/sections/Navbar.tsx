@@ -13,6 +13,7 @@ import {
   Milestone,
   Send,
   Orbit,
+  Command,
 } from 'lucide-react';
 
 interface NavItem {
@@ -262,6 +263,25 @@ export default function Navbar() {
               <span className="font-bold">CONNECT // 07</span>
             </div>
           </a>
+
+          {/* Quick Command Palette Launcher */}
+          <button
+            onClick={() => {
+              if (typeof window !== 'undefined') {
+                window.dispatchEvent(new CustomEvent('open-command-palette'));
+              }
+            }}
+            data-cursor="pointer"
+            aria-label="Open Command Palette (Cmd+K)"
+            title="Search / Command Palette"
+            className="group relative w-10 h-10 flex items-center justify-center rounded-xl sm:rounded-full bg-[#141416]/50 border border-[#222225] hover:border-[#EDEAE4] mt-1.5 transition-colors text-[#8E8E93] hover:text-[#EDEAE4] shrink-0"
+          >
+            <Command className="w-3.5 h-3.5" />
+            <div className="absolute right-full mr-3.5 px-2.5 py-1 rounded-lg bg-[#0A0A0A]/95 backdrop-blur-md border border-[#222225] text-[10px] font-mono-tag whitespace-nowrap text-[#EDEAE4] opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all pointer-events-none shadow-xl flex items-center gap-1.5">
+              <span>COMMANDS</span>
+              <kbd className="px-1 py-0.5 rounded bg-[#141416] border border-[#222225] text-[9px] text-[#EDEAE4]">⌘K</kbd>
+            </div>
+          </button>
         </div>
       </aside>
 
