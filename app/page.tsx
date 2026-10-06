@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import Loader from '@/components/ui/Loader';
 import Navbar from '@/components/sections/Navbar';
 import AmbientBackgroundParallax from '@/components/ui/AmbientBackgroundParallax';
-import CommandPalette from '@/components/ui/CommandPalette';
 import Hero from '@/components/sections/Hero';
 import MetricTicker from '@/components/sections/MetricTicker';
 import About from '@/components/sections/About';
@@ -29,7 +28,6 @@ export default function Home() {
         {/* Continuous deep background telemetry parallax */}
         <AmbientBackgroundParallax />
         <Navbar />
-        <CommandPalette />
         <main id="main-content" className="relative z-10">
           <Hero />
           <MetricTicker />
