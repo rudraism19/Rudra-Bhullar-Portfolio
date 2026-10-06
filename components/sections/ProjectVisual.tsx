@@ -196,66 +196,6 @@ export default function ProjectVisual({ project, approachOffset = 0 }: ProjectVi
                 </div>
               </div>
             )}
-
-            {diagramType === 'voice' && (
-              <div className="flex flex-col gap-2.5 sm:gap-3 font-mono-tag text-xs">
-                <div className="p-3 sm:p-4 rounded-xl bg-[#141416]/30 border border-[#222225] flex items-center justify-between gap-3">
-                  <div className="min-w-0 flex-1">
-                    <span className="text-[#EDEAE4] block font-bold text-xs sm:text-[13px] truncate">FULL-DUPLEX WEBSOCKET BUS</span>
-                    <span className="text-[#8E8E93] text-[10px] sm:text-[11px] block truncate">Binary stream with acoustic echo suppression</span>
-                  </div>
-                  <span className="text-[#EDEAE4] font-bold text-xs sm:text-sm shrink-0">480ms E2E</span>
-                </div>
-
-                <div className="p-3 sm:p-4 rounded-xl bg-[#0A0A0A] border border-[#222225]">
-                  <span className="text-[#EDEAE4] font-bold block mb-1 text-xs sm:text-[13px]">PIPELINE FLOW</span>
-                  <p className="text-[#8E8E93] text-[10px] sm:text-[11px] leading-relaxed break-words">
-                    Audio Ring Buffer → Streaming Whisper ASR → Sub-45ms Vector Retrieval → Streaming Kokoro/ElevenLabs TTS.
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-2 gap-2 text-center text-[10px] sm:text-[11px]">
-                  <div className="p-2.5 sm:p-3 border border-[#222225] rounded-xl bg-[#0A0A0A] text-[#8E8E93]">
-                    <span className="text-[#EDEAE4] block font-bold text-xs sm:text-sm truncate">&lt;45ms</span>
-                    Retrieval Latency
-                  </div>
-                  <div className="p-2.5 sm:p-3 border border-[#222225] rounded-xl bg-[#141416]/40 text-[#8E8E93]">
-                    <span className="text-[#EDEAE4] block font-bold text-xs sm:text-sm truncate">BARGE-IN</span>
-                    Realtime Interruption
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {diagramType === 'queue' && (
-              <div className="flex flex-col gap-2.5 sm:gap-3 font-mono-tag text-xs">
-                <div className="p-3 sm:p-4 rounded-xl bg-[#141416]/30 border border-[#222225] flex items-center justify-between gap-3">
-                  <div className="min-w-0 flex-1">
-                    <span className="text-[#EDEAE4] block font-bold text-xs sm:text-[13px] truncate">OPD LOGISTICS ENGINE</span>
-                    <span className="text-[#8E8E93] text-[10px] sm:text-[11px] block truncate">Redis Pub/Sub load balancer across clinic lanes</span>
-                  </div>
-                  <span className="text-[#EDEAE4] font-bold text-xs sm:text-sm shrink-0">&lt;80ms RELAY</span>
-                </div>
-
-                <div className="p-3 sm:p-4 rounded-xl bg-[#0A0A0A] border border-[#222225]">
-                  <span className="text-[#EDEAE4] font-bold block mb-1 text-xs sm:text-[13px]">TRIAGE COORDINATION</span>
-                  <p className="text-[#8E8E93] text-[10px] sm:text-[11px] leading-relaxed break-words">
-                    Real-time appointment slotting, emergency priority lanes, and dynamic consultation duration predictions.
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-2 gap-2 text-center text-[10px] sm:text-[11px]">
-                  <div className="p-2.5 sm:p-3 border border-[#222225] rounded-xl bg-[#0A0A0A] text-[#8E8E93]">
-                    <span className="text-[#EDEAE4] block font-bold text-xs sm:text-sm truncate">15,000+</span>
-                    Tokens Handled
-                  </div>
-                  <div className="p-2.5 sm:p-3 border border-[#222225] rounded-xl bg-[#141416]/40 text-[#8E8E93]">
-                    <span className="text-[#EDEAE4] block font-bold text-xs sm:text-sm truncate">-62% WAIT</span>
-                    Queue Congestion Cut
-                  </div>
-                </div>
-              </div>
-            )}
           </>
         )}
       </div>
