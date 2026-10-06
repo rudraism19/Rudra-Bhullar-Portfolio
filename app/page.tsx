@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Loader from '@/components/ui/Loader';
 import Navbar from '@/components/sections/Navbar';
+import AmbientBackgroundParallax from '@/components/ui/AmbientBackgroundParallax';
 import Hero from '@/components/sections/Hero';
 import MetricTicker from '@/components/sections/MetricTicker';
 import About from '@/components/sections/About';
@@ -23,9 +24,11 @@ export default function Home() {
       <Loader onComplete={() => setLoaderFinished(true)} />
 
       {/* Main Portfolio Architecture */}
-      <div className={`transition-opacity duration-700 ${loaderFinished ? 'opacity-100' : 'opacity-95'}`}>
+      <div className={`relative transition-opacity duration-700 ${loaderFinished ? 'opacity-100' : 'opacity-95'}`}>
+        {/* Continuous deep background telemetry parallax */}
+        <AmbientBackgroundParallax />
         <Navbar />
-        <main id="main-content">
+        <main id="main-content" className="relative z-10">
           <Hero />
           <MetricTicker />
           <ProjectShowcase />
