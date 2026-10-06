@@ -151,7 +151,3 @@ npm run start
 - **Email**: [rudrabhullar19@gmail.com](mailto:rudrabhullar19@gmail.com)
 
 ---
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
