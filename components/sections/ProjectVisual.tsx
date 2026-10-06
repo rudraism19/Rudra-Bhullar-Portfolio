@@ -6,34 +6,41 @@ import { ArrowUpRight, Cpu, CheckCircle2, Gauge, Zap } from 'lucide-react';
 
 interface ProjectVisualProps {
   project: Project;
+  approachOffset?: number;
 }
 
-export default function ProjectVisual({ project }: ProjectVisualProps) {
+export default function ProjectVisual({ project, approachOffset = 0 }: ProjectVisualProps) {
   const { diagramType, name, technologies, number, metrics, impact } = project;
   const [viewMode, setViewMode] = useState<'architecture' | 'benchmarks'>('architecture');
 
   return (
     <div
-      className="relative w-full h-full min-h-[360px] md:min-h-[460px] rounded-2xl bg-[#0A0A0A] border border-[#222225] overflow-hidden flex flex-col justify-between p-6 md:p-8 select-none transition-colors duration-300 hover:border-[#EDEAE4]"
+      className="relative w-full h-full min-h-[260px] sm:min-h-[300px] md:min-h-[360px] rounded-2xl bg-[#0A0A0A] border border-[#222225] overflow-hidden flex flex-col justify-between p-4 sm:p-5 md:p-6 select-none transition-colors duration-300 hover:border-[#EDEAE4]"
       data-cursor="view"
     >
-      {/* Top Header with Interactive Mode Toggle */}
-      <div className="flex items-center justify-between gap-3 border-b border-[#222225] pb-4 font-mono-tag text-xs text-[#8E8E93]">
+      {/* Top Header with Interactive Mode Toggle and micro-parallax */}
+      <div
+        style={{
+          transform: `translate3d(0, ${approachOffset * -6}px, 0)`,
+          willChange: 'transform',
+        }}
+        className="flex items-center justify-between gap-3 border-b border-[#222225] pb-3 font-mono-tag text-xs text-[#8E8E93]"
+      >
         <div className="flex items-center gap-2 min-w-0 flex-1">
           <span className="w-1.5 h-1.5 rounded-full bg-[#EDEAE4] shrink-0" />
-          <span className="text-[#EDEAE4] uppercase font-semibold truncate text-[11px] sm:text-xs">
+          <span className="text-[#EDEAE4] uppercase font-semibold truncate text-[10px] sm:text-[11px]">
             {viewMode === 'architecture' ? 'ARCHITECTURE' : 'BENCHMARKS'} // {name}
           </span>
         </div>
 
         {/* Minimal Editorial Mode Toggle */}
-        <div className="flex items-center gap-1 border border-[#222225] rounded-lg p-0.5 bg-[#0A0A0A] shrink-0">
+        <div className="flex items-center gap-1 border border-[#222225] rounded-md p-0.5 bg-[#0A0A0A] shrink-0">
           <button
             onClick={(e) => {
               e.stopPropagation();
               setViewMode('architecture');
             }}
-            className={`px-2 sm:px-2.5 py-1 rounded text-[9px] sm:text-[10px] font-mono-tag tracking-wider transition-colors ${
+            className={`px-1.5 sm:px-2 py-0.5 rounded text-[9px] font-mono-tag tracking-wider transition-colors ${
               viewMode === 'architecture'
                 ? 'bg-[#141416] text-[#EDEAE4] font-bold'
                 : 'text-[#8E8E93] hover:text-[#FAFAFA]'
@@ -47,7 +54,7 @@ export default function ProjectVisual({ project }: ProjectVisualProps) {
               e.stopPropagation();
               setViewMode('benchmarks');
             }}
-            className={`px-2 sm:px-2.5 py-1 rounded text-[9px] sm:text-[10px] font-mono-tag tracking-wider transition-colors ${
+            className={`px-1.5 sm:px-2 py-0.5 rounded text-[9px] font-mono-tag tracking-wider transition-colors ${
               viewMode === 'benchmarks'
                 ? 'bg-[#EDEAE4] text-[#0A0A0A] font-bold'
                 : 'text-[#8E8E93] hover:text-[#FAFAFA]'
@@ -59,8 +66,14 @@ export default function ProjectVisual({ project }: ProjectVisualProps) {
         </div>
       </div>
 
-      {/* Main Diagram or Benchmark Grid */}
-      <div className="my-auto py-5 sm:py-6">
+      {/* Main Diagram or Benchmark Grid with depth glide */}
+      <div
+        style={{
+          transform: `translate3d(0, ${approachOffset * 16}px, 0)`,
+          willChange: 'transform',
+        }}
+        className="my-auto py-5 sm:py-6"
+      >
         {viewMode === 'benchmarks' ? (
           <div className="flex flex-col gap-3 sm:gap-4 font-mono-tag">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3">
@@ -247,8 +260,14 @@ export default function ProjectVisual({ project }: ProjectVisualProps) {
         )}
       </div>
 
-      {/* Bottom Footer */}
-      <div className="border-t border-[#222225] pt-4 flex items-center justify-between gap-2 font-mono-tag text-xs text-[#8E8E93]">
+      {/* Bottom Footer with micro-parallax */}
+      <div
+        style={{
+          transform: `translate3d(0, ${approachOffset * 6}px, 0)`,
+          willChange: 'transform',
+        }}
+        className="border-t border-[#222225] pt-4 flex items-center justify-between gap-2 font-mono-tag text-xs text-[#8E8E93]"
+      >
         <div className="flex items-center gap-2 min-w-0 flex-1">
           <Cpu className="w-3.5 h-3.5 text-[#EDEAE4] shrink-0" />
           <span className="truncate max-w-[160px] sm:max-w-xs md:max-w-none text-[11px] sm:text-xs">
