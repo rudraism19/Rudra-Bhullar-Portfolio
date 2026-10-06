@@ -8,7 +8,6 @@ import {
   Layers,
   User,
   Cpu,
-  FlaskConical,
   Trophy,
   Milestone,
   Send,
@@ -28,10 +27,9 @@ const NAV_ITEMS: NavItem[] = [
   { id: 'work', label: 'WORK', href: '#work', num: '01', icon: Layers, description: 'Systems & Architecture' },
   { id: 'about', label: 'ABOUT', href: '#about', num: '02', icon: User, description: 'Biography & Engineering' },
   { id: 'skills', label: 'SKILLS', href: '#skills', num: '03', icon: Cpu, description: 'Tech Stack & Vector Mesh' },
-  { id: 'experiments', label: 'LAB', href: '#experiments', num: '04', icon: FlaskConical, description: 'Creative Code & WebGL' },
-  { id: 'trophies', label: 'VAULT', href: '#trophies', num: '05', icon: Trophy, description: 'Honors & Laurels' },
-  { id: 'journey', label: 'JOURNEY', href: '#journey', num: '06', icon: Milestone, description: 'Career & Timeline' },
-  { id: 'contact', label: 'CONTACT', href: '#contact', num: '07', icon: Send, description: 'Direct Transmission' },
+  { id: 'trophies', label: 'VAULT', href: '#trophies', num: '04', icon: Trophy, description: 'Honors & Laurels' },
+  { id: 'journey', label: 'JOURNEY', href: '#journey', num: '05', icon: Milestone, description: 'Career & Timeline' },
+  { id: 'contact', label: 'CONTACT', href: '#contact', num: '06', icon: Send, description: 'Direct Transmission' },
 ];
 
 export default function Navbar() {
@@ -66,7 +64,7 @@ export default function Navbar() {
         setScrollProgress(progress);
 
         // 3. Detect active section
-        const sectionIds = ['hero', 'work', 'about', 'skills', 'experiments', 'trophies', 'journey', 'contact'];
+        const sectionIds = ['hero', 'work', 'about', 'skills', 'trophies', 'journey', 'contact'];
         const scrollPos = currentY + window.innerHeight * 0.35;
 
         for (const id of sectionIds) {
